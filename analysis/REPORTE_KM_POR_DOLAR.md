@@ -10,12 +10,12 @@ minima.
 
 | Dato disponible | Anuncios | % de los eléctricos |
 | --- | ---: | ---: |
-| Potencia en vatios | 164 | 5.8% |
-| Autonomia en km | 100 | 3.5% |
-| Precio | 2807 | 98.4% |
-| **Los tres a la vez** | **40** | **1.4%** |
+| Potencia en vatios | 159 | 5.6% |
+| Autonomia en km | 95 | 3.4% |
+| Precio | 2780 | 98.4% |
+| **Los tres a la vez** | **36** | **1.3%** |
 
-Solo 40 de 2852 anuncios eléctricos
+Solo 36 de 2825 anuncios eléctricos
 declaran a la vez potencia, autonomia y precio, que es el minimo para
 poder dividir distancia entre precio. Con esa proporcion, cualquier
 mediana de kilometros por dolar seria ruido: un unico anuncio caro o mal

@@ -27,7 +27,7 @@
     "de_motores_a_electricas": 590
   },
   "senal_tipo_electrico_en_titulo": {
-    "total": 2687,
+    "total": 2682,
     "de_motores_a_electricas": 1400
   },
   "senal_tipo_combustion_en_titulo": {
@@ -45,20 +45,20 @@
   },
   "categorias_vehiculo": {
     "Motores": 1036,
-    "Eléctricos": 2852,
+    "Eléctricos": 2825,
     "Bicicletas": 378,
-    "Patinetes Eléctricos": 40,
-    "Otros": 652
+    "Patinetes Eléctricos": 64,
+    "Otros": 656
   },
   "categorias_por_fuente_detalle": {
     "revolico": {
       "total": 2662,
       "categorias": {
         "Motores": 237,
-        "Eléctricos": 1931,
+        "Eléctricos": 1904,
         "Bicicletas": 378,
-        "Patinetes Eléctricos": 40,
-        "Otros": 55
+        "Patinetes Eléctricos": 64,
+        "Otros": 59
       }
     },
     "itencel": {
@@ -110,9 +110,9 @@
       }
     },
     "Eléctricos": {
-      "con_marca": 1839,
-      "total_categoria": 2852,
-      "maximo_representable": 1836,
+      "con_marca": 1813,
+      "total_categoria": 2825,
+      "maximo_representable": 1810,
       "mostradas": 5,
       "representables": 44,
       "marcas_omitidas_un_elemento": {
@@ -121,11 +121,11 @@
         "ULENDO": 1
       },
       "marcas": {
-        "TOPMAQ": 331,
+        "TOPMAQ": 327,
         "VEDCA": 215,
         "YOAZAKY": 190,
-        "CHALLENGER": 130,
-        "JMD": 111
+        "CHALLENGER": 124,
+        "JMD": 101
       }
     },
     "Bicicletas": {
@@ -145,6 +145,23 @@
         "RALI": 5,
         "PORTOBELLO": 5,
         "KATZU": 3
+      }
+    },
+    "Patinetes Eléctricos": {
+      "con_marca": 39,
+      "total_categoria": 64,
+      "maximo_representable": 38,
+      "mostradas": 5,
+      "representables": 8,
+      "marcas_omitidas_un_elemento": {
+        "RALI": 1
+      },
+      "marcas": {
+        "JMD": 10,
+        "CHALLENGER": 6,
+        "MAF": 6,
+        "MIDHA": 6,
+        "LAITUNING": 4
       }
     }
   },
@@ -198,10 +215,10 @@
       "max": 2150.0
     },
     "Eléctricos": {
-      "n": 2799,
+      "n": 2773,
       "min": 50.0,
-      "mediana": 1580.0,
-      "media": 1549.24,
+      "mediana": 1600.0,
+      "media": 1556.39,
       "max": 3800.0
     },
     "Motores": {
@@ -212,11 +229,11 @@
       "max": 3600.0
     },
     "Patinetes Eléctricos": {
-      "n": 40,
+      "n": 64,
       "min": 72.0,
       "mediana": 750.0,
-      "media": 656.8,
-      "max": 930.0
+      "media": 703.62,
+      "max": 1100.0
     }
   },
   "municipios_habana": {
@@ -246,25 +263,18 @@
       "EUR": 1
     }
   },
-  "descartados_por_muestra": [
-    {
-      "grafico": "03_marcas_Patinetes Eléctricos",
-      "categoria": "Patinetes Eléctricos",
-      "elementos": 16,
-      "motivo": "menos de 30 publicaciones con marca"
-    }
-  ],
+  "descartados_por_muestra": [],
   "min_elementos": 30,
   "auditoria_datos_electricos": {
-    "anuncios_electricos": 2852,
-    "con_potencia": 164,
-    "con_potencia_pct": 5.8,
-    "con_autonomia": 100,
-    "con_autonomia_pct": 3.5,
-    "con_precio": 2807,
+    "anuncios_electricos": 2825,
+    "con_potencia": 159,
+    "con_potencia_pct": 5.6,
+    "con_autonomia": 95,
+    "con_autonomia_pct": 3.4,
+    "con_precio": 2780,
     "con_precio_pct": 98.4,
-    "con_los_tres": 40,
-    "con_los_tres_pct": 1.4
+    "con_los_tres": 36,
+    "con_los_tres_pct": 1.3
   },
   "top_precios": [
     {

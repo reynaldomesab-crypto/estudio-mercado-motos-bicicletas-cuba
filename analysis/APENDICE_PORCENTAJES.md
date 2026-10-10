@@ -32,20 +32,20 @@ Los porcentajes de la tabla son sobre el máximo representable, que es el primer
 
 ## Eléctricos
 
-Total de entradas de la categoria: 2852. Con marca detectable: 1839 (64.5% de la categoria).
-Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 1836 (64.4% de la categoria).
+Total de entradas de la categoria: 2825. Con marca detectable: 1813 (64.2% de la categoria).
+Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 1810 (64.1% de la categoria).
 
 Los porcentajes de la tabla son sobre el máximo representable, que es el primer número.
 
 | Marca | Publicaciones | % del máximo representable |
 | --- | ---: | ---: |
-| TOPMAQ | 331 | 18.03% |
-| VEDCA | 215 | 11.71% |
-| YOAZAKY | 190 | 10.35% |
-| CHALLENGER | 130 | 7.08% |
-| JMD | 111 | 6.05% |
+| TOPMAQ | 327 | 18.07% |
+| VEDCA | 215 | 11.88% |
+| YOAZAKY | 190 | 10.50% |
+| CHALLENGER | 124 | 6.85% |
+| JMD | 101 | 5.58% |
 
-**Suma de las 5 marcas mostradas:** 977 publicaciones (53.2% del máximo representable).
+**Suma de las 5 marcas mostradas:** 957 publicaciones (52.9% del máximo representable).
 
 ## Bicicletas
 
@@ -66,13 +66,22 @@ Los porcentajes de la tabla son sobre el máximo representable, que es el primer
 
 ## Patinetes Eléctricos
 
-Publicaciones en la categoria: 40.
-Con marca detectable: 16 (40.0% de la categoria).
+Total de entradas de la categoria: 64. Con marca detectable: 39 (60.9% de la categoria).
+Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 38 (59.4% de la categoria).
 
-Se omite el detalle por marca: no alcanza el minimo de 30 elementos.
+Los porcentajes de la tabla son sobre el máximo representable, que es el primer número.
+
+| Marca | Publicaciones | % del máximo representable |
+| --- | ---: | ---: |
+| JMD | 10 | 26.32% |
+| CHALLENGER | 6 | 15.79% |
+| MAF | 6 | 15.79% |
+| MIDHA | 6 | 15.79% |
+| LAITUNING | 4 | 10.53% |
+
+**Suma de las 5 marcas mostradas:** 32 publicaciones (84.2% del máximo representable).
 
 ## Graficos excluidos por falta de muestra
 
 | Gráfico | Elementos | Motivo |
 | --- | ---: | --- |
-| 03_marcas_Patinetes Eléctricos | 16 | menos de 30 publicaciones con marca |

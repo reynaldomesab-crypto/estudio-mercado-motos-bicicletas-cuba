@@ -1,0 +1,130 @@
+{
+  "marcas_mixtas_declaradas": {
+    "titulo": "1. Marcas declaradas solo-electricas CON anuncios de combustion",
+    "total": 24,
+    "casos": 24,
+    "casos_por_marca": [
+      {
+        "marca": "YOAZAKY",
+        "n": 19
+      },
+      {
+        "marca": "JMD",
+        "n": 3
+      },
+      {
+        "marca": "TRANK",
+        "n": 1
+      },
+      {
+        "marca": "BUCATTI",
+        "n": 1
+      }
+    ]
+  },
+  "fugas_electricas_en_motores": {
+    "titulo": "2. Anuncios ELECTRICOS que quedaron en Motores  -> ninguno",
+    "total": 0,
+    "casos": 0
+  },
+  "fugas_combustion_en_electricos": {
+    "titulo": "3. Anuncios de COMBUSTION que quedaron en Electricos  -> ninguno",
+    "total": 0,
+    "casos": 0
+  },
+  "anuncios_ambos_senales": {
+    "titulo": "4. Marcas con las dos senales en el mismo anuncio",
+    "total": 3,
+    "casos": []
+  },
+  "marcas_con_gama_combustion": {
+    "titulo": "5. Marcas que tienen a la vez una gama electrica y otra de combustion",
+    "total": 429,
+    "casos": [
+      {
+        "marca": "TOPMAQ",
+        "combustion": 16,
+        "electricos": 304
+      },
+      {
+        "marca": "YOAZAKY",
+        "combustion": 19,
+        "electricos": 116
+      },
+      {
+        "marca": "JMD",
+        "combustion": 3,
+        "electricos": 110
+      },
+      {
+        "marca": "HALCON",
+        "combustion": 34,
+        "electricos": 70
+      },
+      {
+        "marca": "AVA",
+        "combustion": 36,
+        "electricos": 44
+      },
+      {
+        "marca": "MIKAZUKI",
+        "combustion": 7,
+        "electricos": 65
+      },
+      {
+        "marca": "IZUKI",
+        "combustion": 12,
+        "electricos": 47
+      },
+      {
+        "marca": "ITALY",
+        "combustion": 14,
+        "electricos": 28
+      },
+      {
+        "marca": "TRECK",
+        "combustion": 29,
+        "electricos": 3
+      },
+      {
+        "marca": "XMOX",
+        "combustion": 7,
+        "electricos": 10
+      }
+    ]
+  },
+  "sin_senal_de_tipo": {
+    "titulo": "6. Anuncios SIN ninguna senal de tipo (se techo por la fuente)",
+    "total": 738,
+    "casos": 738,
+    "por_categoria": {
+      "Otros": 622,
+      "Motores": 47,
+      "Eléctricos": 43,
+      "Partes y Accesorios": 14,
+      "Bicicletas": 11,
+      "Patinetes Eléctricos": 1
+    }
+  },
+  "sin_titulo": {
+    "titulo": "7. Anuncios sin titulo",
+    "total": 606,
+    "casos": 606,
+    "por_categoria": {
+      "Otros": 593,
+      "Eléctricos": 13
+    }
+  },
+  "patinetes_absorbidos": {
+    "titulo": "8. Patinetes que se absorbieron en Electricos",
+    "total": 7,
+    "casos": 7
+  },
+  "piezas_como_vehiculo": {
+    "titulo": "9. Anuncios de PIEZA (bateria/cargador) que quedaron como vehiculo  -> ninguno",
+    "total": 0,
+    "casos": 0
+  },
+  "generado": "2026-10-10T14:12:12.155968",
+  "anuncios": 4979
+}

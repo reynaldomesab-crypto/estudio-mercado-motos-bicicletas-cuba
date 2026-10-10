@@ -229,6 +229,75 @@ revisando los resultados:
   su batería ("Bicicleta eléctrica marca ONEBOT, batería 48V"). Se acotó a que
   el anuncio **no nombre ningún vehículo**.
 
+## 2026-10-09 — Auditoría de toda la clasificación
+
+TOPMAQ resultó ser el síntoma de un fallo general, así que se construyó
+`scripts/analyzers/auditar_clasificaciones.py` para revisar **todas** las
+clasificaciones, no una marca. Se ejecuta así:
+
+```
+python3 scripts/analyzers/auditar_clasificaciones.py --json
+```
+
+Nueve comprobaciones: fugas en ambas direcciones, marcas mal declaradas,
+marcas mixtas, anuncios sin señal, anuncios sin título, patinetes absorbidos y
+piezas contadas como vehículo.
+
+### Lo que encontró
+
+**Cuatro marcas declaradas solo-eléctricas tienen también gama de combustión:**
+
+| Marca | Anuncios de combustión |
+| --- | ---: |
+| YOAZAKY | 19 |
+| JMD | 3 |
+| TRANK | 1 |
+| BUCATTI | 1 |
+
+Los 24 están **correctamente en Motores**: la regla por marca excluye los
+anuncios que declaran combustión. Se decide dejarlos en la lista de
+solo-eléctricas a propósito, porque sus anuncios eléctricos se declaran poco y
+sacarlos de la lista los perdería.
+
+**Diez marcas son genuinamente mixtas**, con las dos gamas en volumen:
+
+| Marca | Eléctricos | Combustión |
+| --- | ---: | ---: |
+| TOPMAQ | 304 | 16 |
+| YOAZAKY | 116 | 19 |
+| JMD | 110 | 3 |
+| HALCON | 70 | 34 |
+| MIKAZUKI | 65 | 7 |
+| AVA | 44 | 36 |
+| IZUKI | 47 | 12 |
+| ITALY | 28 | 14 |
+| TRECK | 3 | 29 |
+| XMOX | 10 | 7 |
+
+### Dos fugas que la auditoría destapó
+
+- **Patinetes absorbidos en Eléctricos.** 29 anuncios de patinetes de CHALLENGER,
+  MAF y JMD estaban en Eléctricos. La causa era el **orden de las reglas**: la
+  asignación por marca se aplicaba después y pisaba la de patinetes. Se movió al
+  final. Patinetes pasó de 40 a 64 anuncios.
+- **Piezas contadas como vehículos.** Tres anuncios de "Baterías Topmaq
+  72Vol 35Ah" acababan en Eléctricos porque el "35Ah" dispara la señal eléctrica.
+  Ahora un anuncio que solo describe una pieza se excluye de la señal y va a
+  Otros.
+
+También se corrigió un bug de la propia auditoría: la sección 1 comparaba
+`len(casos) == 0` sobre una lista que siempre estaba vacía, así que reportaba
+"Ninguna" siempre. Por eso el primer análisis dio 24 problemas y el correcto da
+0: los 24 son excepciones bien gestionadas, no errores.
+
+### Resultado
+
+Cero problemas graves. Un anuncio sin señal de tipo o sin título **no se puede
+clasificar**, y eso está registrado: 606 anuncios sin título (12.2%) y 738 sin
+ninguna señal (14.8%), concentrados en la categoría Otros.
+
+---
+
 ---
 
 ## Estado actual
@@ -236,8 +305,8 @@ revisando los resultados:
 **Datos:** 4,979 vehículos únicos, 260 anuncios de repuestos (130 de ellos
 vehículos mal archivados).
 
-**Categorías:** Motores 1,036 · Eléctricos 2,852 · Bicicletas 378 ·
-Patinetes eléctricos 40 · Otros 652. Los 652 "Otros" son sobre todo los 606
+**Categorías:** Motores 1,036 · Eléctricos 2,825 · Bicicletas 378 ·
+Patinetes eléctricos 64 · Otros 656. Los 656 "Otros" son sobre todo los 606
 anuncios sin título y los que solo describen una pieza.
 
 **Cobertura de información:** 93.9% de los anuncios tienen precio, pero solo

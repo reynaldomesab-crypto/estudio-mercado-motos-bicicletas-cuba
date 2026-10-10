@@ -141,6 +141,16 @@ CATEGORIA_MAP = {
 #   TRANK 100%   | VORTAX 80%   | JINGHAN 86.7% | TOPMAQ 82.6% | VEDCA 90.4%
 #   CHALLENGER 69.3% | MAF 66%   | YOAZAKY 64.9%
 #   TST/DEEPOWER/G29 100% (bicicletas electricas)
+#
+# EXCEPCIONES: cuatro marcas de esta lista tambien tienen gama de
+# combustion, segun la auditoria (scripts/analyzers/auditar_clasificaciones.py):
+#   YOAZAKY 19 anuncios ('Moto 200cc 4 Tiempos Yoasaky')
+#   JMD      3 anuncios ('Moto de gasolina JMD')
+#   TRANK    1 anuncio  ('Motos de combustion marca Trank')
+#   BUCATTI  1 anuncio  ('Moto Bucatti Tmax Ultra 250 cc')
+# Se dejan en la lista a proposito: la regla excluye los anuncios que
+# declaran combustion, de modo que la gama de gasolina cae bien en Motores
+# sin perder las-electricas, que si se declaran poco y perderiamos.
 # Se quedan fuera por ser mixtas: AVA (54/45), XMOX (55.6/38.9), SUZUKI,
 # IZUKI (62.7/22) y RALI, que venden combustion y electricos.
 MARCA_SOLO_MOTORINAS = {
@@ -1006,15 +1016,18 @@ def main() -> None:
     es_tipo_electrico = titulos.str.contains(
         SENALES_ELECTRICAS.pattern, case=False, regex=True
     )
-    # Los patinetes conservan su propia categoria salvo que el titulo los
-    # describa como motorina o bicimoto.
+    # Los patinetes son categoria propia. Un titulo que dice PATINETA o
+    # PATINETE describe un patinete, no una motorina, asi que va a su categoria
+    # aunque la plataforma lo archivara como moto electrica. Solo seexceptuan
+    # los que ademas dicen MOTICO o BICIMOTO, que si describen una motorina.
     es_patinete = titulos.str.contains(
         PALABRA_TIPO_PATINETE.pattern, case=False, regex=True
     )
     es_motorina_de_titulo = titulos.str.contains(
         SENALES_MOTORINA.pattern, case=False, regex=True
     )
-    es_tipo_electrico = es_tipo_electrico & ~(es_patinete & ~es_motorina_de_titulo)
+    es_patinete_puro = es_patinete & ~es_motorina_de_titulo
+    es_tipo_electrico = es_tipo_electrico & ~es_patinete_puro
     veh.loc[es_tipo_electrico, "categoria"] = ELECTRICAS
 
     # La senal de combustion manda cuando el titulo la menciona, para las marcas
@@ -1048,7 +1061,10 @@ def main() -> None:
             regex=True,
         )
     )
-    veh.loc[solo_pieza & ~sin_titulo, "categoria"] = "Otros"
+    # Un anuncio que solo describe una pieza no es un vehiculo electrico por
+    # mucho que declare voltios ("Baterias Topmaq 72Vol 35Ah": el "35Ah" dispara
+    # la senal electrica y lo convertia en vehiculo). Se excluye de la senal.
+    es_tipo_electrico = es_tipo_electrico & ~solo_pieza
 
     es_topmaq = veh["marca_detectada"] == "TOPMAQ"
     es_tipo_electrico = es_tipo_electrico | (
@@ -1088,6 +1104,15 @@ def main() -> None:
         )
         detalle_correccion[marca] = int(mascara.sum())
         veh.loc[mascara, "categoria"] = destino
+
+    # Ultimo paso: un titulo que nombra PATINETA o PATINETE va a su categoria
+    # pase lo que pase. Se aplica al final porque la regla por marca (CHALLENGER,
+    # MAF, JMD...) va antes y si no, los patinetes electricos de esas marcas
+    # acababan en Electricos.
+    veh.loc[es_patinete_puro, "categoria"] = "Patinetes Eléctricos"
+
+    # Y la pieza se aplica la ultima: describe una pieza, no un vehiculo.
+    veh.loc[solo_pieza & ~sin_titulo, "categoria"] = "Otros"
     parts["categoria"] = parts["part_category"].map(CATEGORIA_MAP).fillna(
         parts["part_category"]
     )
