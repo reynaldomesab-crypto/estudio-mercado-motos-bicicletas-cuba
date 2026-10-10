@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El mercado de motos y bicicletas en La Habana — guía de buenas prácticas</title>
+<style>
+/* Paleta. El amarillo no es decorativo: es el color de la categoria que
+   domina el estudio, y por eso el acento se siente propio del tema. */
+:root{
+  --bg:#0B0E14;
+  --surface:#141922;
+  --surface-2:#1C2230;
+  --line:#2A3240;
+  --text:#E8EAF0;
+  --muted:#8A93A6;
+  --accent:#FFD400;
+  --accent-2:#2DD4BF;
+  --warn:#F97362;
+  --display:ui-serif,Georgia,'Liberation Serif','DejaVu Serif','Times New Roman',serif;
+  --body:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --pad:clamp(1.5rem,4vw,4.5rem);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:var(--body);overflow:hidden}
+
+/* Cada diapositiva debe caber entera en una ventana. Nunca hay scroll
+   interno: si algo no cabe, se parte en dos diapositivas. */
+.slide{
+  height:100vh;height:100dvh;overflow:hidden;
+  display:none;flex-direction:column;justify-content:center;
+  padding:var(--pad);position:relative;
+}
+.slide.activa{display:flex}
+
+/* Fondo tenue: rejilla tecnica, muy sutil. */
+.slide::before{
+  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.028) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.028) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 78%);
+}
+.slide > *{position:relative;z-index:1}
+
+.eyebrow{
+  font-size:clamp(.68rem,1.05vw,.9rem);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:clamp(.6rem,1.4vh,1.1rem);
+}
+h1{font-family:var(--display);font-size:clamp(1.9rem,5.4vw,4.2rem);line-height:1.06;font-weight:700;letter-spacing:-.02em}
+h2{font-family:var(--display);font-size:clamp(1.45rem,3.5vw,2.9rem);line-height:1.1;font-weight:700;letter-spacing:-.015em}
+h3{font-size:clamp(.95rem,1.5vw,1.2rem);font-weight:600;margin-bottom:.4rem}
+p{font-size:clamp(.95rem,1.65vw,1.32rem);line-height:1.55;color:var(--text);max-width:62ch}
+.muted{color:var(--muted)}
+.lead{font-size:clamp(1.05rem,2.1vw,1.6rem);line-height:1.45;color:var(--muted);max-width:56ch}
+
+/* Cifra grande: es el elemento dominante de la diapositiva. */
+.cifra{
+  font-family:var(--display);font-size:clamp(3rem,11vw,7.5rem);line-height:.92;
+  font-weight:700;color:var(--accent);letter-spacing:-.03em;
+}
+.cifra.sec{color:var(--accent-2)}
+.cifra small{font-size:.3em;font-weight:600;letter-spacing:0;color:var(--muted);display:block;margin-top:.5em}
+
+.grid{display:grid;gap:clamp(.8rem,2vw,1.6rem);margin-top:clamp(.9rem,2.2vh,1.8rem)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.izq{grid-template-columns:1.05fr .95fr}
+.der{grid-template-columns:.95fr 1.05fr}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:clamp(.8rem,1.7vw,1.4rem)}
+.card.acento{border-color:var(--accent);background:linear-gradient(180deg,rgba(255,212,0,.09),transparent)}
+.card p{font-size:clamp(.82rem,1.32vw,1.02rem);line-height:1.5;color:var(--muted)}
+
+ul.lista{list-style:none;display:flex;flex-direction:column;gap:clamp(.4rem,1.05vh,.85rem);margin-top:clamp(.7rem,1.7vh,1.2rem)}
+ul.lista li{
+  font-size:clamp(.88rem,1.45vw,1.12rem);line-height:1.42;color:var(--text);
+  padding-left:1.5em;position:relative;
+}
+ul.lista li::before{
+  content:"";position:absolute;left:0;top:.52em;width:.55em;height:.55em;
+  border-radius:2px;background:var(--accent);
+}
+ul.lista li b{color:var(--accent-2);font-weight:600}
+
+table{width:100%;border-collapse:collapse;margin-top:clamp(.6rem,1.5vh,1.1rem);font-size:clamp(.76rem,1.22vw,.98rem)}
+th{
+  text-align:left;font-size:clamp(.62rem,.95vw,.78rem);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;padding-bottom:.55rem;border-bottom:1px solid var(--line);
+}
+td{padding:clamp(.3rem,.75vh,.5rem) .5rem;border-bottom:1px solid rgba(42,50,64,.5)}
+td:first-child{color:var(--text);font-weight:500}
+td.num{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+tr:first-child td{color:var(--accent);font-weight:600}
+tr:first-child td.num{color:var(--accent)}
+
+.fig{width:100%;height:auto;max-height:56vh;object-fit:contain;border-radius:10px;display:block}
+.fig-faltante{color:var(--warn);font-size:.85rem;padding:1rem;border:1px dashed var(--warn);border-radius:10px}
+.caption{font-size:clamp(.66rem,.98vw,.8rem);color:var(--muted);margin-top:.5rem;line-height:1.4}
+
+/* Comparacion antes/despues */
+.antes{background:rgba(249,115,98,.07);border:1px solid rgba(249,115,98,.32)}
+.despues{background:rgba(45,212,191,.07);border:1px solid rgba(45,212,191,.32)}
+.etiqueta{font-size:clamp(.6rem,.92vw,.76rem);letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:.5rem}
+.antes .etiqueta{color:var(--warn)}
+.despues .etiqueta{color:var(--accent-2)}
+.codigo{font-family:ui-monospace,'DejaVu Sans Mono',Menlo,Consolas,monospace;font-size:clamp(.74rem,1.22vw,1rem);line-height:1.45;word-break:break-word}
+
+/* Pie: numero de diapositiva y regla de color. */
+.pie{position:absolute;bottom:clamp(.9rem,2.2vh,1.6rem);left:var(--pad);right:var(--pad);
+     display:flex;justify-content:space-between;align-items:center;
+     font-size:clamp(.6rem,.9vw,.74rem);color:var(--muted);letter-spacing:.1em;z-index:2}
+.pie .marca{color:var(--accent);font-weight:600}
+
+/* Barra de progreso */
+#barra{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:50;
+       transition:width .35s cubic-bezier(.4,0,.2,1);width:0}
+
+/* Indice general */
+#indice{
+  position:fixed;inset:0;background:rgba(11,14,20,.97);z-index:60;display:none;
+  padding:var(--pad);overflow:auto;
+}
+#indice.visible{display:flex;flex-direction:column;gap:.5rem}
+#indice h2{margin-bottom:.8rem;font-size:clamp(1.1rem,2.4vw,1.6rem)}
+#indice ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:.45rem}
+#indice button{
+  width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);
+  color:var(--muted);padding:.6rem .8rem;border-radius:9px;cursor:pointer;
+  font-family:var(--body);font-size:.84rem;transition:.18s;
+}
+#indice button:hover{border-color:var(--accent);color:var(--text);background:var(--surface-2)}
+#indice button.actual{border-color:var(--accent);color:var(--accent)}
+
+#ayuda{
+  position:fixed;bottom:1rem;right:1rem;z-index:55;background:var(--surface);
+  border:1px solid var(--line);border-radius:10px;padding:.7rem .9rem;
+  font-size:.76rem;color:var(--muted);display:none;line-height:1.7;
+}
+#ayuda.visible{display:block}
+#ayuda kbd{background:var(--surface-2);border:1px solid var(--line);border-radius:4px;
+           padding:.05rem .35rem;color:var(--accent);font-family:inherit;font-size:.72rem}
+
+/* Notas del orador: visibles solo en la consola de quien presenta. */
+aside:notario{display:none}
+
+/* Aparicion escalonada al entrar en diapositiva. */
+.revelar{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s cubic-bezier(.16,1,.3,1)}
+.slide.activa .revelar{opacity:1;transform:none}
+.slide.activa .revelar:nth-child(2){transition-delay:.09s}
+.slide.activa .revelar:nth-child(3){transition-delay:.18s}
+.slide.activa .revelar:nth-child(4){transition-delay:.27s}
+.slide.activa .revelar:nth-child(5){transition-delay:.36s}
+
+@media (prefers-reduced-motion:reduce){
+  .revelar{opacity:1;transform:none;transition:none}
+  #barra{transition:none}
+}
+@media (max-width:820px){
+  .g2,.g3,.g4,.izq,.der{grid-template-columns:1fr}
+  .fig{max-height:34vh}
+}
+</style>
+</head>
+<body>
+
+<div id="barra"></div>
+
+<!-- 1 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Estudio de mercado · La Habana</div>
+    <h1>Motos, eléctricas,<br>bicicletas y patinetes</h1>
+  </div>
+  <div class="revelar">
+    <p class="lead" style="margin-top:clamp(1rem,3vh,2rem)">
+      {{TOTAL_VEHICULOS}} anuncios analizados en cuatro fuentes públicas.
+      Y una conclusión incómoda: <strong style="color:var(--text)">el mercado
+      existe, pero opera sin información básica</strong>.
+    </p>
+  </div>
+  <div class="pie"><span class="marca">Buenas prácticas para vendedores</span><span>1 / 14</span></div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">El punto de partida</div>
+    <h2>Hay mercado. Hay volumen.</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g4">
+      <div class="card"><div class="cifra" style="font-size:clamp(1.6rem,4.4vw,3rem)">{{TOTAL_VEHICULOS}}</div><p>anuncios únicos<br>tras eliminar duplicados</p></div>
+      <div class="card"><div class="cifra sec" style="font-size:clamp(1.6rem,4.4vw,3rem)">{{PCT_CON_PRECIO}}%</div><p>tienen precio<br>publicado</p></div>
+      <div class="card"><div class="cifra" style="font-size:clamp(1.6rem,4.4vw,3rem)">{{CON_UBICACION}}%</div><p>dicen dónde<br>está el vehículo</p></div>
+      <div class="card"><div class="cifra sec" style="font-size:clamp(1.6rem,4.4vw,3rem)">{{PCT_WHATSAPP}}%</div><p>publican un<br>teléfono de WhatsApp</p></div>
+    </div>
+  </div>
+  <div class="revelar">
+    <p class="muted" style="font-size:clamp(.8rem,1.2vw,.95rem);margin-top:1rem">
+      Datos de Revolico, iTENCEL, ElYerroMenu y Facebook. Más publicadas no significa más vendidas.
+    </p>
+  </div>
+  <div class="pie"><span class="marca">El punto de partida</span><span>2 / 14</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">La tesis</div>
+    <h2>El problema no es<br>la demanda. Es la información.</h2>
+  </div>
+  <div class="revelar">
+    <p class="lead" style="margin-top:clamp(.8rem,2vh,1.4rem)">
+      Un comprador busca “moto eléctrica 100 km de autonomía”. Un vendedor
+      publica “se vende moto”. Ninguno de los dos puede encontrar al otro.
+      <strong style="color:var(--text)">Esa fricción le cuesta ventas al
+      vendedor</strong>, y no por falta de demanda.
+    </p>
+  </div>
+  <div class="revelar">
+    <ul class="lista">
+      <li>El <b>{{PCT_SIN_MARCA}}%</b> de los vehículos reales no dice su marca en el título.</li>
+      <li>El <b>{{SIN_UBICACION}}%</b> no dice dónde está.</li>
+      <li>El <b>{{PCT_SIN_CIFRA}}%</b> no dice un solo número: ni cc, ni voltaje, ni kilómetros.</li>
+    </ul>
+  </div>
+  <div class="pie"><span class="marca">La tesis</span><span>3 / 14</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Prueba 1 · Invisibilidad</div>
+    <h2>Si no pones la marca,<br>no existes</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid der">
+      <div>
+        <div class="cifra">{{PCT_SIN_MARCA}}%</div>
+        <p class="muted" style="margin-top:.4rem">
+          {{SIN_MARCA}} de {{VEHICULOS_REALES}} vehículos reales sin marca en el título.
+        </p>
+        <ul class="lista">
+          <li>Quien busca “Topmaq” <b>nunca</b> ve esos anuncios.</li>
+          <li>En bicicletas es peor: <b>{{PCT_SIN_MARCA_BICI}}%</b> sin marca
+              ({{SIN_MARCA_BICI}} de {{BICI_TOTAL}}).</li>
+        </ul>
+      </div>
+      <div>{{FIG_COBERTURA}}
+        <p class="caption">Cobertura de los campos de información en los anuncios analizados.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Prueba 1 · Invisibilidad</span><span>4 / 14</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Prueba 2 · El título</div>
+    <h2>El título es tu único vendedor</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g3">
+      <div class="card acento">
+        <div class="cifra" style="font-size:clamp(1.8rem,5vw,3.4rem)">{{PCT_SIN_CIFRA}}%</div>
+        <p>{{SIN_CIFRA}} de {{TOTAL_VEHICULOS}} títulos no contienen
+           <strong style="color:var(--text)">ningún número</strong>.
+           No se puede filtrar, comparar ni decidir.</p>
+      </div>
+      <div class="card">
+        <div class="cifra sec" style="font-size:clamp(1.8rem,5vw,3.4rem)">{{TITULOS_VACIOS}}</div>
+        <p>títulos <strong style="color:var(--text)">totalmente vacíos</strong>
+           ({{PCT_TITULOS_VACIOS}}%). El anuncio existe, pero no dice nada.</p>
+      </div>
+      <div class="card">
+        <h3>Qué va en un título</h3>
+        <p>Marca · categoría · cifra clave · estado · zona. Ese es el orden que
+           hace encontrable un anuncio.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Prueba 2 · El título</span><span>5 / 14</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Prueba 3 · La geografía</div>
+    <h2>Sin zona declarada,<br>no te buscan</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid der">
+      <div>
+        <div class="cifra">{{SIN_UBICACION}}%</div>
+        <p class="muted" style="margin-top:.4rem">
+          de los anuncios no dicen en qué municipio está el vehículo.
+        </p>
+        <ul class="lista">
+          <li>Quien busca en su barrio <b>no puede verlos</b>.</li>
+          <li>{{MUNI_TOP}} concentra <b>{{MUNI_TOP_PCT}}%</b> de los anuncios
+              con ubicación y precio ({{TOTAL_HABANA}} en total).</li>
+          <li>Fuera de ese centro, <b>el mercado es casi invisible</b>.</li>
+        </ul>
+      </div>
+      <div>{{FIG_MUNICIPIOS}}
+        <p class="caption">Anuncios por municipio en La Habana.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Prueba 3 · La geografía</span><span>6 / 14</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Prueba 4 · El precio</div>
+    <h2>¿Estás cobrando de más<br>o de menos?</h2>
+  </div>
+  <div class="revelar">
+    <p class="muted" style="font-size:clamp(.82rem,1.25vw,1rem)">
+      Mediana de precio publicado por marca. Referencia de mercado, no un avalúo.
+    </p>
+    <table>
+      <thead><tr><th>Marca</th><th style="text-align:right">Anuncios</th>
+        <th style="text-align:right">Mediana</th><th style="text-align:right">Rango p10–p90</th></tr></thead>
+      <tbody>{{TABLA_MARCAS}}</tbody>
+    </table>
+  </div>
+  <div class="revelar">
+    <p class="caption" style="margin-top:.7rem">
+      Marcas de mayor volumen primero. Un vendedor que no conoce la mediana de su
+      categoría negocia a ciegas, y eso beneficia a quien sí la conoce.
+    </p>
+  </div>
+  <div class="pie"><span class="marca">Prueba 4 · El precio</span><span>7 / 14</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Prueba 4 · El precio</div>
+    <h2>La misma ciudad,<br>precios distintos</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid izq">
+      <div>{{FIG_MARCAS_MOTORES}}
+        <p class="caption">Anuncios por marca en Motores de combustión.</p>
+      </div>
+      <div>
+        <table>
+          <thead><tr><th>Municipio</th><th style="text-align:right">Anuncios</th>
+            <th style="text-align:right">Mediana</th></tr></thead>
+          <tbody>{{TABLA_MUNICIPIOS}}</tbody>
+        </table>
+        <p class="caption" style="margin-top:.7rem">
+          La zona cambia el precio más que la marca. Publicar sin zona te saca
+          del comparativo.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Prueba 4 · El precio</span><span>8 / 14</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">El canal</div>
+    <h2>Aquí se compra<br>por WhatsApp</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g3">
+      <div class="card acento">
+        <div class="cifra" style="font-size:clamp(1.8rem,5vw,3.4rem)">{{PCT_WHATSAPP}}%</div>
+        <p>publican teléfono de WhatsApp ({{WHATSAPP}} anuncios).</p>
+      </div>
+      <div class="card">
+        <div class="cifra sec" style="font-size:clamp(1.8rem,5vw,3.4rem)">{{CORREOS}}</div>
+        <p>anuncio usa correo electrónico. <strong style="color:var(--text)">Uno</strong>,
+           en todo el mercado.</p>
+      </div>
+      <div class="card">
+        <h3>Qué implica</h3>
+        <p>Un correo sin WhatsApp deja fuera a casi todos los compradores.
+           Publicar ambos es lo mínimo aceptable.</p>
+      </div>
+    </div>
+  </div>
+  <div class="revelar">
+    <p class="caption" style="margin-top:1rem">
+      Dato estructural: define el estándar mínimo de contacto del sector.
+    </p>
+  </div>
+  <div class="pie"><span class="marca">El canal</span><span>9 / 14</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">La oportunidad</div>
+    <h2>Dónde hay hueco</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid izq">
+      <div>
+        <ul class="lista">
+          <li><b>Patinetes eléctricos</b>: solo {{PATINETES}} anuncios en todo el mercado. Casi sin competencia.</li>
+          <li><b>Repuestos</b>: el archivo de piezas tiene {{PIEZAS}} registros, pero cerca de la mitad ni siquiera son piezas — están mal clasificados. El mercado real de repuestos está desatendido.</li>
+          <li><b>Bic（{{BICICLETAS}} anuncios)</b>: la categoría más pequeña y la peor documentada. {{PCT_SIN_MARCA_BICI}}% sin marca.</li>
+          <li><b>Zonas fuera de {{MUNI_TOP}}</b>: menos competencia y casi sin oferta publicada.</li>
+        </ul>
+      </div>
+      <div>{{FIG_FUENTES}}
+        <p class="caption">Volumen de publicaciones por fuente.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">La oportunidad</span><span>10 / 14</span></div>
+</section>
+
+<!-- 11 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Cómo se hace</div>
+    <h2>El mismo vehículo,<br>dos anuncios</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g2">
+      <div class="card antes">
+        <div class="etiqueta">Antes</div>
+        <div class="codigo">MOTO SE VENDE</div>
+        <p style="margin-top:.6rem">
+          Sin marca, sin cifra, sin zona. <strong style="color:var(--warn)">No aparece
+          en ninguna búsqueda</strong> salvo por palabras sueltas.
+        </p>
+      </div>
+      <div class="card despues">
+        <div class="etiqueta">Después</div>
+        <div class="codigo">Moto eléctrica AVA 100 km de autonomía, seminueva, Centro Habana</div>
+        <p style="margin-top:.6rem">
+          Marca, categoría, cifra clave, estado y zona. <strong style="color:var(--accent-2)">Aparece
+          en las cinco búsquedas que importan</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="revelar">
+    <p class="caption" style="margin-top:1rem">
+      Los ejemplos reales del análisis dice “se vende moto” sin más. La diferencia
+      entre ambos anuncios no es el producto: es la información.
+    </p>
+  </div>
+  <div class="pie"><span class="marca">Cómo se hace</span><span>11 / 14</span></div>
+</section>
+
+<!-- 12 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">La práctica</div>
+    <h2>Diez cosas que puedes<br>cambiar mañana</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g2">
+      <ul class="lista">
+        <li>Escribe la <b>marca</b> en el título.</li>
+        <li>Añade una <b>cifra clave</b>: cc, voltaje, vatios o kilómetros.</li>
+        <li>Declara el <b>municipio</b>.</li>
+        <li>Publica <b>WhatsApp</b>, no solo teléfono fijo.</li>
+        <li>Responde en <b>horario</b>, no solo cuando puedas.</li>
+      </ul>
+      <ul class="lista">
+        <li>Pide <b>fotos reales</b> del vehículo, no de catálogo.</li>
+        <li>Declara el <b>estado</b>: nueva, seminueva, usada.</li>
+        <li>Revisa la <b>mediana de tu marca</b> antes de fijar precio.</li>
+        <li>Publica en <b>varias fuentes</b>, no en una sola.</li>
+        <li>Elimina los anuncios <b>duplicados y vacíos</b>: ocupan lugar sin informar.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">La práctica</span><span>12 / 14</span></div>
+</section>
+
+<!-- 13 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">Honestidad metodológica</div>
+    <h2>Lo que este estudio<br>no puede decir</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid izq">
+      <div>
+        <ul class="lista">{{ADVERTENCIAS}}</ul>
+      </div>
+      <div>
+        <div class="card acento">
+          <h3>Y el problema de origen</h3>
+          <p><strong style="color:var(--text)">{{SIN_TITULO}}</strong> anuncios
+             no tienen título ({{PCT_SIN_TITULO}}%) y
+             <strong style="color:var(--text)">{{SIN_SENAL}}</strong> no dan
+             ninguna señal de tipo ({{PCT_SIN_SENAL}}%).</p>
+          <p style="margin-top:.6rem">
+            Clasificar este mercado exigió escribir reglas y auditarlas. Ningún
+            vendedor puede esperar que el mercado se ordene solo.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Honestidad metodológica</span><span>13 / 14</span></div>
+</section>
+
+<!-- 14 -->
+<section class="slide">
+  <div class="revelar">
+    <div class="eyebrow">El método</div>
+    <h2>Cómo se hizo</h2>
+  </div>
+  <div class="revelar">
+    <div class="grid g4">
+      <div class="card"><h3>Recolectado</h3><p>Cuatro fuentes, 5,391 registros brutos, deduplicados por URL.</p></div>
+      <div class="card"><h3>Clasificado</h3><p>Taxonomía explícita y reglas auditables: Motores, Eléctricos, Bicicletas, Patinetes, Otros.</p></div>
+      <div class="card"><h3>Auditado</h3><p>Nueve comprobaciones automáticas. Resultado actual: <strong style="color:var(--accent-2)">0 problemas graves</strong>.</p></div>
+      <div class="card"><h3>Reproducible</h3><p>Todo se regenera con scripts. Ninguna cifra de esta presentación está escrita a mano.</p></div>
+    </div>
+  </div>
+  <div class="revelar">
+    <div class="card acento" style="margin-top:clamp(.8rem,2vh,1.5rem)">
+      <h3>La conclusión</h3>
+      <p style="color:var(--text)">
+        El problema de este mercado no es la falta de compradores. Es la falta de
+        información de de los dos lados. Professionalizar un anuncio no es un
+        favor al comprador — es la forma más directa de vender más.
+      </p>
+    </div>
+  </div>
+  <div class="pie"><span class="marca">Gracias</span><span>14 / 14</span></div>
+</section>
+
+<!-- Notas del orador: no se muestran en pantalla. -->
+<aside class="notario">
+Diapositiva 1 · Presentarse y decir que el trabajo es sobre datos reales de cuatro fuentes públicas de La Habana. No vending nada: es divulgación.
+Diapositiva 2 · El volumen es el argumento de que el mercado merece atención. Insistir en que "más publicadas" no es "más vendidas".
+Diapositiva 3 · Esta es la tesis. Si solo se retiene una frase, que sea esta.
+Diapositiva 4 · Preguntar a la audiencia: ¿cuántos han buscado una moto por marca y no encontraron lo que buscaban? Ahí está el 42.4%.
+Diapositiva 5 · El 12.2% de títulos vacíos suele ser un mensaje de WhatsApp reenviado o anuncio mal pegado.
+Diapositiva 6 · La concentración en {{MUNI_TOP}} no es por falta de mercado fuera, es por falta de publicación.
+Diapositiva 7 · Aclarar que son precios declarados por vendedores, no un avalúo. Sirve de referencia, no de garantía.
+Diapositiva 8 · La zona pesa más que la marca. Buen punto para mencionar zonas con menos competencia.
+Diapositiva 9 · El correo esencialmente no existe en este mercado. Dato estructural del canal.
+Diapositiva 10 · Aquí se pasa de diagnóstico a oportunidad. Los patinetes son el ejemplo más claro: 64 anuncios.
+Diapositiva 11 · Leer los dos títulos en voz alta. El contraste convence más que la explicación.
+Diapositiva 12 · Cerrar con la acción concreta. Si preguntan por dónde empezar: marca, cifra, zona, WhatsApp.
+Diapositiva 13 · Declarar los límites ANTES de que los pregunten. Es lo que hace creíble todo lo anterior.
+Diapositiva 14 · Cerrar con el método, no con los números. El proyecto se sostiene en que es auditable y reproducible.
+</aside>
+
+<nav id="indice" aria-label="Índice de diapositivas">
+  <h2>Índice</h2>
+  <ol id="lista-indice"></ol>
+</nav>
+
+<div id="ayuda">
+  <kbd>←</kbd> <kbd>→</kbd> navegar · <kbd>f</kbd> pantalla completa<br>
+  <kbd>o</kbd> índice · <kbd>?</kbd> ayuda · <kbd>Esc</kbd> cerrar
+</div>
+
+<script>
+class Presentacion {
+  constructor(){
+    this.diapos = [...document.querySelectorAll('.slide')];
+    this.actual = 0;
+    this.barra = document.getElementById('barra');
+    this.indice = document.getElementById('indice');
+    this.ayuda = document.getElementById('ayuda');
+    this.listaIndice = document.getElementById('lista-indice');
+    this.temporizador = null;
+    this.construirIndice();
+    this.ligar();
+    this.ir(0);
+  }
+
+  Titles(){
+    return this.diapos.map(d => {
+      const h = d.querySelector('h1, h2');
+      return h ? h.textContent.replace(/\s+/g,' ').trim() : 'Diapositiva';
+    });
+  }
+
+  construirIndice(){
+    this.titles().forEach((t,i) => {
+      const li = document.createElement('li');
+      const b = document.createElement('button');
+      b.textContent = `${i+1}. ${t}`;
+      b.addEventListener('click', () => { this.ir(i); this.indice.classList.remove('visible'); });
+      li.appendChild(b);
+      this.listaIndice.appendChild(li);
+    });
+  }
+
+  ligar(){
+    document.addEventListener('keydown', e => {
+      const k = e.key;
+      if(k === 'ArrowRight' || k === 'PageDown' || k === ' ' || k === 'Enter'){ e.preventDefault(); this.sig(); }
+      else if(k === 'ArrowLeft' || k === 'PageUp' || k === 'Backspace'){ e.preventDefault(); this.ant(); }
+      else if(k === 'Home'){ this.ir(0); }
+      else if(k === 'End'){ this.ir(this.diapos.length-1); }
+      else if(k === 'f' || k === 'F'){ this.pantallaCompleta(); }
+      else if(k === 'o' || k === 'O'){ this.indice.classList.toggle('visible'); }
+      else if(k === '?'){ this.ayuda.classList.toggle('visible'); }
+      else if(k === 'Escape'){ this.indice.classList.remove('visible'); this.ayuda.classList.remove('visible'); }
+    });
+
+    let rueda = 0;
+    window.addEventListener('wheel', e => {
+      if(this.indice.classList.contains('visible')) return;
+      const ahora = Date.now();
+      if(ahora - rueda < 650) return;      // evita disparar varias por inercia
+      if(Math.abs(e.deltaY) < 18) return;
+      rueda = ahora;
+      e.deltaY > 0 ? this.sig() : this.ant();
+    }, {passive:true});
+
+    let x0 = null;
+    window.addEventListener('touchstart', e => { x0 = e.touches[0].clientX; }, {passive:true});
+    window.addEventListener('touchend', e => {
+      if(x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if(Math.abs(dx) > 60) dx < 0 ? this.sig() : this.ant();
+      x0 = null;
+    }, {passive:true});
+
+    // Presionar ? no dispara atajo del navegador; se silencia el behaviours estandar.
+    document.addEventListener('keydown', e => {
+      if(e.key === '?') e.preventDefault();
+    });
+  }
+
+  pantallaCompleta(){
+    if(!document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else document.exitFullscreen?.();
+  }
+
+  ir(i){
+    this.actual = Math.max(0, Math.min(i, this.diapos.length-1));
+    this.diapos.forEach((d,n) => d.classList.toggle('activa', n === this.actual));
+    // Reinicia las animaciones de entrada de la diapositiva visible.
+    const d = this.diapos[this.actual];
+    d.querySelectorAll('.revelar').forEach(el => {
+      el.style.animation = 'none';
+      void el.offsetHeight;
+      el.style.animation = '';
+    });
+    this.barra.style.width = `${((this.actual+1)/this.diapos.length)*100}%`;
+    [...this.listaIndice.querySelectorAll('button')].forEach((b,n) =>
+      b.classList.toggle('actual', n === this.actual));
+    location.hash = this.actual + 1;
+  }
+
+  sig(){ this.ir(this.actual+1); }
+  ant(){ this.ir(this.actual-1); }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const p = new Presentacion();
+  // Permite abrir directamente en una diapositiva con index.html#7
+  const h = parseInt(location.hash.slice(1), 10);
+  if(h >= 1 && h <= p.diapos.length) p.ir(h-1);
+  // Muestra la ayuda unos segundos y la esconde sola.
+  document.getElementById('ayuda').classList.add('visible');
+  clearTimeout(p.temporizador);
+  p.temporizador = setTimeout(() => document.getElementById('ayuda').classList.remove('visible'), 4000);
+});
+</script>
+</body>
+</html>
