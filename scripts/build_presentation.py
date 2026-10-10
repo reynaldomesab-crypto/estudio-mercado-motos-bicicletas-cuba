@@ -25,6 +25,8 @@ FIGURAS = ANALISIS / "figures"
 EVIDENCIA = ANALISIS / "evidencia_vendedores.json"
 PLANTILLA = RAIZ / "presentation" / "plantilla.html"
 SALIDA = RAIZ / "presentation" / "index.html"
+PLANTILLA_GUIA = RAIZ / "analysis" / "plantilla_guia.md"
+SALIDA_GUIA = RAIZ / "analysis" / "GUIA_VENDEDOR.md"
 
 
 def fig(nombre: str) -> str:
@@ -50,6 +52,25 @@ def dinero(n) -> str:
     return f"{int(round(n)):,}".replace(",", ".")
 
 
+def renderizar(texto: str, reemplazos: dict, obligatorios: list) -> str:
+    """Sustituye los marcadores y falla si queda alguno sin resolver.
+
+    `obligatorios` son los marcadores que deben aparecer en esta plantilla en
+    concreto. Deck y guia no usan el mismo subconjunto: el deck incrusta figuras
+    y tablas, la guia solo lleva cifras. Asi se puede exigir que ninguna de las
+    dos pierde un marcador sin dar falsos positivos con la otra.
+    """
+    faltan = [k for k in obligatorios if k not in texto]
+    if faltan:
+        raise SystemExit(f"Placeholders declarados que no estan en la plantilla: {faltan}")
+    for clave, valor in reemplazos.items():
+        texto = texto.replace(clave, str(valor))
+    sobrantes = sorted(set(re.findall(r"\{\{[A-Z_]+\}\}", texto)))
+    if sobrantes:
+        raise SystemExit(f"Placeholders sin sustituir: {sobrantes}")
+    return texto
+
+
 def main() -> None:
     ev = json.loads(EVIDENCIA.read_text(encoding="utf-8"))
     html = PLANTILLA.read_text(encoding="utf-8")
@@ -72,10 +93,16 @@ def main() -> None:
         for m in marcas[:8]
     )
 
+    # La diapositiva 8 sostiene que "la zona pesa mas que la marca", asi que la
+    # tabla ordena por mediana de precio, no por volumen: muestra los extremos.
+    # Con un minimo de 50 anuncios, porque una mediana de 13 anuncios es ruido.
+    habana = [m for m in ubi["por_municipio"] if m["anuncios"] >= 50]
+    por_precio = sorted(habana, key=lambda m: m["mediana_usd"])
+    extremos = por_precio[:4] + por_precio[-4:]
     municipios = "".join(
         f"<tr><td>{m['municipio']}</td><td class='num'>{miles(m['anuncios'])}</td>"
         f"<td class='num'>{dinero(m['mediana_usd'])} USD</td></tr>"
-        for m in ubi["por_municipio"][:8]
+        for m in extremos
     )
 
     advertencias = "".join(f"<li>{a}</li>" for a in lim["advertencias"])
@@ -118,23 +145,12 @@ def main() -> None:
         "{{FIG_FUENTES}}": fig("12_publicaciones_por_fuente.png"),
     }
 
-    faltan = []
-    for clave, valor in reemplazos.items():
-        if clave not in html:
-            faltan.append(clave)
-            continue
-        html = html.replace(clave, str(valor))
+    html = renderizar(html, reemplazos, list(reemplazos))
 
     # Ninguna URL externa debe sobrevivir: el deck tiene que abrir sin internet.
     externas = re.findall(r'(?:src|href)="(https?:)?//[^"]+"', html)
     if externas:
         raise SystemExit(f"El deck tiene recursos externos: {externas[:5]}")
-
-    sobrantes = re.findall(r"\{\{[A-Z_]+\}\}", html)
-    if sobrantes:
-        raise SystemExit(f"Placeholders sin sustituir: {sorted(set(sobrantes))}")
-    if faltan:
-        raise SystemExit(f"Placeholders inexistentes en la plantilla: {faltan}")
 
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(html, encoding="utf-8")
@@ -143,6 +159,15 @@ def main() -> None:
     diapositivas = html.count('<section class="slide')
     print(f"[ok] {SALIDA.relative_to(RAIZ)} ({kb:.0f} KB, {diapositivas} diapositivas)")
     print("[ok] Sin recursos externos: funciona sin internet")
+
+    # La guia se genera desde la misma evidencia, con las mismas cifras.
+    guia = renderizar(
+        PLANTILLA_GUIA.read_text(encoding="utf-8"),
+        reemplazos,
+        [k for k in reemplazos if not k.startswith(("{{FIG_", "{{TABLA_")) and k != "{{ADVERTENCIAS}}"],
+    )
+    SALIDA_GUIA.write_text(guia, encoding="utf-8")
+    print(f"[ok] {SALIDA_GUIA.relative_to(RAIZ)} ({len(guia.splitlines())} lineas)")
 
 
 if __name__ == "__main__":

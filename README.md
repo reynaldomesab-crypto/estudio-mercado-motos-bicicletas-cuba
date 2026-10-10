@@ -14,6 +14,9 @@ Este proyecto realiza un **estudio de mercado integral** del sector de vehículo
 
 | Documento | Para qué sirve |
 | --- | --- |
+| [`presentation/index.html`](presentation/index.html) | Presentación de 14 diapositivas sobre buenas prácticas para vendedores. Un solo archivo, funciona sin internet |
+| [`analysis/INFORME_PRESENTACION.md`](analysis/INFORME_PRESENTACION.md) | Guion de la presentación, preguntas frecuentes y material de respaldo |
+| [`analysis/GUIA_VENDEDOR.md`](analysis/GUIA_VENDEDOR.md) | Guía de buenas prácticas para vendedores del sector, con las cifras que la sostienen |
 | [`JOURNEY.md`](JOURNEY.md) | Bitácora del proyecto por fechas: qué se hizo, qué se descubrió y qué se corrigió |
 | [`docs/PROMPTS_DEL_USUARIO.md`](docs/PROMPTS_DEL_USUARIO.md) | Registro de los prompts del usuario, con captura automática |
 | [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) | Arquitectura de datos y flujo de procesamiento |
