@@ -1123,9 +1123,18 @@ def main() -> None:
     # decisiones categoria a categoria sin tener que releer el codigo, que es
     # como se detectaron los errores de TOPMAQ y de las marcas mixtas.
     if EXPORTAR_CLASIFICACION:
-        salida = todos_veh[
-            ["title", "source", "vehicle_type", "marca_detectada", "categoria"]
-        ].rename(columns={"vehicle_type": "categoria_fuente"})
+        # Se exportan tambien precio, ubicacion y contacto: sin ellos el CSV no
+        # permite comparar marcas ni zonas, que es justo lo que necesita la
+        # divulgacion para mostrarle a un vendedor donde esta parado.
+        columnas = [
+            "title", "source", "vehicle_type", "marca_detectada", "categoria",
+            "price_usd", "currency", "province_name", "municipality_name",
+            "contact_info_type", "phone_1_whatsapp", "source_url",
+        ]
+        disponibles = [c for c in columnas if c in todos_veh.columns]
+        salida = todos_veh[disponibles].rename(
+            columns={"vehicle_type": "categoria_fuente"}
+        )
         EXPORTAR_CLASIFICACION.parent.mkdir(parents=True, exist_ok=True)
         salida.to_csv(EXPORTAR_CLASIFICACION, index=False)
         print(f"  [ok] {EXPORTAR_CLASIFICACION.relative_to(ROOT)}")

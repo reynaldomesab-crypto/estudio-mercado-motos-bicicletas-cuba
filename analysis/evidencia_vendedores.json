@@ -1,0 +1,382 @@
+{
+  "generado_por": "scripts/analyzers/generar_evidencia_vendedor.py",
+  "nota": "Cifras de divulgacion. Deben coincidir con analysis/resultados.json.",
+  "invisibilidad": {
+    "vehiculos": 4979,
+    "sin_marca": 2383,
+    "pct_sin_marca": 47.9,
+    "vehiculos_reales": 4303,
+    "reales_sin_marca": 1824,
+    "pct_reales_sin_marca": 42.4,
+    "por_categoria": {
+      "Motores": {
+        "anuncios": 1036,
+        "sin_marca": 457,
+        "pct_sin_marca": 44.1
+      },
+      "Eléctricos": {
+        "anuncios": 2825,
+        "sin_marca": 1012,
+        "pct_sin_marca": 35.8
+      },
+      "Bicicletas": {
+        "anuncios": 378,
+        "sin_marca": 330,
+        "pct_sin_marca": 87.3
+      },
+      "Patinetes Eléctricos": {
+        "anuncios": 64,
+        "sin_marca": 25,
+        "pct_sin_marca": 39.1
+      },
+      "Otros": {
+        "anuncios": 656,
+        "sin_marca": 545,
+        "pct_sin_marca": 83.1
+      }
+    }
+  },
+  "titulos": {
+    "total": 4979,
+    "vacias": 606,
+    "pct_vacias": 12.2,
+    "sin_cifra": 2663,
+    "pct_sin_cifra": 53.5
+  },
+  "ubicacion": {
+    "total": 4979,
+    "con_provincia": 2662,
+    "pct_con_provincia": 53.5,
+    "sin_ubicacion_pct": 46.5,
+    "anuncios_habana_con_municipio_y_precio": 2596,
+    "municipio_mas_anuncios": "Centro Habana",
+    "pct_del_total_habana": 24.0,
+    "por_municipio": [
+      {
+        "municipio": "Centro Habana",
+        "anuncios": 622,
+        "mediana_usd": 1200.0
+      },
+      {
+        "municipio": "Playa",
+        "anuncios": 422,
+        "mediana_usd": 1450.0
+      },
+      {
+        "municipio": "Diez de Octubre",
+        "anuncios": 314,
+        "mediana_usd": 900.0
+      },
+      {
+        "municipio": "Plaza",
+        "anuncios": 299,
+        "mediana_usd": 1400.0
+      },
+      {
+        "municipio": "Arroyo Naranjo",
+        "anuncios": 128,
+        "mediana_usd": 820.0
+      },
+      {
+        "municipio": "La Lisa",
+        "anuncios": 126,
+        "mediana_usd": 1400.0
+      },
+      {
+        "municipio": "Marianao",
+        "anuncios": 123,
+        "mediana_usd": 1100.0
+      },
+      {
+        "municipio": "Boyeros",
+        "anuncios": 117,
+        "mediana_usd": 1200.0
+      },
+      {
+        "municipio": "Cerro",
+        "anuncios": 107,
+        "mediana_usd": 700.0
+      },
+      {
+        "municipio": "Habana Vieja",
+        "anuncios": 107,
+        "mediana_usd": 1620.0
+      },
+      {
+        "municipio": "Habana del Este",
+        "anuncios": 69,
+        "mediana_usd": 1920.0
+      },
+      {
+        "municipio": "Guanabacoa",
+        "anuncios": 61,
+        "mediana_usd": 1560.0
+      },
+      {
+        "municipio": "Cotorro",
+        "anuncios": 44,
+        "mediana_usd": 850.0
+      },
+      {
+        "municipio": "San Miguel del Padrón",
+        "anuncios": 44,
+        "mediana_usd": 975.0
+      },
+      {
+        "municipio": "Regla",
+        "anuncios": 13,
+        "mediana_usd": 720.0
+      }
+    ]
+  },
+  "precios": {
+    "anuncios_con_precio": 4673,
+    "pct_con_precio": 93.9,
+    "anuncios_con_precio_sin_marca": 2129,
+    "marcas": [
+      {
+        "marca": "TOPMAQ",
+        "anuncios": 381,
+        "mediana_usd": 2150.0,
+        "p10_usd": 1800.0,
+        "p90_usd": 2900.0
+      },
+      {
+        "marca": "VEDCA",
+        "anuncios": 210,
+        "mediana_usd": 1600.0,
+        "p10_usd": 1250.0,
+        "p90_usd": 2500.0
+      },
+      {
+        "marca": "YOAZAKY",
+        "anuncios": 198,
+        "mediana_usd": 2280.0,
+        "p10_usd": 1600.0,
+        "p90_usd": 2915.0
+      },
+      {
+        "marca": "HALCON",
+        "anuncios": 130,
+        "mediana_usd": 1800.0,
+        "p10_usd": 1085.0,
+        "p90_usd": 2682.0
+      },
+      {
+        "marca": "CHALLENGER",
+        "anuncios": 129,
+        "mediana_usd": 850.0,
+        "p10_usd": 750.0,
+        "p90_usd": 1406.0
+      },
+      {
+        "marca": "JMD",
+        "anuncios": 113,
+        "mediana_usd": 1600.0,
+        "p10_usd": 750.0,
+        "p90_usd": 1750.0
+      },
+      {
+        "marca": "AVA",
+        "anuncios": 89,
+        "mediana_usd": 1650.0,
+        "p10_usd": 946.0,
+        "p90_usd": 2510.0
+      },
+      {
+        "marca": "BUCATTI",
+        "anuncios": 83,
+        "mediana_usd": 2600.0,
+        "p10_usd": 900.0,
+        "p90_usd": 3190.0
+      },
+      {
+        "marca": "IZUKI",
+        "anuncios": 81,
+        "mediana_usd": 2400.0,
+        "p10_usd": 1600.0,
+        "p90_usd": 3250.0
+      },
+      {
+        "marca": "MIKAZUKI",
+        "anuncios": 81,
+        "mediana_usd": 1770.0,
+        "p10_usd": 960.0,
+        "p90_usd": 2250.0
+      },
+      {
+        "marca": "SUZUKI",
+        "anuncios": 61,
+        "mediana_usd": 3200.0,
+        "p10_usd": 1798.0,
+        "p90_usd": 4000.0
+      },
+      {
+        "marca": "UNISON",
+        "anuncios": 60,
+        "mediana_usd": 2000.0,
+        "p10_usd": 1677.0,
+        "p90_usd": 2500.0
+      },
+      {
+        "marca": "MAF",
+        "anuncios": 54,
+        "mediana_usd": 790.0,
+        "p10_usd": 750.0,
+        "p90_usd": 1150.0
+      },
+      {
+        "marca": "ITALY",
+        "anuncios": 50,
+        "mediana_usd": 1954.0,
+        "p10_usd": 1900.0,
+        "p90_usd": 2455.0
+      },
+      {
+        "marca": "KVITOVA",
+        "anuncios": 47,
+        "mediana_usd": 1750.0,
+        "p10_usd": 1500.0,
+        "p90_usd": 1938.0
+      },
+      {
+        "marca": "RALI",
+        "anuncios": 41,
+        "mediana_usd": 1380.0,
+        "p10_usd": 290.0,
+        "p90_usd": 2600.0
+      },
+      {
+        "marca": "GS",
+        "anuncios": 36,
+        "mediana_usd": 2400.0,
+        "p10_usd": 2300.0,
+        "p90_usd": 2600.0
+      },
+      {
+        "marca": "TRECK",
+        "anuncios": 33,
+        "mediana_usd": 1850.0,
+        "p10_usd": 1400.0,
+        "p90_usd": 2550.0
+      },
+      {
+        "marca": "FLY",
+        "anuncios": 32,
+        "mediana_usd": 2500.0,
+        "p10_usd": 2040.0,
+        "p90_usd": 2759.0
+      },
+      {
+        "marca": "KRATHOS",
+        "anuncios": 29,
+        "mediana_usd": 2550.0,
+        "p10_usd": 2550.0,
+        "p90_usd": 3260.0
+      },
+      {
+        "marca": "MOTORSTRECK",
+        "anuncios": 27,
+        "mediana_usd": 1600.0,
+        "p10_usd": 1596.0,
+        "p90_usd": 1870.0
+      },
+      {
+        "marca": "MZ",
+        "anuncios": 27,
+        "mediana_usd": 1700.0,
+        "p10_usd": 1600.0,
+        "p90_usd": 3270.0
+      },
+      {
+        "marca": "OIM",
+        "anuncios": 27,
+        "mediana_usd": 1250.0,
+        "p10_usd": 1138.0,
+        "p90_usd": 1740.0
+      },
+      {
+        "marca": "PANDA",
+        "anuncios": 27,
+        "mediana_usd": 2450.0,
+        "p10_usd": 2230.0,
+        "p90_usd": 2620.0
+      },
+      {
+        "marca": "JOMAR",
+        "anuncios": 26,
+        "mediana_usd": 1900.0,
+        "p10_usd": 1850.0,
+        "p90_usd": 2000.0
+      },
+      {
+        "marca": "PORTOBELLO",
+        "anuncios": 25,
+        "mediana_usd": 550.0,
+        "p10_usd": 508.0,
+        "p90_usd": 568.0
+      },
+      {
+        "marca": "LIFAN",
+        "anuncios": 23,
+        "mediana_usd": 1910.0,
+        "p10_usd": 1700.0,
+        "p90_usd": 2570.0
+      },
+      {
+        "marca": "MIDHA",
+        "anuncios": 23,
+        "mediana_usd": 980.0,
+        "p10_usd": 850.0,
+        "p90_usd": 1020.0
+      },
+      {
+        "marca": "KATZU",
+        "anuncios": 22,
+        "mediana_usd": 2400.0,
+        "p10_usd": 427.0,
+        "p90_usd": 2500.0
+      },
+      {
+        "marca": "RESTREPA",
+        "anuncios": 20,
+        "mediana_usd": 1800.0,
+        "p10_usd": 1800.0,
+        "p90_usd": 1800.0
+      }
+    ]
+  },
+  "contacto": {
+    "total": 4979,
+    "whatsapp": 2662,
+    "pct_whatsapp": 53.5,
+    "correo": 1,
+    "sin_tipo_contacto": 2317
+  },
+  "huecos": {
+    "categorias": {
+      "Eléctricos": 2825,
+      "Motores": 1036,
+      "Otros": 656,
+      "Bicicletas": 378,
+      "Patinetes Eléctricos": 64,
+      "Partes y Accesorios": 20
+    },
+    "patinetes": 64,
+    "bicicletas": 378,
+    "piezas_archivo": 523
+  },
+  "limites": {
+    "sin_titulo": 606,
+    "pct_sin_titulo": 12.2,
+    "sin_senal_tipo": 656,
+    "pct_sin_senal": 13.2,
+    "advertencias": [
+      "Mas publicadas no es mas vendidas: el estudio no observa ventas, solo anuncios.",
+      "Los precios son los que declaro el vendedor, no un avaluo.",
+      "No hay campo de condicion (nuevo/usado): no se puede distinguir.",
+      "No hay fecha por anuncio: no se puede afirmar tendencia ni estacionalidad.",
+      "La deduplicacion es por URL: un vehiculo publicado en dos sitios cuenta como dos."
+    ]
+  }
+}
