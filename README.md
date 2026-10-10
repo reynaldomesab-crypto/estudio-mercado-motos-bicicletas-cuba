@@ -10,6 +10,16 @@
 
 Este proyecto realiza un **estudio de mercado integral** del sector de vehículos de dos ruedas (motos, bicicletas, patinetes, triciclos) y sus repuestos en Cuba, mediante **web scraping** de múltiples fuentes de clasificados online cubanas.
 
+### 📖 Documentos del proyecto
+
+| Documento | Para qué sirve |
+| --- | --- |
+| [`JOURNEY.md`](JOURNEY.md) | Bitácora del proyecto por fechas: qué se hizo, qué se descubrió y qué se corrigió |
+| [`docs/PROMPTS_DEL_USUARIO.md`](docs/PROMPTS_DEL_USUARIO.md) | Registro de los prompts del usuario, con captura automática |
+| [`docs/ARQUITECTURA.md`](docs/ARQUITECTURA.md) | Arquitectura de datos y flujo de procesamiento |
+| [`docs/GUIA_SCRAPING.md`](docs/GUIA_SCRAPING.md) | Guía para ejecutar y ampliar los scrapers |
+| `analysis/` | Gráficos y reportes generados por el análisis |
+
 ### 🎯 Objetivos
 
 - Recopilar datos de vehículos de dos ruedas (motos, bicicletas, patinetes, triciclos) y sus repuestos

@@ -1,0 +1,61 @@
+{
+  "total_vehicles": 5787,
+  "total_parts": 523,
+  "vehicle_types": {
+    "Bicicleta El\u00e9ctrica": 493,
+    "Otro": 1750,
+    "Bicicleta": 395,
+    "Moto Combusti\u00f3n": 1978,
+    "Moto El\u00e9ctrica": 1041,
+    "Patinete El\u00e9ctrico": 125,
+    "Mototrina": 5
+  },
+  "part_categories": {
+    "Repuesto Moto": 273,
+    "Repuesto Patinete": 25,
+    "Repuesto Generico": 211,
+    "Repuesto Moto El\u00e9ctrica": 4,
+    "Repuesto Bicicleta": 10
+  },
+  "vehicle_brands": {
+    "TOPMAQ": 352,
+    "VEDCA": 210,
+    "MOTICO": 121,
+    "CHALLENGER": 81,
+    "HALC\u00d3N": 78,
+    "IZUKI": 73,
+    "SUZUKI": 63,
+    "JIN": 51,
+    "UNISON": 49,
+    "KVITOVA": 46,
+    "MAF": 40,
+    "KRATHOS": 35,
+    "HALCON": 30,
+    "MT": 24,
+    "RESTREPA": 23,
+    "AVISP": 19,
+    "ONEBOT": 13,
+    "MOUNTAIN": 13,
+    "EAGLE": 13,
+    "R15": 13
+  },
+  "part_brands": {
+    "TOPMAQ": 43,
+    "RESTREPA": 40,
+    "KRATHOS": 37,
+    "JIN": 35,
+    "MT": 30,
+    "VEDCA": 10,
+    "UNISON": 6,
+    "CHALLENGER": 6,
+    "R1": 6,
+    "VIVAMAX": 4,
+    "ONEBOT": 3,
+    "MAF": 3,
+    "MOTICO": 2,
+    "HALC\u00d3N": 2,
+    "SUZUKI": 2,
+    "LIFAN": 2,
+    "R15": 2
+  }
+}

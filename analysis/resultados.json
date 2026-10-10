@@ -1,0 +1,375 @@
+{
+  "volumen": {
+    "vehicles_curated_bruto": 5391,
+    "vehiculos_deduplicados": 4979,
+    "duplicados_vehiculos": 412,
+    "repuestos_bruto": 523,
+    "repuestos_deduplicados": 260
+  },
+  "reclasificacion_marcas_motorinas": {
+    "marcas": [
+      "BUCATTI",
+      "CHALLENGER",
+      "DEEPOWER",
+      "G29",
+      "INFINITY",
+      "JINGHAN",
+      "JMD",
+      "KVITOVA",
+      "MAF",
+      "PANDA",
+      "TRANK",
+      "TST",
+      "VEDCA",
+      "VORTAX",
+      "YOAZAKY"
+    ],
+    "de_motores_a_electricas": 589
+  },
+  "senal_tipo_electrico_en_titulo": {
+    "total": 1198,
+    "de_motores_a_electricas": 1011
+  },
+  "senal_tipo_combustion_en_titulo": {
+    "titulos_con_senal": 734,
+    "exentos_por_marca_solo_electrica": 24,
+    "marcas_mixtas_detectadas": [
+      "TOPMAQ"
+    ]
+  },
+  "reclasificacion_desde_motores": {
+    "ONEBOT": {
+      "destino": "Eléctricos",
+      "registros": 8
+    }
+  },
+  "categorias_vehiculo": {
+    "Motores": 1736,
+    "Eléctricos": 2514,
+    "Bicicletas": 528,
+    "Patinetes Eléctricos": 67,
+    "Otros": 109
+  },
+  "categorias_por_fuente_detalle": {
+    "revolico": {
+      "total": 2662,
+      "categorias": {
+        "Motores": 245,
+        "Eléctricos": 1850,
+        "Bicicletas": 383,
+        "Patinetes Eléctricos": 67,
+        "Otros": 92
+      }
+    },
+    "itencel": {
+      "total": 1711,
+      "categorias": {
+        "Motores": 1099,
+        "Eléctricos": 612
+      }
+    },
+    "facebook": {
+      "total": 396,
+      "categorias": {
+        "Motores": 331,
+        "Eléctricos": 14,
+        "Bicicletas": 51
+      }
+    },
+    "elyerro": {
+      "total": 210,
+      "categorias": {
+        "Motores": 61,
+        "Eléctricos": 38,
+        "Bicicletas": 94,
+        "Otros": 17
+      }
+    }
+  },
+  "marcas_por_categoria": {
+    "Motores": {
+      "con_marca": 786,
+      "total_categoria": 1736,
+      "maximo_representable": 778,
+      "mostradas": 5,
+      "representables": 34,
+      "marcas_omitidas_un_elemento": {
+        "KAWASAKI": 1,
+        "TRANK": 1,
+        "HALCÓN": 1,
+        "ULENDO": 1,
+        "BUCATTI": 1,
+        "MIDHA": 1,
+        "LONCIN": 1,
+        "HARLEY": 1
+      },
+      "marcas": {
+        "TOPMAQ": 146,
+        "SUZUKI": 67,
+        "UNISON": 55,
+        "AVA": 45,
+        "HALCON": 38
+      }
+    },
+    "Eléctricos": {
+      "con_marca": 1600,
+      "total_categoria": 2514,
+      "maximo_representable": 1596,
+      "mostradas": 5,
+      "representables": 42,
+      "marcas_omitidas_un_elemento": {
+        "RAIBONW": 1,
+        "CAROMA": 1,
+        "CHAGENGUER": 1,
+        "ULENDO": 1
+      },
+      "marcas": {
+        "VEDCA": 215,
+        "TOPMAQ": 207,
+        "YOAZAKY": 190,
+        "CHALLENGER": 129,
+        "JMD": 111
+      }
+    },
+    "Bicicletas": {
+      "con_marca": 52,
+      "total_categoria": 528,
+      "maximo_representable": 48,
+      "mostradas": 5,
+      "representables": 7,
+      "marcas_omitidas_un_elemento": {
+        "ESKUTE": 1,
+        "DCMLZ": 1,
+        "IZUKI": 1,
+        "TOPMAQ": 1
+      },
+      "marcas": {
+        "SILVERBIKE": 16,
+        "VIVAMAX": 12,
+        "RALI": 5,
+        "PORTOBELLO": 5,
+        "HUFFY": 5
+      }
+    }
+  },
+  "marcas_vehiculos": {
+    "con_marca": 2533,
+    "total": 4979,
+    "top_global": {
+      "TOPMAQ": 388,
+      "VEDCA": 215,
+      "YOAZAKY": 209,
+      "CHALLENGER": 129,
+      "JMD": 114,
+      "AVA": 89,
+      "HALCON": 83,
+      "IZUKI": 83,
+      "BUCATTI": 83,
+      "MIKAZUKI": 81,
+      "SUZUKI": 67,
+      "UNISON": 55,
+      "MAF": 54,
+      "ITALY": 50,
+      "KVITOVA": 47
+    }
+  },
+  "cobertura_informacion": {
+    "total_anuncios": 4979,
+    "con_marca": 2533,
+    "con_marca_pct": 50.9,
+    "con_precio": 4673,
+    "con_precio_pct": 93.9
+  },
+  "comparativa_vehiculos_repuestos": {
+    "vehiculos": 4979,
+    "repuestos_totales": 260,
+    "total": 5239,
+    "porcentajes": {
+      "Vehículos": 95.04,
+      "Repuestos totales": 4.96
+    },
+    "detalle_repuestos": {
+      "vehiculos_mal_archivados": 130,
+      "piezas_reales": 130
+    }
+  },
+  "precio_por_tipo": {
+    "Bicicletas": {
+      "n": 495,
+      "min": 10.42,
+      "mediana": 160.0,
+      "media": 216.95,
+      "max": 2150.0
+    },
+    "Eléctricos": {
+      "n": 2474,
+      "min": 50.0,
+      "mediana": 1500.0,
+      "media": 1490.81,
+      "max": 3800.0
+    },
+    "Motores": {
+      "n": 1460,
+      "min": 20.0,
+      "mediana": 2000.0,
+      "media": 2021.02,
+      "max": 3700.0
+    },
+    "Patinetes Eléctricos": {
+      "n": 67,
+      "min": 72.0,
+      "mediana": 550.0,
+      "media": 562.57,
+      "max": 930.0
+    }
+  },
+  "municipios_habana": {
+    "conteo": {
+      "Centro Habana": 622,
+      "Playa": 422,
+      "Diez de Octubre": 314,
+      "Plaza": 299,
+      "Arroyo Naranjo": 128
+    },
+    "total_habana": 2596
+  },
+  "fuentes": {
+    "revolico": 2662,
+    "itencel": 1711,
+    "facebook": 396,
+    "elyerro_bicicletas": 125,
+    "elyerro_motos": 85
+  },
+  "monedas": {
+    "USD": 4511,
+    "otros": 72,
+    "total_con_moneda": 4583,
+    "detalle_otras": {
+      "CUP": 50,
+      "ZELLE": 21,
+      "EUR": 1
+    }
+  },
+  "descartados_por_muestra": [
+    {
+      "grafico": "03_marcas_Patinetes Eléctricos",
+      "categoria": "Patinetes Eléctricos",
+      "elementos": 20,
+      "motivo": "menos de 30 publicaciones con marca"
+    }
+  ],
+  "min_elementos": 30,
+  "auditoria_datos_electricos": {
+    "anuncios_electricos": 2514,
+    "con_potencia": 140,
+    "con_potencia_pct": 5.6,
+    "con_autonomia": 87,
+    "con_autonomia_pct": 3.5,
+    "con_precio": 2480,
+    "con_precio_pct": 98.6,
+    "con_los_tres": 34,
+    "con_los_tres_pct": 1.4
+  },
+  "top_precios": [
+    {
+      "precio_usd": 30000.0,
+      "titulo": "Vendo chucho de avispon",
+      "marca": "no declarada",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/vendo-chucho-de-avispon/",
+      "motivos": [
+        "Modelo o linea reconocible"
+      ]
+    },
+    {
+      "precio_usd": 20000.0,
+      "titulo": "🏍Moto KAWASAKI NINJA ZX-10R 🏍",
+      "marca": "KAWASAKI",
+      "categoria": "Motores",
+      "fuente": "revolico",
+      "url": "https://www.revolico.com/item/moto-kawasaki-ninja-zx-10r-56712496",
+      "motivos": []
+    },
+    {
+      "precio_usd": 18000.0,
+      "titulo": "Suzuki diamante",
+      "marca": "SUZUKI",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/suzuki-diamante/",
+      "motivos": [
+        "Marca de referencia"
+      ]
+    },
+    {
+      "precio_usd": 17000.0,
+      "titulo": "Vendo Moto Guzzi V1000 G5",
+      "marca": "no declarada",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/vendo-moto-guzzi-v1000-g5/",
+      "motivos": []
+    },
+    {
+      "precio_usd": 15000.0,
+      "titulo": "Compresión 125cc Suzuki an de poco uso",
+      "marca": "SUZUKI",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/compresion-125cc-suzuki-an-de-poco-uso/",
+      "motivos": [
+        "Marca de referencia"
+      ]
+    },
+    {
+      "precio_usd": 13500.0,
+      "titulo": "Susuki GSXR 750 CC 2020",
+      "marca": "no declarada",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/susuki-gsxr-750-cc-2020/",
+      "motivos": []
+    },
+    {
+      "precio_usd": 12500.0,
+      "titulo": "Yamaha MT 09 900 CC 2024",
+      "marca": "YAMAHA",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/yamaha-mt-09-900-cc-2024/",
+      "motivos": [
+        "Marca de referencia"
+      ]
+    },
+    {
+      "precio_usd": 12000.0,
+      "titulo": "HONDA CBR 600RR 2012",
+      "marca": "no declarada",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/honda-cbr-600rr-2012/",
+      "motivos": [
+        "Marca de referencia"
+      ]
+    },
+    {
+      "precio_usd": 11111.0,
+      "titulo": "Motos y Bicicletas Electricas",
+      "marca": "no declarada",
+      "categoria": "Eléctricos",
+      "fuente": "revolico",
+      "url": "https://www.revolico.com/item/motos-y-bicicletas-electricas-57547887",
+      "motivos": []
+    },
+    {
+      "precio_usd": 11111.0,
+      "titulo": "Motos  Gn Lexzuki",
+      "marca": "no declarada",
+      "categoria": "Motores",
+      "fuente": "itencel",
+      "url": "https://itencel.com/anuncio/motos-gn-lexzuki/",
+      "motivos": []
+    }
+  ]
+}
