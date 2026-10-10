@@ -169,12 +169,76 @@ color saturado y la menor un tono apagado del mismo matiz.
   escucha el evento `message.updated` de OpenCode y añade cada prompt al archivo
   con su fecha.
 
+## 2026-10-09 — Corrección de la clasificación por tipo de vehículo
+
+La revisión de los anuncios de TOPMAQ en Motores destapó **tres errores de
+clasificación que afectaban a todo el estudio**, no solo a esa marca.
+
+### El error de fondo: los patrones se aplicaban sobre el título crudo
+
+Las expresiones regulares se ejecutaban contra el texto tal cual venía. Eso
+rompía dos cosas a la vez:
+
+- **Los acentos.** El patrón buscaba `ELECTRICA` y el título traía `ELÉCTRICA`.
+- **Las letras matemáticas Unicode.** Muchos vendedores escriben con negrita
+  tipográfica: `𝐁𝐈𝐂𝐈𝐌𝐎𝐓𝐎`. NFKD es lo único que pliega ese bloque a ASCII.
+
+Además, la señal eléctrica **no incluía la palabra "ELÉCTRICA"**, que es la
+forma más común de escribirla. Solo buscaba MOTICO y BICIMOTO.
+
+Efecto TOPMAQ en Motores: **146 → 23**.
+
+### Otros dos errores
+
+- **606 anuncios sin título** (12% del dataset, todos de Facebook) quedaban
+  clasificados como vehículos porque la plataforma los tenía en "Moto". Sin
+  texto no hay evidencia, así que pasan a "Otros".
+- **Seis anuncios de baterías de TOPMAQ** contaban como motos. Un anuncio que
+  solo describe una pieza no es un vehículo, así que también pasan a "Otros".
+
+### Lo que quedó
+
+De los 23 anuncios de TOPMAQ en Motores, **18 tienen combustión explícita en el
+título** (TANK 200cc, GN 150, AVISPÓN 200cc, RAPTOR) y 5 son indecibles: dos
+dicen solo "Topmaq" y tres dicen "MOTO TOPMAQ TANK", un modelo que TOPMAQ
+vende en las dos gamas.
+
+Efecto global: Motores pasó de 2,264 a 1,036 anuncios y Eléctricos de 2,514 a
+2,852.
+
+### Lo que la corrección enseña
+
+Un solo anuncio mal clasificado no es el problema: es que **la señal que decidía
+la categoría era incompleta**, y eso afectaba a las 4,979 filas a la vez. La
+categoría "Motores" estaba mezclando motos de gasolina con bicimotos eléctricas
+porque la mitad de los títulos eléctricos no se reconocían.
+
+Por eso se añadió `data/processed/vehiculos_clasificados.csv`, que exporta la
+clasificación registro a registro. Permite auditar sin releer el código, que es
+justo lo que faltaba para detectar estos errores.
+
+### Dos regresiones que hubo que corregir
+
+Al arreglar lo anterior aparecieron dos errores nuevos, ambos detectados
+revisando los resultados:
+
+- "Patinete eléctrico" pasó a Eléctricos y esa categoría bajó de 47 a 13
+  anuncios. Los patinetes son categoría propia, así que se protegieron: solo se
+  reclasifican si el título dice MOTICO o BICIMOTO.
+- La regla de "solo pieza" arrastraba fuera bicicletas eléctricas que describen
+  su batería ("Bicicleta eléctrica marca ONEBOT, batería 48V"). Se acotó a que
+  el anuncio **no nombre ningún vehículo**.
+
 ---
 
 ## Estado actual
 
 **Datos:** 4,979 vehículos únicos, 260 anuncios de repuestos (130 de ellos
 vehículos mal archivados).
+
+**Categorías:** Motores 1,036 · Eléctricos 2,852 · Bicicletas 378 ·
+Patinetes eléctricos 40 · Otros 652. Los 652 "Otros" son sobre todo los 606
+anuncios sin título y los que solo describen una pieza.
 
 **Cobertura de información:** 93.9% de los anuncios tienen precio, pero solo
 **50.9% tienen marca**. Esa asimetría es uno de los hallazgos centrales del

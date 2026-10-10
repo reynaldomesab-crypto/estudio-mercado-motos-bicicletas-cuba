@@ -24,14 +24,14 @@
       "VORTAX",
       "YOAZAKY"
     ],
-    "de_motores_a_electricas": 589
+    "de_motores_a_electricas": 590
   },
   "senal_tipo_electrico_en_titulo": {
-    "total": 1198,
-    "de_motores_a_electricas": 1011
+    "total": 2687,
+    "de_motores_a_electricas": 1400
   },
   "senal_tipo_combustion_en_titulo": {
-    "titulos_con_senal": 734,
+    "titulos_con_senal": 736,
     "exentos_por_marca_solo_electrica": 24,
     "marcas_mixtas_detectadas": [
       "TOPMAQ"
@@ -44,130 +44,126 @@
     }
   },
   "categorias_vehiculo": {
-    "Motores": 1736,
-    "Eléctricos": 2514,
-    "Bicicletas": 528,
-    "Patinetes Eléctricos": 67,
-    "Otros": 109
+    "Motores": 1036,
+    "Eléctricos": 2852,
+    "Bicicletas": 378,
+    "Patinetes Eléctricos": 40,
+    "Otros": 652
   },
   "categorias_por_fuente_detalle": {
     "revolico": {
       "total": 2662,
       "categorias": {
-        "Motores": 245,
-        "Eléctricos": 1850,
-        "Bicicletas": 383,
-        "Patinetes Eléctricos": 67,
-        "Otros": 92
+        "Motores": 237,
+        "Eléctricos": 1931,
+        "Bicicletas": 378,
+        "Patinetes Eléctricos": 40,
+        "Otros": 55
       }
     },
     "itencel": {
       "total": 1711,
       "categorias": {
-        "Motores": 1099,
-        "Eléctricos": 612
+        "Motores": 799,
+        "Eléctricos": 908,
+        "Otros": 4
       }
     },
     "facebook": {
       "total": 396,
       "categorias": {
-        "Motores": 331,
-        "Eléctricos": 14,
-        "Bicicletas": 51
+        "Eléctricos": 13,
+        "Otros": 383
       }
     },
     "elyerro": {
       "total": 210,
       "categorias": {
-        "Motores": 61,
-        "Eléctricos": 38,
-        "Bicicletas": 94,
-        "Otros": 17
+        "Otros": 210
       }
     }
   },
   "marcas_por_categoria": {
     "Motores": {
-      "con_marca": 786,
-      "total_categoria": 1736,
-      "maximo_representable": 778,
+      "con_marca": 579,
+      "total_categoria": 1036,
+      "maximo_representable": 570,
       "mostradas": 5,
-      "representables": 34,
+      "representables": 30,
       "marcas_omitidas_un_elemento": {
         "KAWASAKI": 1,
         "TRANK": 1,
-        "HALCÓN": 1,
+        "VOLTRIDE": 1,
         "ULENDO": 1,
         "BUCATTI": 1,
+        "TORVAN": 1,
         "MIDHA": 1,
         "LONCIN": 1,
         "HARLEY": 1
       },
       "marcas": {
-        "TOPMAQ": 146,
-        "SUZUKI": 67,
-        "UNISON": 55,
-        "AVA": 45,
-        "HALCON": 38
+        "HALCON": 62,
+        "SUZUKI": 62,
+        "UNISON": 60,
+        "AVA": 44,
+        "TRECK": 30
       }
     },
     "Eléctricos": {
-      "con_marca": 1600,
-      "total_categoria": 2514,
-      "maximo_representable": 1596,
+      "con_marca": 1839,
+      "total_categoria": 2852,
+      "maximo_representable": 1836,
       "mostradas": 5,
-      "representables": 42,
+      "representables": 44,
       "marcas_omitidas_un_elemento": {
         "RAIBONW": 1,
-        "CAROMA": 1,
         "CHAGENGUER": 1,
         "ULENDO": 1
       },
       "marcas": {
+        "TOPMAQ": 331,
         "VEDCA": 215,
-        "TOPMAQ": 207,
         "YOAZAKY": 190,
-        "CHALLENGER": 129,
+        "CHALLENGER": 130,
         "JMD": 111
       }
     },
     "Bicicletas": {
-      "con_marca": 52,
-      "total_categoria": 528,
-      "maximo_representable": 48,
+      "con_marca": 48,
+      "total_categoria": 378,
+      "maximo_representable": 45,
       "mostradas": 5,
       "representables": 7,
       "marcas_omitidas_un_elemento": {
         "ESKUTE": 1,
         "DCMLZ": 1,
-        "IZUKI": 1,
-        "TOPMAQ": 1
+        "IZUKI": 1
       },
       "marcas": {
         "SILVERBIKE": 16,
         "VIVAMAX": 12,
         "RALI": 5,
         "PORTOBELLO": 5,
-        "HUFFY": 5
+        "KATZU": 3
       }
     }
   },
   "marcas_vehiculos": {
-    "con_marca": 2533,
+    "con_marca": 2596,
     "total": 4979,
     "top_global": {
-      "TOPMAQ": 388,
+      "TOPMAQ": 390,
       "VEDCA": 215,
       "YOAZAKY": 209,
-      "CHALLENGER": 129,
+      "HALCON": 132,
+      "CHALLENGER": 130,
       "JMD": 114,
       "AVA": 89,
-      "HALCON": 83,
       "IZUKI": 83,
       "BUCATTI": 83,
       "MIKAZUKI": 81,
       "SUZUKI": 67,
-      "UNISON": 55,
+      "UNISON": 60,
       "MAF": 54,
       "ITALY": 50,
       "KVITOVA": 47
@@ -175,8 +171,8 @@
   },
   "cobertura_informacion": {
     "total_anuncios": 4979,
-    "con_marca": 2533,
-    "con_marca_pct": 50.9,
+    "con_marca": 2596,
+    "con_marca_pct": 52.1,
     "con_precio": 4673,
     "con_precio_pct": 93.9
   },
@@ -195,31 +191,31 @@
   },
   "precio_por_tipo": {
     "Bicicletas": {
-      "n": 495,
-      "min": 10.42,
-      "mediana": 160.0,
-      "media": 216.95,
+      "n": 378,
+      "min": 50.0,
+      "mediana": 162.5,
+      "media": 211.31,
       "max": 2150.0
     },
     "Eléctricos": {
-      "n": 2474,
+      "n": 2799,
       "min": 50.0,
-      "mediana": 1500.0,
-      "media": 1490.81,
+      "mediana": 1580.0,
+      "media": 1549.24,
       "max": 3800.0
     },
     "Motores": {
-      "n": 1460,
-      "min": 20.0,
-      "mediana": 2000.0,
-      "media": 2021.02,
-      "max": 3700.0
+      "n": 976,
+      "min": 50.0,
+      "mediana": 2050.0,
+      "media": 2089.57,
+      "max": 3600.0
     },
     "Patinetes Eléctricos": {
-      "n": 67,
+      "n": 40,
       "min": 72.0,
-      "mediana": 550.0,
-      "media": 562.57,
+      "mediana": 750.0,
+      "media": 656.8,
       "max": 930.0
     }
   },
@@ -254,20 +250,20 @@
     {
       "grafico": "03_marcas_Patinetes Eléctricos",
       "categoria": "Patinetes Eléctricos",
-      "elementos": 20,
+      "elementos": 16,
       "motivo": "menos de 30 publicaciones con marca"
     }
   ],
   "min_elementos": 30,
   "auditoria_datos_electricos": {
-    "anuncios_electricos": 2514,
-    "con_potencia": 140,
-    "con_potencia_pct": 5.6,
-    "con_autonomia": 87,
+    "anuncios_electricos": 2852,
+    "con_potencia": 164,
+    "con_potencia_pct": 5.8,
+    "con_autonomia": 100,
     "con_autonomia_pct": 3.5,
-    "con_precio": 2480,
-    "con_precio_pct": 98.6,
-    "con_los_tres": 34,
+    "con_precio": 2807,
+    "con_precio_pct": 98.4,
+    "con_los_tres": 40,
     "con_los_tres_pct": 1.4
   },
   "top_precios": [

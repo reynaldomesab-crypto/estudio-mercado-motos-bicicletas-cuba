@@ -15,59 +15,59 @@ Marcas mostradas por grafico: top 5 con mas de un elemento.
 
 ## Motores
 
-Total de entradas de la categoria: 1736. Con marca detectable: 786 (45.3% de la categoria).
-Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 778 (44.8% de la categoria).
+Total de entradas de la categoria: 1036. Con marca detectable: 579 (55.9% de la categoria).
+Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 570 (55.0% de la categoria).
 
 Los porcentajes de la tabla son sobre el máximo representable, que es el primer número.
 
 | Marca | Publicaciones | % del máximo representable |
 | --- | ---: | ---: |
-| TOPMAQ | 146 | 18.77% |
-| SUZUKI | 67 | 8.61% |
-| UNISON | 55 | 7.07% |
-| AVA | 45 | 5.78% |
-| HALCON | 38 | 4.88% |
+| HALCON | 62 | 10.88% |
+| SUZUKI | 62 | 10.88% |
+| UNISON | 60 | 10.53% |
+| AVA | 44 | 7.72% |
+| TRECK | 30 | 5.26% |
 
-**Suma de las 5 marcas mostradas:** 351 publicaciones (45.1% del máximo representable).
+**Suma de las 5 marcas mostradas:** 258 publicaciones (45.3% del máximo representable).
 
 ## Eléctricos
 
-Total de entradas de la categoria: 2514. Con marca detectable: 1600 (63.6% de la categoria).
-Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 1596 (63.5% de la categoria).
+Total de entradas de la categoria: 2852. Con marca detectable: 1839 (64.5% de la categoria).
+Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 1836 (64.4% de la categoria).
 
 Los porcentajes de la tabla son sobre el máximo representable, que es el primer número.
 
 | Marca | Publicaciones | % del máximo representable |
 | --- | ---: | ---: |
-| VEDCA | 215 | 13.47% |
-| TOPMAQ | 207 | 12.97% |
-| YOAZAKY | 190 | 11.90% |
-| CHALLENGER | 129 | 8.08% |
-| JMD | 111 | 6.95% |
+| TOPMAQ | 331 | 18.03% |
+| VEDCA | 215 | 11.71% |
+| YOAZAKY | 190 | 10.35% |
+| CHALLENGER | 130 | 7.08% |
+| JMD | 111 | 6.05% |
 
-**Suma de las 5 marcas mostradas:** 852 publicaciones (53.4% del máximo representable).
+**Suma de las 5 marcas mostradas:** 977 publicaciones (53.2% del máximo representable).
 
 ## Bicicletas
 
-Total de entradas de la categoria: 528. Con marca detectable: 52 (9.8% de la categoria).
-Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 48 (9.1% de la categoria).
+Total de entradas de la categoria: 378. Con marca detectable: 48 (12.7% de la categoria).
+Máximo representable (todas las marcas con mas de un elemento, antes del corte de las 5 mas publicadas): 45 (11.9% de la categoria).
 
 Los porcentajes de la tabla son sobre el máximo representable, que es el primer número.
 
 | Marca | Publicaciones | % del máximo representable |
 | --- | ---: | ---: |
-| SILVERBIKE | 16 | 33.33% |
-| VIVAMAX | 12 | 25.00% |
-| RALI | 5 | 10.42% |
-| PORTOBELLO | 5 | 10.42% |
-| HUFFY | 5 | 10.42% |
+| SILVERBIKE | 16 | 35.56% |
+| VIVAMAX | 12 | 26.67% |
+| RALI | 5 | 11.11% |
+| PORTOBELLO | 5 | 11.11% |
+| KATZU | 3 | 6.67% |
 
-**Suma de las 5 marcas mostradas:** 43 publicaciones (89.6% del máximo representable).
+**Suma de las 5 marcas mostradas:** 41 publicaciones (91.1% del máximo representable).
 
 ## Patinetes Eléctricos
 
-Publicaciones en la categoria: 67.
-Con marca detectable: 20 (29.9% de la categoria).
+Publicaciones en la categoria: 40.
+Con marca detectable: 16 (40.0% de la categoria).
 
 Se omite el detalle por marca: no alcanza el minimo de 30 elementos.
 
@@ -75,4 +75,4 @@ Se omite el detalle por marca: no alcanza el minimo de 30 elementos.
 
 | Gráfico | Elementos | Motivo |
 | --- | ---: | --- |
-| 03_marcas_Patinetes Eléctricos | 20 | menos de 30 publicaciones con marca |
+| 03_marcas_Patinetes Eléctricos | 16 | menos de 30 publicaciones con marca |

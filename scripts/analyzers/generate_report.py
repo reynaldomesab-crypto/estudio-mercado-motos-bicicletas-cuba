@@ -183,6 +183,9 @@ ORDEN_CATEGORIAS = [
 # (21 publicaciones con marca) o Bicicletas Electricas (12) se descartan.
 MIN_ELEMENTOS = 30
 
+# Clasificacion por registro, para auditoria.
+EXPORTAR_CLASIFICACION = ROOT / "data" / "processed" / "vehiculos_clasificados.csv"
+
 # Cuantas marcas se muestran como maximo en los graficos de marcas por
 # categoria. El resto se omite para que las barras mas petites sigan siendo
 # legibles.
@@ -211,16 +214,61 @@ MARCA_PATTERNS = [
     "VIVAMAX", "HUFFY", "SANY", "LIMA", "BTWIN", "PORTOBELLO", "SILVERBIKE",
 ]
 
-# "MOTICO" no es una marca: en los titulos es la palabra que nombra el tipo de
-# vehiculo, y la marca real va justo despues
-# ("MOTICO CHALLENGER CORLEONE", "MOTICO MAF 2026", "BICIMOTO / MOTICO LAITUNING").
-# Se usa como senal de categoria, nunca como marca.
-PALABRA_TIPO_MOTICO = re.compile(r"\bMOTICO\b", re.IGNORECASE)
+# --------------------------------------------------------------------------
+# Senales de tipo de vehiculo. Ninguna de estas palabras es una marca: nombran
+# el tipo de producto y por tanto dicen en que categoria cae el anuncio.
+# --------------------------------------------------------------------------
 
-# "BICIMOTO" es lo mismo: nombre del tipo, no de la marca. Aparece en 1094
-# titulos y solo 2 mencionan cc o gasolina (y ambos son posts que anuncian
-# ambas categorias a la vez), asi que identifica vehiculo electrico.
+# "MOTICO" nombra el tipo y la marca real va justo despues
+# ("MOTICO CHALLENGER CORLEONE", "MOTICO MAF 2026").
+# "BICIMOTO" es lo mismo: aparece en 1094 titulos y solo 2 mencionan cc o
+# gasolina.
+PALABRA_TIPO_MOTICO = re.compile(r"\bMOTICO\b", re.IGNORECASE)
 PALABRA_TIPO_BICIMOTO = re.compile(r"\bBICIMOTOS?\b", re.IGNORECASE)
+
+# El vendedor tambien dice directamente "ELECTRICA"/"ELECTRICO", y declara las
+# especificaciones electricas (voltaje, vatios, amperaje, litio). Esta senal
+# faltaba y Provoco el error mas grave de la categorizacion: de los 121
+# anuncios de TOPMAQ que acabaron en Motores, 78 tenian "electrica" o vatios
+# claramente escrito en el titulo y seguian siendo electricos.
+SENALES_ELECTRICAS = re.compile(
+    r"\bMOTICO\b"
+    r"|\bBICIMOTOS?\b"
+    r"|\bELECTRICA\b|\bELECTRICAS?\b|\bELECTRICOS?\b|\bELECTRICAMENTE\b"
+    r"|\d+\s*V\b|\d+\s*W(?:ATTS?)?\b|\d+\s*AH\b"
+    r"|\bLITIO\b|\bLITHI\b|\bLIFEPO\w*\b|\bBLUETOOTH\b",
+    re.IGNORECASE,
+)
+
+# "MOTORINA" es el termino cubano para la moto electrica y ya se usaba como
+# synonymo de "bicimoto", asi que tambien identifica vehiculo electrico.
+# "BISIMOTO" es la errata habitual de BICIMOTO.
+SENALES_ELECTRICAS = re.compile(
+    SENALES_ELECTRICAS.pattern + r"|\bMOTORINA\b|\bBISIMOTO\b", re.IGNORECASE
+)
+
+# "Patinete electrico" es un vehiculo electrico, pero en este estudio los
+# patinetes son categoria propia y no forman parte de Electricas. Solo se
+# reclasifican cuando el titulo dice MOTICO o BICIMOTO, que entonces describe
+# una motorina y no un patineta.
+PALABRA_TIPO_PATINETE = re.compile(r"\bPATINET[OA]S?\b", re.IGNORECASE)
+SENALES_MOTORINA = re.compile(
+    r"\bMOTICO\b|\bBICIMOTOS?\b|\bBISIMOTO\b|\bMOTORINA\b", re.IGNORECASE
+)
+
+# TOPMAQ es marca mixta, asi que hay anuncios suyos que no dicen ni "electrica"
+# ni "combustion" y solo nombran el modelo. Los modelos se verificaron leyendo
+# los titulos: la gama electrica es EVOLUTION, SHIKRA, S90, F3, E4, BRYDERK y
+# FF; la de combustion es GN 150, AVISPON y RAPTOR. TANK existe en las dos
+# ("TOPMAQ TANK 200cc" y "Motos electricas TOPMAQ TANK"), asi que no decide.
+MODELOS_ELECTRICOS_TOPMAQ = re.compile(
+    r"\bEVOLUTION\w*\b|\bSHI[K]?RA\b|\bCHIKRA\b|\bS90\b|\bF3\b|\bE4\b|"
+    r"\bBRYDERK\b|\bFF\b",
+    re.IGNORECASE,
+)
+MODELOS_COMBUSTION_TOPMAQ = re.compile(
+    r"\bGN\s*1[05]0\b|\bGN125\b|\bAVISP", re.IGNORECASE
+)
 
 # Senal de combustion en el titulo. Necesaria para las marcas mixtas: permite
 # que "Motos de Combustion TOPMAQ TANK 200cc" seReconozca como moto de
@@ -388,9 +436,17 @@ def clasificar_contenido_generico(titulo: str) -> str:
 
 
 def normalizar_para_acentos(texto: str) -> str:
+    """Pasa un titulo a ASCII sin tildes ni letras matematicas.
+
+    Importa porque muchos vendedores escriben con acentos ("MOTICO ELECTRICA")
+    o con letras en negrita Unicode ("BICIMOTO" con formato matematico). Sin
+    esta normalizacion las expresiones regulares no coinciden con ninguno de los
+    dos casos y el anuncio se clasifica mal. Se usa NFKD porque es la unica
+    forma de descomponer el bloque de simbolos matematicos.
+    """
     if not isinstance(texto, str):
         return ""
-    descompuesto = unicodedata.normalize("NFD", texto)
+    descompuesto = unicodedata.normalize("NFKD", texto)
     return "".join(c for c in descompuesto if unicodedata.category(c) != "Mn").upper()
 
 # Mapa modelo -> marca madre calculado en runtime a partir de los titulos.
@@ -491,8 +547,8 @@ def load_json(path: Path) -> list[dict]:
 
 
 def normalizar_texto(texto: str) -> str:
-    """Normaliza erratas de tecleo y modelos antes de buscar la marca."""
-    normalizado = texto.upper()
+    """Normaliza acentos, letras matematicas y erratas antes de buscar la marca."""
+    normalizado = normalizar_para_acentos(texto)
     for errata, correcto in ERRATA_A_MARCA.items():
         if errata in normalizado:
             normalizado = re.sub(
@@ -939,25 +995,77 @@ def main() -> None:
     parts["marca_detectada"] = parts["title"].map(extract_brand).str.upper()
     veh["categoria"] = veh["vehicle_type"].map(CATEGORIA_MAP).fillna("Otros")
     veh["categoria_original"] = veh["categoria"]
-    titulos = veh["title"].fillna("")
+    # Se clasifica sobre el titulo normalizado: sin acentos ni letras
+    # matematicas, que es como se escriben de verdad las señales.
+    titulos = veh["title"].fillna("").map(normalizar_para_acentos)
 
     # "MOTICO" y "BICIMOTO" en el titulo identifican un vehiculo electrico de
     # dos ruedas, aunque la plataforma lo haya guardado en otra categoria
     # ("Moto", "Moto Combustion", "Otro"). Es la misma senal que ahora agrupa
     # motorinas y bicicletas electricas en la categoria ELECTRICAS.
     es_tipo_electrico = titulos.str.contains(
-        f"{PALABRA_TIPO_MOTICO.pattern}|{PALABRA_TIPO_BICIMOTO.pattern}",
-        case=False,
-        regex=True,
+        SENALES_ELECTRICAS.pattern, case=False, regex=True
     )
+    # Los patinetes conservan su propia categoria salvo que el titulo los
+    # describa como motorina o bicimoto.
+    es_patinete = titulos.str.contains(
+        PALABRA_TIPO_PATINETE.pattern, case=False, regex=True
+    )
+    es_motorina_de_titulo = titulos.str.contains(
+        SENALES_MOTORINA.pattern, case=False, regex=True
+    )
+    es_tipo_electrico = es_tipo_electrico & ~(es_patinete & ~es_motorina_de_titulo)
     veh.loc[es_tipo_electrico, "categoria"] = ELECTRICAS
 
     # La senal de combustion manda cuando el titulo la menciona, para las marcas
     # de dos gamas. Se aplica despues de la electrica y antes de la marca, de
     # modo que "MOTORES DE BICIMOTOS..." sin cc siga siendo pieza electrica y
     # "Motos de Combustion TOPMAQ TANK 200cc" acabe en Motores.
+    # Para TOPMAQ, que es marca mixta, el modelo decide cuando el titulo no dice
+    # ni "electrica" ni "combustion".
+    # Un anuncio sin titulo no se puede clasificar por tipo: la categoria que
+    # trae la plataforma no es evidencia suficiente. Pasan a "Otros" en lugar de
+    # quedarse como vehiculos de combustion que nadie ha verificado. Los 606
+    # registros sin titulo (12% del dataset) vienen de Facebook, donde el campo
+    # marca se relleno pero el texto no.
+    sin_titulo = veh["title"].fillna("").str.strip() == ""
+    veh.loc[sin_titulo, "categoria"] = "Otros"
+
+    # Un anuncio que solo describe una pieza (bateria, cargador) no es un
+    # vehiculo, aunque la plataforma lo archivara como moto. Se aparta de las
+    # categorias de vehiculo por el mismo motivo.
+    # Solo es "una pieza" si nombra la pieza y NO nombra ningun vehiculo. Asi no
+    # se arrastran fuera anuncios de vehiculo entero que describen su bateria
+    # ("Bicicleta electrica marca ONEBOT, bateria 48V").
+    solo_pieza = (
+        titulos.str.contains(
+            r"\bBATERI\w*\b|\bCARGADOR\w*\b", case=False, regex=True
+        )
+        & ~titulos.str.contains(
+            r"\bMOTOS?\b|\bBICIMOTOS?\b|\bMOTICOS?\b|\bMOTORINAS?\b"
+            r"|\bBICICLETAS?\b|\bPATINET[OA]S?\b",
+            case=False,
+            regex=True,
+        )
+    )
+    veh.loc[solo_pieza & ~sin_titulo, "categoria"] = "Otros"
+
+    es_topmaq = veh["marca_detectada"] == "TOPMAQ"
+    es_tipo_electrico = es_tipo_electrico | (
+        es_topmaq
+        & titulos.str.contains(
+            MODELOS_ELECTRICOS_TOPMAQ.pattern, case=False, regex=True
+        )
+    )
+    veh.loc[es_tipo_electrico, "categoria"] = ELECTRICAS
+
     es_tipo_combustion = titulos.str.contains(
         PALABRA_TIPO_COMBUSTION.pattern, case=False, regex=True
+    ) | (
+        es_topmaq
+        & titulos.str.contains(
+            MODELOS_COMBUSTION_TOPMAQ.pattern, case=False, regex=True
+        )
     )
     solo_combustion = es_tipo_combustion & ~es_tipo_electrico
     combustion_a_motores = solo_combustion & (veh["categoria"] == ELECTRICAS)
@@ -985,6 +1093,17 @@ def main() -> None:
     )
 
     todos_veh = veh
+
+    # Exporta la clasificacion registro a registro. Sirve para auditar las
+    # decisiones categoria a categoria sin tener que releer el codigo, que es
+    # como se detectaron los errores de TOPMAQ y de las marcas mixtas.
+    if EXPORTAR_CLASIFICACION:
+        salida = todos_veh[
+            ["title", "source", "vehicle_type", "marca_detectada", "categoria"]
+        ].rename(columns={"vehicle_type": "categoria_fuente"})
+        EXPORTAR_CLASIFICACION.parent.mkdir(parents=True, exist_ok=True)
+        salida.to_csv(EXPORTAR_CLASIFICACION, index=False)
+        print(f"  [ok] {EXPORTAR_CLASIFICACION.relative_to(ROOT)}")
     resultados: dict = {
         "volumen": {
             "vehicles_curated_bruto": int(len(veh_raw)),
