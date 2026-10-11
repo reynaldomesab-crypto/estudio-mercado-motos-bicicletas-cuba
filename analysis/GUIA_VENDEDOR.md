@@ -1,7 +1,7 @@
 # Guía de buenas prácticas para vendedores
 
 Guía para quienes venden motos, eléctricas, bicicletas y patinetes en La Habana,
-escrita a partir del análisis de **4.979 anuncios reales** de
+escrita a partir del análisis de **4.860 anuncios reales** de
 Revolico, iTENCEL, ElYerroMenu y Facebook.
 
 No es publicidad ni un curso. Es una lectura del mercado basada en datos, para
@@ -36,8 +36,8 @@ problema es del vendedor, no del comprador.
 
 ### La marca
 
-El **42.4%** de los vehículos reales —1.824 de
-4.303— no dice su marca en el título.
+El **45.5%** de los vehículos reales —2.210 de
+4.860— no dice su marca en el título.
 
 Quien busca "Topmaq" no ve esos anuncios. No es que estén mal posicionados ni
 que la plataforma los esconda: sencillamente no existen para una búsqueda por
@@ -45,19 +45,19 @@ marca.
 
 | Categoría | Anuncios | Sin marca |
 | --- | ---: | ---: |
-| Motores | 1.036 | 44.1% |
-| Eléctricos | 2.825 | 35.8% |
-| **Bicicletas** | 378 | **87.3%** |
+| Motores | 1.272 | 47.9% |
+| Eléctricos | 3.006 | 37.4% |
+| **Bicicletas** | 518 | **87.1%** |
 | Patinetes eléctricos | 64 | 39.1% |
 
-En bicicletas el problema es casi total: 87.3% sin marca
-(330 de 378). La categoría está documentada peor que
+En bicicletas el problema es casi total: 87.1% sin marca
+(451 de 518). La categoría está documentada peor que
 ninguna otra.
 
 ### La ubicación
 
-Solo el **53.5%** de los anuncios declara su municipio: el
-**46.5%** no dice dónde está el vehículo.
+Solo el **91.2%** de los anuncios declara su municipio: el
+**8.8%** no dice dónde está el vehículo.
 
 Un comprador que busca en su barrio no puede ver tu anuncio aunque lo tenga a
 dos cuadras. Y la comparación de precios por zona, que es la más útil para
@@ -75,10 +75,10 @@ convierten un anuncio invisible en uno localizable.
 El título es lo único que el comprador ve antes de decidir si te escribe. Y es
 donde el mercado más falla.
 
-- **53.5%** de los títulos no tienen **ningún número**
-  (2.663 anuncios).
-- **606** anuncios están directamente **sin título**
-  (12.2%).
+- **43.3%** de los títulos no tienen **ningún número**
+  (2.155 anuncios).
+- **11** anuncios están directamente **sin título**
+  (0.2%).
 
 Un título sin números no se puede filtrar ni comparar. Si no dice qué autonomía
 tiene, el comprador tiene que preguntarlo, y cada pregunta es una venta que se pierde.
@@ -133,14 +133,7 @@ Mediana de precio publicado, de las ocho marcas con más anuncios:
 
 | Marca | Anuncios | Mediana | Rango p10–p90 |
 | --- | ---: | ---: | ---: |
-| BUCATTI | 83 | 2.600 USD | 900–3.190 |
-| YOAZAKY | 198 | 2.280 USD | 1.600–2.915 |
-| TOPMAQ | 381 | 2.150 USD | 1.800–2.950 |
-| HALCON | 130 | 1.800 USD | 1.085–2.682 |
-| AVA | 89 | 1.650 USD | 946–2.510 |
-| VEDCA | 210 | 1.600 USD | 1.250–2.500 |
-| JMD | 113 | 1.600 USD | 750–1.750 |
-| CHALLENGER | 129 | 850 USD | 750–1.388 |
+<tr><td>TOPMAQ</td><td class='num'>387</td><td class='num'>2.150 USD</td><td class='num'>1.780–2.900</td></tr><tr><td>VEDCA</td><td class='num'>214</td><td class='num'>1.600 USD</td><td class='num'>1.250–2.500</td></tr><tr><td>YOAZAKY</td><td class='num'>203</td><td class='num'>2.250 USD</td><td class='num'>1.604–2.900</td></tr><tr><td>HALCON</td><td class='num'>148</td><td class='num'>1.800 USD</td><td class='num'>771–2.650</td></tr><tr><td>CHALLENGER</td><td class='num'>130</td><td class='num'>850 USD</td><td class='num'>750–1.403</td></tr><tr><td>JMD</td><td class='num'>115</td><td class='num'>1.600 USD</td><td class='num'>750–1.750</td></tr><tr><td>AVA</td><td class='num'>90</td><td class='num'>1.650 USD</td><td class='num'>948–2.550</td></tr><tr><td>BUCATTI</td><td class='num'>86</td><td class='num'>2.600 USD</td><td class='num'>900–3.175</td></tr>
 
 La diferencia entre la mediana más alta y la más baja de esta lista es de **más
 de tres veces**. Marcas como SUZUKI, con mediana de 3.200 USD, quedan fuera de
@@ -157,14 +150,7 @@ publicados:
 
 | Municipio | Anuncios | Mediana |
 | --- | ---: | ---: |
-| Cerro | 107 | 700 USD |
-| Arroyo Naranjo | 128 | 820 USD |
-| Diez de Octubre | 314 | 900 USD |
-| Marianao | 123 | 1.100 USD |
-| Playa | 422 | 1.450 USD |
-| Guanabacoa | 61 | 1.560 USD |
-| Habana Vieja | 107 | 1.620 USD |
-| Habana del Este | 69 | 1.920 USD |
+<tr><td>Cerro</td><td class='num'>107</td><td class='num'>700 USD</td></tr><tr><td>Arroyo Naranjo</td><td class='num'>128</td><td class='num'>820 USD</td></tr><tr><td>Diez de Octubre</td><td class='num'>314</td><td class='num'>900 USD</td></tr><tr><td>Marianao</td><td class='num'>123</td><td class='num'>1.100 USD</td></tr><tr><td>Playa</td><td class='num'>422</td><td class='num'>1.450 USD</td></tr><tr><td>Guanabacoa</td><td class='num'>61</td><td class='num'>1.560 USD</td></tr><tr><td>Habana Vieja</td><td class='num'>107</td><td class='num'>1.620 USD</td></tr><tr><td>Habana del Este</td><td class='num'>69</td><td class='num'>1.920 USD</td></tr>
 
 Cerro y Habana del Este están a **2.7 veces** de distancia en la misma ciudad.
 Y si no publicas tu municipio, no apareces en ninguno de estos comparativos.
@@ -178,7 +164,7 @@ Y si no publicas tu municipio, no apareces en ninguno de estos comparativos.
 
 Un dato que define el estándar del sector:
 
-- **53.5%** publican teléfono de WhatsApp (2.662 anuncios).
+- **59.9%** publican teléfono de WhatsApp (2.982 anuncios).
 - **1 anuncio** en todo el mercado usa correo electrónico.
 
 Es decir: **el correo electrónico prácticamente no existe en este mercado**. Si
@@ -215,7 +201,7 @@ donde hay poca publicación.
 | Segmento | Volumen | Lectura |
 | --- | ---: | --- |
 | **Patinetes eléctricos** | 64 anuncios | Prácticamente sin competencia en todo el mercado |
-| **Bicicletas** | 378 anuncios | Categoría pequeña y la peor documentada (87.3% sin marca) |
+| **Bicicletas** | 518 anuncios | Categoría pequeña y la peor documentada (87.1% sin marca) |
 | **Repuestos** | 523 registros en el archivo | Buena parte no son piezas, sino vehículos mal clasificados |
 | **Zonas fuera de Centro Habana** | — | Menos competencia y casi sin oferta publicada |
 
@@ -259,8 +245,8 @@ también produce conclusiones falsas con mucha seguridad.
 
 Y el problema de origen, que explica por qué un estudio así cuesta trabajo:
 
-- **606** anuncios sin título (12.2%)
-- **656** anuncios sin ninguna señal de tipo (13.2%)
+- **11** anuncios sin título (0.2%)
+- **99** anuncios sin ninguna señal de tipo (2.0%)
 
 Clasificar este mercado exigió escribir reglas de clasificación y auditarlas
 para que no hubiera errores. **Ningún vendedor puede esperar que el mercado se

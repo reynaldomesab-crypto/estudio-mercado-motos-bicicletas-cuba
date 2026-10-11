@@ -1,7 +1,7 @@
 # Guía de buenas prácticas para vendedores
 
 Guía para quienes venden motos, eléctricas, bicicletas y patinetes en La Habana,
-escrita a partir del análisis de **{{TOTAL_VEHICULOS}} anuncios reales** de
+escrita a partir del análisis de **{{VEHICULOS_REALES}} anuncios reales** de
 Revolico, iTENCEL, ElYerroMenu y Facebook.
 
 No es publicidad ni un curso. Es una lectura del mercado basada en datos, para
@@ -45,10 +45,10 @@ marca.
 
 | Categoría | Anuncios | Sin marca |
 | --- | ---: | ---: |
-| Motores | 1.036 | 44.1% |
-| Eléctricos | 2.825 | 35.8% |
-| **Bicicletas** | 378 | **87.3%** |
-| Patinetes eléctricos | 64 | 39.1% |
+| Motores | {{MOTORES_TOTAL}} | {{MOTORES_PCT_SIN_MARCA}}% |
+| Eléctricos | {{ELECTRICOS_TOTAL}} | {{ELECTRICOS_PCT_SIN_MARCA}}% |
+| **Bicicletas** | {{BICI_TOTAL}} | **{{PCT_SIN_MARCA_BICI}}%** |
+| Patinetes eléctricos | {{PATINETES}} | {{PATINETES_PCT_SIN_MARCA}}% |
 
 En bicicletas el problema es casi total: {{PCT_SIN_MARCA_BICI}}% sin marca
 ({{SIN_MARCA_BICI}} de {{BICI_TOTAL}}). La categoría está documentada peor que
@@ -133,14 +133,7 @@ Mediana de precio publicado, de las ocho marcas con más anuncios:
 
 | Marca | Anuncios | Mediana | Rango p10–p90 |
 | --- | ---: | ---: | ---: |
-| BUCATTI | 83 | 2.600 USD | 900–3.190 |
-| YOAZAKY | 198 | 2.280 USD | 1.600–2.915 |
-| TOPMAQ | 381 | 2.150 USD | 1.800–2.950 |
-| HALCON | 130 | 1.800 USD | 1.085–2.682 |
-| AVA | 89 | 1.650 USD | 946–2.510 |
-| VEDCA | 210 | 1.600 USD | 1.250–2.500 |
-| JMD | 113 | 1.600 USD | 750–1.750 |
-| CHALLENGER | 129 | 850 USD | 750–1.388 |
+{{TABLA_MARCAS}}
 
 La diferencia entre la mediana más alta y la más baja de esta lista es de **más
 de tres veces**. Marcas como SUZUKI, con mediana de 3.200 USD, quedan fuera de
@@ -157,14 +150,7 @@ publicados:
 
 | Municipio | Anuncios | Mediana |
 | --- | ---: | ---: |
-| Cerro | 107 | 700 USD |
-| Arroyo Naranjo | 128 | 820 USD |
-| Diez de Octubre | 314 | 900 USD |
-| Marianao | 123 | 1.100 USD |
-| Playa | 422 | 1.450 USD |
-| Guanabacoa | 61 | 1.560 USD |
-| Habana Vieja | 107 | 1.620 USD |
-| Habana del Este | 69 | 1.920 USD |
+{{TABLA_MUNICIPIOS}}
 
 Cerro y Habana del Este están a **2.7 veces** de distancia en la misma ciudad.
 Y si no publicas tu municipio, no apareces en ninguno de estos comparativos.

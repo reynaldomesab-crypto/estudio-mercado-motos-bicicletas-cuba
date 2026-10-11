@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import re
 import statistics
+import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -26,6 +27,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import normalizar_registros  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data" / "curated"
@@ -971,9 +975,15 @@ def escribir_apendice_porcentajes(
 def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
-    veh_raw = load_json(VEHICLES_FILE)
+    # Facebook guarda el cuerpo de la publicacion en `text` y ElYerro el nombre
+    # del producto en `name`: ninguno de los dos usa `title`. Se normaliza antes
+    # de clasificar, o 606 anuncios unicos se reportarian como "sin informacion"
+    # cuando si la tienen, solo que en otro campo.
+    veh_raw = normalizar_registros.normalizar_todos(load_json(VEHICLES_FILE))
     veh_items = dedup(veh_raw, "source_url")
-    parts_items = dedup(load_json(PARTS_FILE), "source_url")
+    parts_items = dedup(
+        normalizar_registros.normalizar_todos(load_json(PARTS_FILE)), "source_url"
+    )
 
     # El mapa modelo -> marca madre se deduce de estos mismos titulos antes de
     # extraer marcas, para que los titulos que solo nombran un modelo ("Bicimoto

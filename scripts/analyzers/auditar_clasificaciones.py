@@ -125,7 +125,7 @@ def auditar(df: pd.DataFrame, detalle: int) -> dict:
         fuga["titulo"] += "  -> ninguno"
         print("  Ninguno. No hay vehiculo electrico clasificado como motor.")
     else:
-        for _, r in fuga.head(detalle).iterrows():
+        for _, r in sub.head(detalle).iterrows():
             print(f"  {str(r.title)[:74]!r}")
     informe["fugas_electricas_en_motores"] = fuga
 
@@ -137,7 +137,7 @@ def auditar(df: pd.DataFrame, detalle: int) -> dict:
         fuga2["titulo"] += "  -> ninguno"
         print("  Ninguno.")
     else:
-        for _, r in fuga2.head(detalle).iterrows():
+        for _, r in sub2.head(detalle).iterrows():
             print(f"  {str(r.title)[:74]!r}")
     informe["fugas_combustion_en_electricos"] = fuga2
 

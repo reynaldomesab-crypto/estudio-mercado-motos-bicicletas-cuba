@@ -24,15 +24,15 @@
       "VORTAX",
       "YOAZAKY"
     ],
-    "de_motores_a_electricas": 590
+    "de_motores_a_electricas": 605
   },
   "senal_tipo_electrico_en_titulo": {
-    "total": 2682,
-    "de_motores_a_electricas": 1400
+    "total": 2871,
+    "de_motores_a_electricas": 1548
   },
   "senal_tipo_combustion_en_titulo": {
-    "titulos_con_senal": 736,
-    "exentos_por_marca_solo_electrica": 24,
+    "titulos_con_senal": 841,
+    "exentos_por_marca_solo_electrica": 26,
     "marcas_mixtas_detectadas": [
       "TOPMAQ"
     ]
@@ -44,11 +44,11 @@
     }
   },
   "categorias_vehiculo": {
-    "Motores": 1036,
-    "Eléctricos": 2825,
-    "Bicicletas": 378,
+    "Motores": 1272,
+    "Eléctricos": 3006,
+    "Bicicletas": 518,
     "Patinetes Eléctricos": 64,
-    "Otros": 656
+    "Otros": 99
   },
   "categorias_por_fuente_detalle": {
     "revolico": {
@@ -72,28 +72,34 @@
     "facebook": {
       "total": 396,
       "categorias": {
-        "Eléctricos": 13,
-        "Otros": 383
+        "Motores": 195,
+        "Eléctricos": 133,
+        "Bicicletas": 49,
+        "Otros": 19
       }
     },
     "elyerro": {
       "total": 210,
       "categorias": {
-        "Otros": 210
+        "Motores": 41,
+        "Eléctricos": 61,
+        "Bicicletas": 91,
+        "Otros": 17
       }
     }
   },
   "marcas_por_categoria": {
     "Motores": {
-      "con_marca": 579,
-      "total_categoria": 1036,
-      "maximo_representable": 570,
+      "con_marca": 663,
+      "total_categoria": 1272,
+      "maximo_representable": 653,
       "mostradas": 5,
-      "representables": 30,
+      "representables": 33,
       "marcas_omitidas_un_elemento": {
         "KAWASAKI": 1,
         "TRANK": 1,
         "VOLTRIDE": 1,
+        "MONDIAL": 1,
         "ULENDO": 1,
         "BUCATTI": 1,
         "TORVAN": 1,
@@ -102,36 +108,37 @@
         "HARLEY": 1
       },
       "marcas": {
-        "HALCON": 62,
-        "SUZUKI": 62,
-        "UNISON": 60,
-        "AVA": 44,
-        "TRECK": 30
+        "HALCON": 71,
+        "SUZUKI": 64,
+        "UNISON": 63,
+        "AVA": 45,
+        "MOTORSTRECK": 31
       }
     },
     "Eléctricos": {
-      "con_marca": 1813,
-      "total_categoria": 2825,
-      "maximo_representable": 1810,
+      "con_marca": 1881,
+      "total_categoria": 3006,
+      "maximo_representable": 1877,
       "mostradas": 5,
-      "representables": 44,
+      "representables": 45,
       "marcas_omitidas_un_elemento": {
         "RAIBONW": 1,
+        "HALCÓN": 1,
         "CHAGENGUER": 1,
         "ULENDO": 1
       },
       "marcas": {
-        "TOPMAQ": 327,
-        "VEDCA": 215,
-        "YOAZAKY": 190,
-        "CHALLENGER": 124,
-        "JMD": 101
+        "TOPMAQ": 350,
+        "VEDCA": 219,
+        "YOAZAKY": 195,
+        "CHALLENGER": 125,
+        "JMD": 103
       }
     },
     "Bicicletas": {
-      "con_marca": 48,
-      "total_categoria": 378,
-      "maximo_representable": 45,
+      "con_marca": 67,
+      "total_categoria": 518,
+      "maximo_representable": 64,
       "mostradas": 5,
       "representables": 7,
       "marcas_omitidas_un_elemento": {
@@ -140,11 +147,11 @@
         "IZUKI": 1
       },
       "marcas": {
-        "SILVERBIKE": 16,
-        "VIVAMAX": 12,
-        "RALI": 5,
-        "PORTOBELLO": 5,
-        "KATZU": 3
+        "SILVERBIKE": 23,
+        "VIVAMAX": 16,
+        "HUFFY": 8,
+        "RALI": 6,
+        "PORTOBELLO": 5
       }
     },
     "Patinetes Eléctricos": {
@@ -166,30 +173,30 @@
     }
   },
   "marcas_vehiculos": {
-    "con_marca": 2596,
+    "con_marca": 2720,
     "total": 4979,
     "top_global": {
-      "TOPMAQ": 390,
-      "VEDCA": 215,
-      "YOAZAKY": 209,
-      "HALCON": 132,
-      "CHALLENGER": 130,
-      "JMD": 114,
-      "AVA": 89,
-      "IZUKI": 83,
-      "BUCATTI": 83,
-      "MIKAZUKI": 81,
-      "SUZUKI": 67,
-      "UNISON": 60,
+      "TOPMAQ": 396,
+      "VEDCA": 219,
+      "YOAZAKY": 214,
+      "HALCON": 150,
+      "CHALLENGER": 131,
+      "JMD": 116,
+      "AVA": 90,
+      "BUCATTI": 87,
+      "IZUKI": 85,
+      "MIKAZUKI": 84,
+      "SUZUKI": 68,
+      "UNISON": 63,
       "MAF": 54,
-      "ITALY": 50,
-      "KVITOVA": 47
+      "ITALY": 52,
+      "KVITOVA": 48
     }
   },
   "cobertura_informacion": {
     "total_anuncios": 4979,
-    "con_marca": 2596,
-    "con_marca_pct": 52.1,
+    "con_marca": 2720,
+    "con_marca_pct": 54.6,
     "con_precio": 4673,
     "con_precio_pct": 93.9
   },
@@ -208,25 +215,25 @@
   },
   "precio_por_tipo": {
     "Bicicletas": {
-      "n": 378,
-      "min": 50.0,
-      "mediana": 162.5,
-      "media": 211.31,
+      "n": 487,
+      "min": 10.42,
+      "mediana": 160.0,
+      "media": 203.9,
       "max": 2150.0
     },
     "Eléctricos": {
-      "n": 2773,
+      "n": 2885,
       "min": 50.0,
-      "mediana": 1600.0,
-      "media": 1556.39,
+      "mediana": 1580.0,
+      "media": 1543.62,
       "max": 3800.0
     },
     "Motores": {
-      "n": 976,
-      "min": 50.0,
-      "mediana": 2050.0,
-      "media": 2089.57,
-      "max": 3600.0
+      "n": 1089,
+      "min": 20.0,
+      "mediana": 2000.0,
+      "media": 2051.39,
+      "max": 3700.0
     },
     "Patinetes Eléctricos": {
       "n": 64,
@@ -244,7 +251,7 @@
       "Plaza": 299,
       "Arroyo Naranjo": 128
     },
-    "total_habana": 2596
+    "total_habana": 4445
   },
   "fuentes": {
     "revolico": 2662,
@@ -266,15 +273,15 @@
   "descartados_por_muestra": [],
   "min_elementos": 30,
   "auditoria_datos_electricos": {
-    "anuncios_electricos": 2825,
-    "con_potencia": 159,
-    "con_potencia_pct": 5.6,
-    "con_autonomia": 95,
-    "con_autonomia_pct": 3.4,
-    "con_precio": 2780,
-    "con_precio_pct": 98.4,
-    "con_los_tres": 36,
-    "con_los_tres_pct": 1.3
+    "anuncios_electricos": 3006,
+    "con_potencia": 191,
+    "con_potencia_pct": 6.4,
+    "con_autonomia": 145,
+    "con_autonomia_pct": 4.8,
+    "con_precio": 2892,
+    "con_precio_pct": 96.2,
+    "con_los_tres": 51,
+    "con_los_tres_pct": 1.7
   },
   "top_precios": [
     {

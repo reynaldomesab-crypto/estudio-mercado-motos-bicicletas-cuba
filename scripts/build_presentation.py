@@ -108,14 +108,14 @@ def main() -> None:
     advertencias = "".join(f"<li>{a}</li>" for a in lim["advertencias"])
 
 
-    reemplazos = {
+    # Reemplazos base: usados tanto por el deck como por la guia
+    reemplazos_base = {
         "{{TOTAL_VEHICULOS}}": miles(inv["vehiculos"]),
         "{{VEHICULOS_REALES}}": miles(inv["vehiculos_reales"]),
         "{{SIN_MARCA}}": miles(inv["reales_sin_marca"]),
         "{{PCT_SIN_MARCA}}": inv["pct_reales_sin_marca"],
         "{{PCT_SIN_MARCA_BICI}}": inv["por_categoria"]["Bicicletas"]["pct_sin_marca"],
         "{{SIN_MARCA_BICI}}": miles(inv["por_categoria"]["Bicicletas"]["sin_marca"]),
-        "{{BICI_TOTAL}}": miles(inv["por_categoria"]["Bicicletas"]["anuncios"]),
         "{{PCT_SIN_CIFRA}}": tit["pct_sin_cifra"],
         "{{SIN_CIFRA}}": miles(tit["sin_cifra"]),
         "{{TITULOS_VACIOS}}": miles(tit["vacias"]),
@@ -128,6 +128,7 @@ def main() -> None:
         "{{PCT_CON_PRECIO}}": pre["pct_con_precio"],
         "{{PATINETES}}": hue["patinetes"],
         "{{BICICLETAS}}": hue["bicicletas"],
+        "{{BICI_TOTAL}}": miles(inv["por_categoria"]["Bicicletas"]["anuncios"]),
         "{{PIEZAS}}": miles(hue["piezas_archivo"]),
         "{{MUNI_TOP}}": ubi["municipio_mas_anuncios"],
         "{{MUNI_TOP_PCT}}": ubi["pct_del_total_habana"],
@@ -145,7 +146,21 @@ def main() -> None:
         "{{FIG_FUENTES}}": fig("12_publicaciones_por_fuente.png"),
     }
 
-    html = renderizar(html, reemplazos, list(reemplazos))
+    # El deck usa base + tablas/figuras/advertencias
+    reemplazos_html = dict(reemplazos_base)
+
+    # La guia usa base + claves exclusivas de ella
+    reemplazos_guia = dict(reemplazos_base)
+    reemplazos_guia.update({
+        "{{MOTORES_TOTAL}}": miles(inv["por_categoria"]["Motores"]["anuncios"]),
+        "{{ELECTRICOS_TOTAL}}": miles(inv["por_categoria"]["Eléctricos"]["anuncios"]),
+        "{{MOTORES_PCT_SIN_MARCA}}": inv["por_categoria"]["Motores"]["pct_sin_marca"],
+        "{{ELECTRICOS_PCT_SIN_MARCA}}": inv["por_categoria"]["Eléctricos"]["pct_sin_marca"],
+        "{{PATINETES_PCT_SIN_MARCA}}": inv["por_categoria"]["Patinetes Eléctricos"]["pct_sin_marca"],
+        "{{BICI_TOTAL}}": miles(inv["por_categoria"]["Bicicletas"]["anuncios"]),
+    })
+
+    html = renderizar(html, reemplazos_html, list(reemplazos_html))
 
     # Ninguna URL externa debe sobrevivir: el deck tiene que abrir sin internet.
     externas = re.findall(r'(?:src|href)="(https?:)?//[^"]+"', html)
@@ -160,11 +175,16 @@ def main() -> None:
     print(f"[ok] {SALIDA.relative_to(RAIZ)} ({kb:.0f} KB, {diapositivas} diapositivas)")
     print("[ok] Sin recursos externos: funciona sin internet")
 
+    # Extraer claves directamente de la plantilla de la guía: así garantizamos
+    # que coinciden exactamente y no sobra ni falta ninguna.
+    plantilla_guia = PLANTILLA_GUIA.read_text(encoding="utf-8")
+    claves_guia = sorted(set(re.findall(r"\{\{[A-Z_]+\}\}", plantilla_guia)))
+
     # La guia se genera desde la misma evidencia, con las mismas cifras.
     guia = renderizar(
-        PLANTILLA_GUIA.read_text(encoding="utf-8"),
-        reemplazos,
-        [k for k in reemplazos if not k.startswith(("{{FIG_", "{{TABLA_")) and k != "{{ADVERTENCIAS}}"],
+        plantilla_guia,
+        {k: v for k, v in reemplazos_guia.items() if k in claves_guia},
+        claves_guia,
     )
     SALIDA_GUIA.write_text(guia, encoding="utf-8")
     print(f"[ok] {SALIDA_GUIA.relative_to(RAIZ)} ({len(guia.splitlines())} lineas)")
