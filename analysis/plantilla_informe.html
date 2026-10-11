@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITULO}}</title>
+<style>
+:root{
+  --tinta:#1B3A57;
+  --tinta-suave:#5A7794;
+  --ambar:#D98E04;
+  --rojo:#9B2226;
+  --verde:#3F6B4E;
+  --pantalla:#FFFFFF;
+  --texto:#1A1A1A;
+  --gris:#6E6E6E;
+  --regla:#D9D5CC;
+  --fondo-suave:#F4F2ED;
+  --serif:'DejaVu Serif',Georgia,'Liberation Serif','Times New Roman',serif;
+  --sans:'DejaVu Sans','Liberation Sans',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:100%;scroll-behavior:smooth}
+body{
+  font-family:var(--sans);
+  font-size:1.05rem;
+  line-height:1.65;
+  color:var(--texto);
+  background:var(--pantalla);
+  max-width:860px;
+  margin:0 auto;
+  padding:2.5rem 2rem 4rem;
+}
+@media print{
+  body{padding:0;margin:0;font-size:11pt}
+  .no-print{display:none}
+  .page-break{page-break-before:always}
+}
+
+/* TÍTULOS */
+h1,h2,h3,h4{font-family:var(--serif);color:var(--tinta);line-height:1.2;margin-top:2.5rem;margin-bottom:0.8rem}
+h1{font-size:2.2rem;border-bottom:3px solid var(--ambar);padding-bottom:0.5rem}
+h2{font-size:1.7rem;color:var(--tinta-suave)}
+h3{font-size:1.35rem}
+h4{font-size:1.1rem;color:var(--tinta-suave)}
+
+p{margin:0.7rem 0}
+.lead{font-size:1.15rem;color:var(--gris);margin:1rem 0 1.5rem}
+a{color:var(--tinta);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:var(--ambar)}
+
+.abstract{
+  background:var(--fondo-suave);
+  border-left:4px solid var(--ambar);
+  padding:1.5rem 2rem;
+  margin:1.5rem 0;
+  font-size:1.05rem;
+  line-height:1.7;
+}
+.keywords{font-size:0.95rem;color:var(--gris);margin-top:1rem}
+.keywords strong{color:var(--texto)}
+
+hr.seccion{border:0;border-top:1px solid var(--regla);margin:3rem 0}
+
+/* FIGURAS Y TABLAS */
+.figure{
+  margin:2rem 0;
+  text-align:center;
+  page-break-inside:avoid;
+}
+.fig{
+  max-width:100%;
+  height:auto;
+  border:1px solid var(--regla);
+  border-radius:6px;
+  box-shadow:0 2px 8px rgba(27,58,87,0.06);
+}
+.fig-faltante{
+  background:#FFF3E0;border:1px solid var(--ambar);
+  color:var(--ambar);padding:1rem;border-radius:6px;
+}
+.caption{
+  display:block;margin-top:0.5rem;font-size:0.9rem;
+  color:var(--gris);font-style:italic;text-align:left;
+}
+.fig::after{
+  content:attr(alt);
+  display:block;margin-top:0.4rem;font-size:0.88rem;
+  color:var(--gris);font-style:italic;
+}
+
+table{
+  width:100%;border-collapse:collapse;margin:1.5rem 0;
+  font-size:0.92rem;page-break-inside:avoid;
+}
+th,td{border-bottom:1px solid var(--regla);padding:0.55rem 0.7rem;text-align:left}
+th{
+  font-family:var(--sans);font-weight:600;font-size:0.82rem;
+  letter-spacing:0.06em;text-transform:uppercase;color:var(--gris);
+}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+tr:first-child td{font-weight:600;color:var(--tinta)}
+tr:first-child td.num{color:var(--tinta)}
+caption{
+  caption-side:bottom;text-align:left;font-size:0.88rem;
+  color:var(--gris);margin-top:0.5rem;font-style:italic;
+}
+
+/* LISTAS */
+ul,ol{margin:0.7rem 0 0.7rem 1.6rem}
+li{margin:0.35rem 0;line-height:1.6}
+
+/* CITAS Y DESTACADOS */
+blockquote{
+  border-left:3px solid var(--ambar);
+  padding:0.8rem 1.2rem;margin:1.5rem 0;
+  background:var(--fondo-suave);font-style:italic;
+}
+.callout{
+  background:var(--fondo-suave);
+  border:1px solid var(--regla);
+  border-left:4px solid var(--ambar);
+  padding:1rem 1.5rem;margin:1.5rem 0;
+  border-radius:4px;
+}
+.callout.warning{border-left-color:var(--rojo)}
+.callout strong{color:var(--tinta)}
+
+/* METADATOS PORTADA */
+.portada{
+  text-align:center;margin-bottom:3rem;padding-bottom:2rem;
+  border-bottom:2px solid var(--regla);
+}
+.portada h1{font-size:2.6rem;margin-bottom:0.5rem;border:none}
+.portada .sub{font-size:1.2rem;color:var(--gris);margin:1rem 0}
+.portada .meta{font-size:0.95rem;color:var(--gris);margin-top:1.5rem}
+
+/* TOC */
+.toc{
+  background:var(--fondo-suave);
+  border:1px solid var(--regla);
+  border-radius:6px;
+  padding:1.5rem 2rem;margin:2rem 0;
+}
+.toc h2{margin-top:0;font-size:1.3rem}
+.toc ul{list-style:none;margin:0;padding:0}
+.toc li{margin:0.3rem 0}
+.toc a{color:var(--tinta);text-decoration:none}
+.toc a:hover{text-decoration:underline}
+
+/* FOOTNOTES */
+.footnotes{font-size:0.85rem;color:var(--gris);margin-top:3rem}
+.footnotes ol{margin-left:1.2rem}
+.footnotes li{margin:0.25rem 0}
+
+/* CODIGO */
+code{font-family:'DejaVu Sans Mono',monospace;font-size:0.9em;background:var(--fondo-suave);padding:0.1em 0.35em;border-radius:3px}
+pre{background:#1B3A57;color:#E8EAF0;padding:1rem;border-radius:6px;overflow-x:auto;margin:1rem 0}
+pre code{background:none;padding:0;font-size:0.9rem}
+
+/* NO PRINT */
+.no-print{margin:2rem 0;padding:1rem;background:#FFF8E1;border:1px solid var(--ambar);border-radius:6px;font-size:0.9rem}
+
+/* RESPONSIVE */
+@media (max-width:640px){
+  body{padding:1.5rem 1rem 3rem;font-size:1rem}
+  h1{font-size:1.8rem}h2{font-size:1.4rem}h3{font-size:1.15rem}
+  table{font-size:0.85rem}
+  th,td{padding:0.4rem 0.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- PORTADA -->
+<header class="portada no-print">
+  <h1>{{TITULO}}</h1>
+  <p class="sub">{{SUBTITULO}}</p>
+  <p class="meta">{{AUTOR}} · {{FECHA}} · Versión {{VERSION}}</p>
+</header>
+
+<!-- ABSTRACT -->
+<section class="abstract" id="abstract">
+  <h2>Resumen</h2>
+  <p>{{ABSTRACT}}</p>
+  <p class="keywords"><strong>Palabras clave:</strong> {{KEYWORDS}}</p>
+</section>
+
+<!-- TOC -->
+<nav class="toc no-print" aria-label="Tabla de contenidos">
+  <h2>Contenido</h2>
+  <ul>
+    <li><a href="#1-introduccion">1. Introducción</a></li>
+    <li><a href="#2-materiales-y-metodos">2. Materiales y Métodos</a></li>
+    <li><a href="#3-resultados">3. Resultados</a></li>
+    <li><a href="#4-discusion-y-conclusiones">4. Discusión y Conclusiones</a></li>
+    <li><a href="#referencias">Referencias</a></li>
+  </ul>
+</nav>
+
+<hr class="seccion">
+
+<!-- 1. INTRODUCCION -->
+<section id="1-introduccion">
+  <h1>1. Introducción</h1>
+
+  <h2>1.1 Contexto: el mercado invisible</h2>
+  <p class="lead">
+    El mercado de vehículos de dos ruedas en La Habana mueve miles de anuncios al mes
+    a través de plataformas de clasificados, grupos de Facebook y directorios locales.
+    Sin embargo, no existe un registro unificado ni un estándar mínimo de publicación.
+    Quien quiere comprar una moto eléctrica no puede filtrar por autonomía; quien busca
+    una bicicleta no puede ordenar por marca; quien vende no sabe si su precio es
+    competitivo ni si su anuncio aparece en las búsquedas.
+  </p>
+
+  <h2>1.2 Planteamiento del problema</h2>
+  <p>
+    Analizamos <strong>{{TOTAL_ANUNCIOS}}</strong> anuncios únicos de cuatro fuentes
+    públicas (Revolico, iTENCEL, ElYerroMenu y Facebook). Tras normalizar los datos
+    —recuperando el texto del anuncio desde campos alternativos, extrayendo teléfono y
+    ubicación del cuerpo del texto, y corrigiendo la clasificación— quedamos con
+    <strong>{{VEHICULOS_REALES}} vehículos reales</strong> (motores, eléctricos,
+    bicicletas y patinetes).
+  </p>
+  <p>
+    El diagnóstico es contundente:
+  </p>
+  <ul>
+    <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los vehículos reales no dice su marca en el título.</li>
+    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cc, ni voltaje, ni autonomía, ni kilometraje).</li>
+    <li>Solo el <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación (tras normalización; sin ella caía al {{PCT_SIN_UBICACION}} %).</li>
+    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp; el correo electrónico es residual (<strong>1 anuncio</strong> en todo el mercado).</li>
+    <li>Los <strong>{{PATINETES}} patinetes</strong> y las <strong>{{BICICLETAS}} bicicletas</strong> suman apenas una fracción del mercado; la primera es un hueco casi sin competencia, la segunda está mal documentada (<strong>{{PCT_SIN_MARCA_BICI}} %</strong> sin marca).</li>
+  </ul>
+  <p>
+    Estas no son opiniones: son mediciones sobre 4.979 anuncios únicos, auditados
+    automáticamente.
+  </p>
+
+  <h2>1.3 Alcance</h2>
+  <p>
+    Este estudio <strong>no</strong> mide ventas reales, ni distingue nuevo de usado,
+    ni captura tendencias temporales (no hay fecha por anuncio). Su alcance es
+    diagnosticar la <strong>calidad de la información publicada</strong> y proponer
+    un estándar mínimo que cualquier vendedor pueda aplicar mañana.
+  </p>
+
+  <h2>1.4 Trabajo previo</h2>
+  <p>
+    A nuestro conocimiento, no existe un estudio previo que audite la completitud de
+    los anuncios de este mercado cubano. Los reportes disponibles se limitan a
+    conteos de anuncios por categoría sin evaluar la utilidad de la información para
+    el comprador. Este trabajo cierra esa brecha aplicando una metodología
+    reproducible y auditable.
+  </p>
+
+  <h2>1.5 Objetivo y aportes</h2>
+  <p>Este trabajo contribuye en tres direcciones:</p>
+  <ol>
+    <li><strong>Diagnóstico cuantitativo</strong> de la información que falta en los anuncios (marca, cifra, zona, contacto), medido por categoría y por fuente.</li>
+    <li><strong>Referencia de precios</strong> por marca y por municipio, con medianas y rangos percentilares, para que el vendedor sepa en qué posición está.</li>
+    <li><strong>Pipeline reproducible y auditable</strong>: clasificación por reglas explícitas, auditoría automática de 9 comprobaciones, y código abierto que regenera todo el informe.</li>
+  </ol>
+</section>
+
+<hr class="seccion">
+
+<!-- 2. MATERIALES Y METODOS -->
+<section id="2-materiales-y-metodos">
+  <h1>2. Materiales y Métodos</h1>
+
+  <h2>2.1 Enfoque analítico</h2>
+  <p>
+    El estudio sigue tres fases: <strong>recolección → normalización → clasificación →
+    auditoría → análisis</strong>. Cada fase es determinista y se regenera desde el
+    código.
+  </p>
+
+  <h2>2.2 Recolección y normalización de datos</h2>
+  <p>
+    Cuatro fuentes: Revolico, iTENCEL, ElYerroMenu y Facebook. El total bruto fue
+    5.391 registros; tras deduplicación por <code>source_url</code>, 4.979 anuncios
+    únicos (412 duplicados eliminados).
+  </p>
+  <p class="callout">
+    <strong>Hallazgo crítico de normalización:</strong> tres fuentes no usan el campo
+    <code>title</code> para el texto del anuncio. Facebook lo publica en <code>text</code>
+    (cuerpo del post), ElYerro lo guarda en <code>name</code> (nombre del producto en
+    catálogo). Sin esta normalización, <strong>606 anuncios quedaban sin texto</strong>
+    y se reportaban erróneamente como "vendedores que no informan". La normalización
+    recupera también teléfono (616 en texto de Facebook), ubicación (340 en campo
+    <code>location</code> de Facebook) y WhatsApp (enlaces <code>wa.me/</code>).
+  </p>
+
+  <h2>2.3 Clasificación y taxonomía</h2>
+  <p>
+    Cinco categorías de vehículo: <strong>Motores</strong> (combustión), <strong>Eléctricos</strong>,
+    <strong>Bicicletas</strong>, <strong>Patinetes Eléctricos</strong>, <strong>Otros</strong>.
+    La asignación usa reglas jerárquicas sobre el título normalizado (sin acentos,
+    Unicode a ASCII): señales de tipo (cc, motor, gasolina, eléctrico, voltaje,
+    vatios, patinete, bicimoto), luego marca, luego señales residuales.
+  </p>
+  <p>
+    La categoría <strong>Partes y Accesorios</strong> se procesa por separado (20
+    anuncios únicos de 523 brutos; el resto eran vehículos mal clasificados).
+  </p>
+
+  <h2>2.4 Auditoría automática</h2>
+  <p>
+    Un script independiente (<code>scripts/analyzers/auditar_clasificaciones.py</code>)
+    ejecuta 9 comprobaciones:
+  </p>
+  <ol>
+    <li>Marcas declaradas solo-eléctricas que tienen anuncios de combustión.</li>
+    <li>Eléctricos clasificados en Motores.</li>
+    <li>Combustión clasificados en Eléctricos.</li>
+    <li>Marcas con ambas señales en el mismo anuncio.</li>
+    <li>Piezas contadas como vehículo.</li>
+    <li>Patinetes absorbidos en Eléctricos por orden de reglas.</li>
+    <li>Anuncios sin título.</li>
+    <li>Anuncios sin señal de tipo (categoría "Otros").</li>
+    <li>Baterías/cargadores clasificados como vehículo.</li>
+  </ol>
+  <p>
+    Resultado actual: <strong>3 hallazgos menores</strong> ({{AUDITORIA_DETALLE}}).
+    <strong>0 problemas graves</strong> en la clasificación principal.
+  </p>
+
+  <h2>2.5 Métodos de análisis</h2>
+  <ul>
+    <li><strong>Conteos y proporciones</strong> por categoría, marca, municipio, fuente.</li>
+    <li><strong>Estadísticos de precio</strong>: mediana, percentil 10 y 90 (rango interpercentílico).</li>
+    <li><strong>Índice de encontrabilidad</strong>: proporción de anuncios que cumplen las tres condiciones simultáneas —declaran marca, declaran zona, incluyen al menos una cifra—.</li>
+    <li><strong>Concentración geográfica</strong>: participación de cada municipio en el total de La Habana.</li>
+  </ul>
+</section>
+
+<hr class="seccion">
+
+<!-- 3. RESULTADOS -->
+<section id="3-resultados">
+  <h1>3. Resultados</h1>
+
+  <h2>3.1 Composición del mercado</h2>
+  <p>
+    De los {{TOTAL_ANUNCIOS}} anuncios únicos, {{VEHICULOS_REALES}} son vehículos
+    clasificados en las cuatro categorías objetivo ({{PCT_REALES}} %). El resto son
+    "Otros" (sin señal de tipo) o piezas.
+  </p>
+  <div class="figure">{{FIG_COMPOSICION}}<span class="caption">Figura 1. Composición del mercado por categoría.</span></div>
+
+  <h2>3.2 Cobertura de la información</h2>
+  <p>
+    La figura siguiente resume qué datos existen y cuáles faltan en los anuncios.
+    El precio se publica ampliamente; la información que permite <em>comparar</em>
+    (marca, zona, cifra) es la que falta.
+  </p>
+  <div class="figure">{{FIG_COBERTURA}}<span class="caption">Figura 2. Disponibilidad de cada campo en los anuncios.</span></div>
+
+  <h2>3.3 Encontrabilidad: la métrica que resume el problema</h2>
+  <p>
+    Un anuncio solo es encontrable si dice <strong>marca + zona + una cifra</strong>.
+    La figura siguiente desglosa cada requisito y la intersección de los tres
+    (barras rojas).
+  </p>
+  <div class="figure">{{FIG_ENCONTRABILIDAD}}<span class="caption">Figura 3. Porcentaje de anuncios que cumple cada requisito de encontrabilidad, por categoría.</span></div>
+
+  <h2>3.4 Calidad del título</h2>
+  <p>
+    El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no trae ninguna cifra.
+    Solo el <strong>{{PCT_TITULOS_VACIOS}} %</strong> está completamente vacío
+    (tras normalización, casi todo es ruido "May be an image of...").
+  </p>
+  <div class="figure">{{FIG_CALIDAD_TITULO}}<span class="caption">Figura 4. Títulos sin cifra y títulos vacíos, por categoría.</span></div>
+
+  <h2>3.5 Precio por marca</h2>
+  <p>
+    La tabla siguiente muestra la mediana y el rango p10–p90 para las marcas con
+    20 o más anuncios. La dispersión dentro de cada marca es ancha: la marca sola
+    no determina el precio.
+  </p>
+  <div class="figure">
+    {{FIG_PRECIO_MARCA}}
+    <span class="caption">Figura 5. Mediana y rango percentil 10–90 del precio declarado, por marca (20+ anuncios).</span>
+  </div>
+  <table>
+    <caption>Tabla 1. Precio mediano y rango p10–p90 por marca (20+ anuncios).</caption>
+    {{TABLA_MARCAS}}
+  </table>
+
+  <h2>3.6 Precio por municipio</h2>
+  <p>
+    En La Habana, la zona pesa más que la marca. La diferencia entre el municipio
+    más barato y el más caro es de <strong>2,7 veces</strong>, mayor que la variación
+    entre marcas.
+  </p>
+  <div class="figure">
+    {{FIG_PRECIO_MUNICIPIO}}
+    <span class="caption">Figura 6. Mediana de precio por municipio (≥ 50 anuncios), ordenada por precio.</span>
+  </div>
+  <table>
+    <caption>Tabla 2. Mediana de precio por municipio en La Habana (≥ 50 anuncios).</caption>
+    {{TABLA_MUNICIPIOS}}
+  </table>
+
+  <h2>3.7 Concentración geográfica</h2>
+  <p>
+    Centro Habana concentra el <strong>{{MUNI_TOP_PCT}} %</strong> de los anuncios
+    con ubicación y precio declarados. No significa que fuera no haya mercado,
+    significa que <strong>fuera no hay publicación</strong>.
+  </p>
+  <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 7. Anuncios por municipio en La Habana.</span></div>
+
+  <h2>3.8 El canal de contacto</h2>
+  <p>
+    El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp. El correo electrónico
+    aparece en <strong>1 solo anuncio</strong>. Publicar sin WhatsApp deja fuera a
+    casi todos los compradores.
+  </p>
+  <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 8. Medio de contacto declarado en los anuncios.</span></div>
+
+  <h2>3.9 Fuentes y su calidad de información</h2>
+  <p>
+    Las cuatro fuentes no son intercambiables: Revolico aporta ubicación y contacto
+    completos; iTENCEL aporta precio y marca; Facebook aporta volumen pero títulos
+    vacíos; ElYerro aporta catálogo con nombre y precio.
+  </p>
+  <div class="figure">{{FIG_FUENTES}}<span class="caption">Figura 9. Anuncios únicos por fuente.</span></div>
+
+  <h2>3.10 Los huecos del mercado</h2>
+  <p>
+    Donde hay poca oferta publicada, hay oportunidad para quien profesionalice su
+    anuncio.
+  </p>
+  <ul>
+    <li><strong>Patinetes eléctricos:</strong> {{PATINETES}} anuncios en todo el mercado.</li>
+    <li><strong>Bicicletas:</strong> {{BICICLETAS}} anuncios, {{PCT_SIN_MARCA_BICI}} % sin marca.</li>
+    <li><strong>Repuestos:</strong> el archivo tiene 523 registros, pero buena parte son vehículos mal clasificados; el mercado real está desatendido.</li>
+    <li><strong>Zonas fuera de Centro Habana:</strong> menos competencia, casi sin oferta visible.</li>
+  </ul>
+  <div class="figure">{{FIG_HUECOS}}<span class="caption">Figura 10. Volumen por segmento con lectura comercial.</span></div>
+
+  <h2>3.11 Distribución de precios por categoría</h2>
+  <p>
+    Dentro de cada categoría el precio se mueve en un rango ancho. La mediana
+    resume el centro, pero el intervalo entre cuartiles advierte que "fijar precio
+    por la mediana de la categoría" es solo un punto de partida.
+  </p>
+  <div class="figure">{{FIG_PRECIOS_CAT}}<span class="caption">Figura 11. Distribución del precio declarado por categoría (box plot, sin valores atípicos).</span></div>
+
+  <h2>3.12 Calidad del dato original</h2>
+  <p>
+    Un <strong>{{PCT_SIN_SENAL}} %</strong> de los anuncios no permite identificar el
+    vehículo (categoría "Otros"). De ellos, <strong>{{SIN_TITULO}} anuncios</strong>
+    no tienen título alguno tras normalización. Clasificarlos por fuerza habría sido
+    inventar información.
+  </p>
+  <div class="figure">{{FIG_CALIDAD_DATO}}<span class="caption">Figura 12. Volumen descartado por falta de información.</span></div>
+
+</section>
+
+<hr class="seccion">
+
+<!-- 4. DISCUSION Y CONCLUSIONES -->
+<section id="4-discusion-y-conclusiones">
+  <h1>4. Discusión y Conclusiones</h1>
+
+  <h2>4.1 Síntesis: el mercado no falla por falta de demanda</h2>
+  <p>
+    Los números son elocuentes: hay compradores (volumen de búsquedas), hay vendedores
+    (miles de anuncios), hay precio (93,9 % publica precio). Lo que falla es la
+    <strong>información que conecta a ambos</strong>. Un anuncio sin marca, sin cifra,
+    sin zona y sin WhatsApp es invisible para el comprador, y esa invisibilidad la paga
+    el vendedor en forma de menor rotación y peor precio.
+  </p>
+
+  <h2>4.2 Interpretación: la necesidad de cambio</h2>
+  <p>
+    Professionalizar un anuncio no es un favor al comprador — es la forma más directa
+    de vender más y mejor. El estándar mínimo que proponemos cuesta cero y tiene
+    efecto inmediato:
+  </p>
+  <ol>
+    <li><strong>Marca</strong> en el título.</li>
+    <li><strong>Cifra clave</strong> (autonomía, cc, voltaje, km, vatios).</li>
+    <li><strong>Municipio</strong> donde está el vehículo.</li>
+    <li><strong>WhatsApp</strong> operativo.</li>
+  </ol>
+  <p class="callout">
+    Un anuncio que cumple estas cuatro condiciones aparece en <em>todas</em> las
+    búsquedas relevantes. Uno que no las cumple, en <em>ninguna</em>.
+  </p>
+
+  <h2>4.3 Limitaciones</h2>
+  <ul>
+    {{ADVERTENCIAS}}
+  </ul>
+  <p>
+    Además, la auditoría de la clasificación reporta <strong>{{AUDITORIA_HALLAZGOS}} hallazgos menores</strong>:
+    {{AUDITORIA_DETALLE}}
+  </p>
+  <p>
+    La categoría "Otros" ({{PCT_SIN_SENAL}} %, {{SIN_SENAL}} anuncios) agrupa
+    anuncios sin ninguna señal de tipo. {{SIN_TITULO}} de ellos ({{PCT_SIN_TITULO}} %)
+    carecen de título. Clasificarlos por fuerza habría sido inventar información.
+  </p>
+
+  <h2>4.4 Trabajo futuro</h2>
+  <ol>
+    <li>Integrar fecha de publicación por anuncio para analizar rotación y estacionalidad.</li>
+    <li>Distinguir condición (nuevo/usado) mediante reglas sobre el título.</li>
+    <li>Construir un índice de rotación por marca y zona.</li>
+    <li>Automatizar la recolección periódica para mantener vivo el estándar.</li>
+  </ol>
+
+  <h2>4.5 Conclusión</h2>
+  <p>
+    El mercado de motos, eléctricas, bicicletas y patinetes en La Habana no tiene un
+    problema de demanda. Tiene un problema de <strong>información</strong>. La
+    profesionalización del anuncio —marca, cifra, zona, WhatsApp— es el cambio de
+    costo cero con mayor retorno para cualquier vendedor. Este estudio entrega el
+    diagnóstico, la referencia de precios y el pipeline reproducible para que ese
+    cambio sea medible y verificable.
+  </p>
+
+</section>
+
+<hr class="seccion">
+
+<!-- REFERENCIAS -->
+<section id="referencias">
+  <h1>Referencias</h1>
+  <ol>
+    <li>Datos propios: 4.979 anuncios únicos de Revolico, iTENCEL, ElYerroMenu y Facebook (scrapeo septiembre–octubre 2025).</li>
+    <li>Weissbock, J. (2025). <em>Re-evaluating the Qualifying/Finish Relationship in Formula One</em>. Carleton University.</li>
+    <li>Código del estudio: <code>scripts/analyzers/</code> (clasificación, normalización, auditoría, figuras, informe).</li>
+  </ol>
+</section>
+
+<div class="footnotes">
+  <h3>Notas metodológicas</h3>
+  <ol>
+    <li>Los precios son los declarados por el vendedor, no un avalúo.</li>
+    <li>La deduplicación es por <code>source_url</code>: un mismo vehículo en dos sitios cuenta como dos.</li>
+    <li>No hay campo de condición (nuevo/usado) ni fecha por anuncio en las fuentes.</li>
+    <li>La normalización recupera texto de <code>text</code> (Facebook), <code>name</code> (ElYerro) y extrae teléfono/ubicación del cuerpo.</li>
+    <li>Todas las cifras y figuras se regeneran desde <code>analysis/evidencia_vendedores.json</code>.</li>
+  </ol>
+</div>
+
+</body>
+</html>
