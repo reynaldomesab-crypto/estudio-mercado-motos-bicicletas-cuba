@@ -103,8 +103,8 @@ def fig_cobertura(df: pd.DataFrame) -> str:
         "Disponibilidad de cada dato en los títulos y fichas de los anuncios",
     )
     E.pie_de_nota(
-        "Un anuncio sin marca, zona ni cifra no es comparable con ningún otro. "
-        "Eso limita a quién lo encuentra, no solo cuánto cobra."
+        "Un anuncio sin marca, zona ni cifra es difícil de comparar con otros. "
+        "Eso puede dificultar que llegue a los compradores interesados."
     )
     return _guardar(fig, "02_cobertura.png")
 
@@ -182,8 +182,8 @@ def fig_encontrabilidad(df: pd.DataFrame) -> str:
         "Porcentaje de anuncios que cumple cada requisito, por categoría",
     )
     E.pie_de_nota(
-        "Las barras rojas son la referencia: todo lo que no llega a la barra roja no "
-        "aparece en una búsqueda por marca, por zona o por característica."
+        "Las barras rojas resumen los anuncios que declaran los tres datos a la vez; "
+        "el resto carece de al menos uno de ellos."
     )
     return _guardar(fig, "03_encontrabilidad.png")
 
@@ -240,8 +240,8 @@ def fig_calidad_titulo(df: pd.DataFrame) -> str:
         "Cifras ausentes y títulos completamente vacíos, por categoría",
     )
     E.pie_de_nota(
-        "Sin una cifra (autonomía, cc, voltaje, kilómetros) no hay forma de filtrar "
-        "ni de comparar: el anuncio existe, pero no es comparable."
+        "Un título sin cifra (autonomía, cilindrada, voltaje o kilómetros) dificulta "
+        "filtrar o comparar el anuncio con otros de la misma categoría."
     )
     return _guardar(fig, "04_calidad_titulo.png")
 
@@ -287,12 +287,13 @@ def fig_precio_marca(df: pd.DataFrame) -> str:
     ax.set_xlim(0, max(p90) * 1.16)
     E.titulo(
         ax,
-        "Las marcas occupies dos órdenes de magnitud de precio",
+        "Las marcas abarcan dos órdenes de magnitud de precio",
         "Mediana y rango percentil 10–90 del precio declarado, por marca con 20 o más anuncios",
     )
     E.pie_de_nota(
         "Los puntos oscuros son marcas con más de 100 anuncios. La dispersión "
-        "dentro de cada marca es ancha: la marca sola no determina el precio."
+        "dentro de cada marca es amplia, lo que sugiere que la marca, por sí sola, "
+        "no determina el precio."
     )
     return _guardar(fig, "05_precio_marca.png")
 
@@ -355,8 +356,8 @@ def fig_geografia(df: pd.DataFrame) -> str:
         + " en total)",
     )
     E.pie_de_nota(
-        "La concentración no indica ausencia de mercado fuera de esa zona, sino "
-        "ausencia de publicación: no es visible para quien busca en su barrio."
+        "La concentración no implica una ausencia de mercado fuera de esa zona, "
+        "sino un menor volumen de publicación."
     )
     return _guardar(fig, "07_geografia.png")
 
@@ -390,7 +391,7 @@ def fig_contacto(df: pd.DataFrame) -> str:
               loc="center left", bbox_to_anchor=(1.0, 0.5), labelspacing=1.4)
     E.titulo(
         ax,
-        "El correo electrónico no existe en este mercado",
+        "El WhatsApp predomina como medio de contacto",
         "Medio de contacto declarado en los anuncios",
     )
     return _guardar(fig, "08_contacto.png")
@@ -411,12 +412,13 @@ def fig_fuentes(df: pd.DataFrame) -> str:
     )
     E.titulo(
         ax,
-        "Cuatro fuentes, cuatro niveles de calidad de información",
+        "Cuatro fuentes con distintos niveles de detalle",
         "Anuncios únicos por fuente de publicación",
     )
     E.pie_de_nota(
-        "Facebook aporta el volumen, pero también los títulos vacíos. Las fuentes "
-        "no son intercambiables: cada una exige un estándar distinto."
+        "Facebook aporta el mayor volumen, aunque parte de sus anuncios requiere "
+        "normalización del texto. Las fuentes no son equivalentes: cada una presenta "
+        "distintos niveles de detalle."
     )
     return _guardar(fig, "09_fuentes.png")
 
@@ -425,10 +427,10 @@ def fig_huecos(df: pd.DataFrame) -> str:
     """La cara optimista: donde hay hueco hay oportunidad."""
     conteo = df["categoria"].value_counts()
     filas = [
-        ("Eléctricos", conteo.get("Eléctricos", 0), "Oferta alta, competencia alta"),
+        ("Eléctricos", conteo.get("Eléctricos", 0), "Oferta alta"),
         ("Motores", conteo.get("Motores", 0), "Oferta media"),
-        ("Bicicletas", conteo.get("Bicicletas", 0), "Oferta baja y mal documentada"),
-        ("Patinetes", conteo.get("Patinetes Eléctricos", 0), "Prácticamente sin competencia"),
+        ("Bicicletas", conteo.get("Bicicletas", 0), "Oferta baja"),
+        ("Patinetes", conteo.get("Patinetes Eléctricos", 0), "Oferta muy baja"),
     ]
 
     fig, ax = E.nueva_figura(9.4, 4.2)
@@ -438,17 +440,17 @@ def fig_huecos(df: pd.DataFrame) -> str:
     E.barras_horizontales(
         nombres, valores, ax, colores,
         formato=lambda v: f"{v:,.0f}".replace(",", "."),
-        sufijo=["muy competido", "competido", "sin documentar", "hueco de mercado"],
+        sufijo=["oferta alta", "oferta media", "oferta baja", "oferta muy baja"],
         xlabel="Anuncios",
     )
     E.titulo(
         ax,
-        "Un segmento con 64 anuncios no tiene mercado: tiene una oportunidad",
-        "Volumen por segmento, con la lectura comercial de cada uno",
+        "Segmentos con menor oferta publicada",
+        "Volumen por segmento según los anuncios recopilados",
     )
     E.pie_de_nota(
-        "Publicar bien en un segmento con poca oferta es más rentable que "
-        "publicar más en uno saturado."
+        "En los segmentos con poca oferta publicada podría haber más espacio para "
+        "nuevos anuncios."
     )
     return _guardar(fig, "10_huecos.png")
 
@@ -506,7 +508,7 @@ def fig_descartados(df: pd.DataFrame) -> str:
     )
     for i, v in enumerate([util, sin_senal]):
         ax.text(
-            v + total * 0.012, i, f"{v:,}".replace(",", ".") + f"   ({v / total * 1:.1f} %)",
+            v + total * 0.012, i, f"{v:,}".replace(",", "."),
             va="center", fontsize=E.BASE_FIG - 1, color=E.TINTA_TEXTO, fontweight="bold",
         )
     ax.set_xlim(0, total * 1.22)
@@ -514,7 +516,7 @@ def fig_descartados(df: pd.DataFrame) -> str:
     ax.invert_yaxis()
     E.titulo(
         ax,
-        f"Un {'%d' % round(sin_senal / total * 100)} % de los anuncios no permite identificar el vehículo",
+        f"{sin_senal:,}".replace(",", ".") + " anuncios no permiten identificar el vehículo",
         "Volumen descartado por falta de información, no por error del estudio",
     )
     E.pie_de_nota(

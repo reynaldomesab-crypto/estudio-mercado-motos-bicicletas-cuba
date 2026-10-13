@@ -185,11 +185,11 @@ def seccion_limites(df):
         "sin_senal_tipo": sin_senal,
         "pct_sin_senal": round(sin_senal / total * 100, 1),
         "advertencias": [
-            "Mas publicadas no es mas vendidas: el estudio no observa ventas, solo anuncios.",
-            "Los precios son los que declaro el vendedor, no un avaluo.",
-            "No hay campo de condicion (nuevo/usado): no se puede distinguir.",
-            "No hay fecha por anuncio: no se puede afirmar tendencia ni estacionalidad.",
-            "La deduplicacion es por URL: un vehiculo publicado en dos sitios cuenta como dos.",
+            "Publicar más no equivale a vender más: el estudio no observa ventas, solo anuncios.",
+            "Los precios son los que declara el vendedor; no constituyen un avalúo.",
+            "No existe un campo de condición (nuevo o usado): no es posible distinguirla.",
+            "No hay fecha por anuncio: no se puede afirmar una tendencia ni estacionalidad.",
+            "La deduplicación se realiza por URL: un vehículo publicado en dos sitios cuenta como dos.",
         ],
     }
 

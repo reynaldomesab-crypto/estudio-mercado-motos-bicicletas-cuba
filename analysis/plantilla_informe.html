@@ -83,11 +83,6 @@ hr.seccion{border:0;border-top:1px solid var(--regla);margin:3rem 0}
   display:block;margin-top:0.5rem;font-size:0.9rem;
   color:var(--gris);font-style:italic;text-align:left;
 }
-.fig::after{
-  content:attr(alt);
-  display:block;margin-top:0.4rem;font-size:0.88rem;
-  color:var(--gris);font-style:italic;
-}
 
 table{
   width:100%;border-collapse:collapse;margin:1.5rem 0;
@@ -206,12 +201,12 @@ pre code{background:none;padding:0;font-size:0.9rem}
 
   <h2>1.1 Contexto: el mercado invisible</h2>
   <p class="lead">
-    El mercado de vehículos de dos ruedas en La Habana mueve miles de anuncios al mes
-    a través de plataformas de clasificados, grupos de Facebook y directorios locales.
-    Sin embargo, no existe un registro unificado ni un estándar mínimo de publicación.
-    Quien quiere comprar una moto eléctrica no puede filtrar por autonomía; quien busca
-    una bicicleta no puede ordenar por marca; quien vende no sabe si su precio es
-    competitivo ni si su anuncio aparece en las búsquedas.
+    El mercado de vehículos de dos ruedas en La Habana reúne miles de anuncios en
+    plataformas de clasificados, grupos de Facebook y directorios locales. Sin
+    embargo, no existe un registro unificado ni un estándar mínimo de publicación.
+    Un anuncio que no declara marca, zona o una cifra clave difícilmente puede
+    compararse con otros, lo que podría dificultar tanto la búsqueda del comprador
+    como la difusión del propio anuncio.
   </p>
 
   <h2>1.2 Planteamiento del problema</h2>
@@ -224,43 +219,44 @@ pre code{background:none;padding:0;font-size:0.9rem}
     bicicletas y patinetes).
   </p>
   <p>
-    El diagnóstico es contundente:
+    El análisis de los anuncios arroja las siguientes proporciones:
   </p>
   <ul>
-    <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los vehículos reales no dice su marca en el título.</li>
-    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cc, ni voltaje, ni autonomía, ni kilometraje).</li>
-    <li>Solo el <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación (tras normalización; sin ella caía al {{PCT_SIN_UBICACION}} %).</li>
-    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp; el correo electrónico es residual (<strong>1 anuncio</strong> en todo el mercado).</li>
-    <li>Los <strong>{{PATINETES}} patinetes</strong> y las <strong>{{BICICLETAS}} bicicletas</strong> suman apenas una fracción del mercado; la primera es un hueco casi sin competencia, la segunda está mal documentada (<strong>{{PCT_SIN_MARCA_BICI}} %</strong> sin marca).</li>
+    <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los vehículos reales no declara su marca en el título.</li>
+    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cilindrada, ni voltaje, ni autonomía, ni kilometraje).</li>
+    <li>El <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación (tras la normalización; sin ella la cifra descendía al {{PCT_SIN_UBICACION}} %).</li>
+    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp; el correo electrónico apenas aparece (un solo anuncio en todo el conjunto).</li>
+    <li>Los <strong>{{PATINETES}} patinetes</strong> y las <strong>{{BICICLETAS}} bicicletas</strong> representan una fracción pequeña del conjunto; en el caso de las bicicletas, el <strong>{{PCT_SIN_MARCA_BICI}} %</strong> no declara marca.</li>
   </ul>
   <p>
-    Estas no son opiniones: son mediciones sobre 4.979 anuncios únicos, auditados
-    automáticamente.
+    Estas cifras proceden de 4.979 anuncios únicos y de una clasificación auditada
+    automáticamente. Describen lo que los anuncios publican, no el comportamiento de
+    compra o venta.
   </p>
 
   <h2>1.3 Alcance</h2>
   <p>
-    Este estudio <strong>no</strong> mide ventas reales, ni distingue nuevo de usado,
-    ni captura tendencias temporales (no hay fecha por anuncio). Su alcance es
-    diagnosticar la <strong>calidad de la información publicada</strong> y proponer
-    un estándar mínimo que cualquier vendedor pueda aplicar mañana.
+    Este estudio <strong>no</strong> mide ventas reales, ni distingue entre vehículos
+    nuevos y usados, ni captura tendencias temporales (no hay fecha por anuncio). Su
+    alcance se limita a describir la <strong>calidad de la información publicada</strong>
+    y a sugerir un estándar mínimo de publicación que los vendedores podrían adoptar.
   </p>
 
   <h2>1.4 Trabajo previo</h2>
   <p>
-    A nuestro conocimiento, no existe un estudio previo que audite la completitud de
-    los anuncios de este mercado cubano. Los reportes disponibles se limitan a
-    conteos de anuncios por categoría sin evaluar la utilidad de la información para
-    el comprador. Este trabajo cierra esa brecha aplicando una metodología
-    reproducible y auditable.
+    Hasta donde alcanza nuestra revisión, no hemos localizado un estudio previo que
+    audite la completitud de los anuncios de este mercado cubano. Los informes
+    disponibles se limitan a conteos de anuncios por categoría, sin evaluar la
+    utilidad de la información para el comprador. Este trabajo busca aportar en esa
+    dirección mediante una metodología reproducible y auditable.
   </p>
 
   <h2>1.5 Objetivo y aportes</h2>
   <p>Este trabajo contribuye en tres direcciones:</p>
   <ol>
-    <li><strong>Diagnóstico cuantitativo</strong> de la información que falta en los anuncios (marca, cifra, zona, contacto), medido por categoría y por fuente.</li>
-    <li><strong>Referencia de precios</strong> por marca y por municipio, con medianas y rangos percentilares, para que el vendedor sepa en qué posición está.</li>
-    <li><strong>Pipeline reproducible y auditable</strong>: clasificación por reglas explícitas, auditoría automática de 9 comprobaciones, y código abierto que regenera todo el informe.</li>
+    <li><strong>Diagnóstico cuantitativo</strong> de la información que falta en los anuncios (marca, cifra, zona y contacto), medido por categoría y por fuente.</li>
+    <li><strong>Referencia de precios por marca</strong>, con medianas y rangos percentilares, que puede servir al vendedor para situar su anuncio.</li>
+    <li><strong>Proceso reproducible y auditable</strong>: clasificación por reglas explícitas, auditoría automática de nueve comprobaciones y código abierto que regenera el presente informe.</li>
   </ol>
 </section>
 
@@ -272,44 +268,52 @@ pre code{background:none;padding:0;font-size:0.9rem}
 
   <h2>2.1 Enfoque analítico</h2>
   <p>
-    El estudio sigue tres fases: <strong>recolección → normalización → clasificación →
-    auditoría → análisis</strong>. Cada fase es determinista y se regenera desde el
-    código.
+    El estudio sigue un proceso de cinco etapas: <strong>captura del dato →
+    preprocesamiento → estructuración → procesamiento → análisis</strong>. En la
+    captura se reúnen los anuncios de las cuatro fuentes; en el preprocesamiento se
+    limpian y normalizan los campos; en la estructuración se unifican los registros y
+    se eliminan los duplicados; en el procesamiento se aplica la clasificación y se
+    derivan los campos de interés; y en el análisis se calculan las métricas que aquí
+    se presentan. Cada etapa es determinista y se regenera a partir del código.
   </p>
 
   <h2>2.2 Recolección y normalización de datos</h2>
   <p>
-    Cuatro fuentes: Revolico, iTENCEL, ElYerroMenu y Facebook. El total bruto fue
-    5.391 registros; tras deduplicación por <code>source_url</code>, 4.979 anuncios
-    únicos (412 duplicados eliminados).
+    Se utilizaron cuatro fuentes: Revolico, iTENCEL, ElYerroMenu y Facebook. El total
+    bruto fue de 5.391 registros; tras la deduplicación por <code>source_url</code>,
+    quedaron 4.979 anuncios únicos (412 duplicados eliminados).
   </p>
   <p class="callout">
-    <strong>Hallazgo crítico de normalización:</strong> tres fuentes no usan el campo
+    <strong>Hallazgo relevante de normalización:</strong> tres fuentes no usan el campo
     <code>title</code> para el texto del anuncio. Facebook lo publica en <code>text</code>
-    (cuerpo del post), ElYerro lo guarda en <code>name</code> (nombre del producto en
-    catálogo). Sin esta normalización, <strong>606 anuncios quedaban sin texto</strong>
-    y se reportaban erróneamente como "vendedores que no informan". La normalización
-    recupera también teléfono (616 en texto de Facebook), ubicación (340 en campo
-    <code>location</code> de Facebook) y WhatsApp (enlaces <code>wa.me/</code>).
+    (cuerpo de la publicación) y ElYerro lo guarda en <code>name</code> (nombre del
+    producto en el catálogo). Sin esta normalización, <strong>606 anuncios quedaban sin
+    texto</strong> y podrían haberse contabilizado como anuncios que no informan. La
+    normalización recupera también el teléfono (616 en el texto de Facebook), la
+    ubicación (340 en el campo <code>location</code> de Facebook) y el WhatsApp
+    (enlaces <code>wa.me/</code>).
   </p>
 
   <h2>2.3 Clasificación y taxonomía</h2>
   <p>
-    Cinco categorías de vehículo: <strong>Motores</strong> (combustión), <strong>Eléctricos</strong>,
-    <strong>Bicicletas</strong>, <strong>Patinetes Eléctricos</strong>, <strong>Otros</strong>.
-    La asignación usa reglas jerárquicas sobre el título normalizado (sin acentos,
-    Unicode a ASCII): señales de tipo (cc, motor, gasolina, eléctrico, voltaje,
-    vatios, patinete, bicimoto), luego marca, luego señales residuales.
+    Se definen cinco categorías de vehículo: <strong>Motores</strong> (combustión),
+    <strong>Eléctricos</strong>, <strong>Bicicletas</strong>, <strong>Patinetes
+    eléctricos</strong> y <strong>Otros</strong>. La asignación utiliza reglas
+    jerárquicas sobre el título normalizado (sin acentos, con conversión de Unicode a
+    ASCII): primero las señales de tipo (cilindrada, motor, gasolina, eléctrico,
+    voltaje, vatios, patinete, bicimoto), después la marca y, por último, las señales
+    residuales.
   </p>
   <p>
     La categoría <strong>Partes y Accesorios</strong> se procesa por separado (20
-    anuncios únicos de 523 brutos; el resto eran vehículos mal clasificados).
+    anuncios únicos de 523 registros brutos; el resto correspondían a vehículos
+    clasificados en esa categoría por error).
   </p>
 
   <h2>2.4 Auditoría automática</h2>
   <p>
     Un script independiente (<code>scripts/analyzers/auditar_clasificaciones.py</code>)
-    ejecuta 9 comprobaciones:
+    ejecuta nueve comprobaciones:
   </p>
   <ol>
     <li>Marcas declaradas solo-eléctricas que tienen anuncios de combustión.</li>
@@ -317,21 +321,21 @@ pre code{background:none;padding:0;font-size:0.9rem}
     <li>Combustión clasificados en Eléctricos.</li>
     <li>Marcas con ambas señales en el mismo anuncio.</li>
     <li>Piezas contadas como vehículo.</li>
-    <li>Patinetes absorbidos en Eléctricos por orden de reglas.</li>
+    <li>Patinetes absorbidos en Eléctricos por el orden de las reglas.</li>
     <li>Anuncios sin título.</li>
     <li>Anuncios sin señal de tipo (categoría "Otros").</li>
-    <li>Baterías/cargadores clasificados como vehículo.</li>
+    <li>Baterías o cargadores clasificados como vehículo.</li>
   </ol>
   <p>
-    Resultado actual: <strong>3 hallazgos menores</strong> ({{AUDITORIA_DETALLE}}).
-    <strong>0 problemas graves</strong> en la clasificación principal.
+    Resultado actual: <strong>3 hallazgos menores</strong>: {{AUDITORIA_DETALLE}}
+    No se detectaron problemas graves en la clasificación principal.
   </p>
 
   <h2>2.5 Métodos de análisis</h2>
   <ul>
-    <li><strong>Conteos y proporciones</strong> por categoría, marca, municipio, fuente.</li>
-    <li><strong>Estadísticos de precio</strong>: mediana, percentil 10 y 90 (rango interpercentílico).</li>
-    <li><strong>Índice de encontrabilidad</strong>: proporción de anuncios que cumplen las tres condiciones simultáneas —declaran marca, declaran zona, incluyen al menos una cifra—.</li>
+    <li><strong>Conteos y proporciones</strong> por categoría, marca, municipio y fuente.</li>
+    <li><strong>Estadísticos de precio</strong>: mediana, percentil 10 y percentil 90 (rango interpercentílico).</li>
+    <li><strong>Índice de encontrabilidad</strong>: proporción de anuncios que cumplen tres condiciones simultáneas —declaran marca, declaran zona e incluyen al menos una cifra—.</li>
     <li><strong>Concentración geográfica</strong>: participación de cada municipio en el total de La Habana.</li>
   </ul>
 </section>
@@ -344,119 +348,106 @@ pre code{background:none;padding:0;font-size:0.9rem}
 
   <h2>3.1 Composición del mercado</h2>
   <p>
-    De los {{TOTAL_ANUNCIOS}} anuncios únicos, {{VEHICULOS_REALES}} son vehículos
-    clasificados en las cuatro categorías objetivo ({{PCT_REALES}} %). El resto son
-    "Otros" (sin señal de tipo) o piezas.
+    De los {{TOTAL_ANUNCIOS}} anuncios únicos, {{VEHICULOS_REALES}} corresponden a
+    vehículos clasificados en las cuatro categorías objetivo ({{PCT_REALES}} %). El
+    resto son "Otros" (sin señal de tipo) o piezas.
   </p>
   <div class="figure">{{FIG_COMPOSICION}}<span class="caption">Figura 1. Composición del mercado por categoría.</span></div>
 
   <h2>3.2 Cobertura de la información</h2>
   <p>
-    La figura siguiente resume qué datos existen y cuáles faltan en los anuncios.
-    El precio se publica ampliamente; la información que permite <em>comparar</em>
-    (marca, zona, cifra) es la que falta.
+    La figura siguiente resume qué datos aparecen en los anuncios. El precio se
+    declara con frecuencia; en cambio, la información que permite comparar anuncios
+    (marca, zona y cifra) aparece en una proporción menor.
   </p>
   <div class="figure">{{FIG_COBERTURA}}<span class="caption">Figura 2. Disponibilidad de cada campo en los anuncios.</span></div>
 
   <h2>3.3 Encontrabilidad: la métrica que resume el problema</h2>
   <p>
-    Un anuncio solo es encontrable si dice <strong>marca + zona + una cifra</strong>.
-    La figura siguiente desglosa cada requisito y la intersección de los tres
-    (barras rojas).
+    Un anuncio es más fácil de encontrar si declara <strong>marca + zona + una
+    cifra</strong>. La figura siguiente desglosa cada requisito y la intersección de
+    los tres (barras rojas).
   </p>
   <div class="figure">{{FIG_ENCONTRABILIDAD}}<span class="caption">Figura 3. Porcentaje de anuncios que cumple cada requisito de encontrabilidad, por categoría.</span></div>
 
   <h2>3.4 Calidad del título</h2>
   <p>
-    El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no trae ninguna cifra.
-    Solo el <strong>{{PCT_TITULOS_VACIOS}} %</strong> está completamente vacío
-    (tras normalización, casi todo es ruido "May be an image of...").
+    El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no incluye ninguna cifra.
+    Solo el <strong>{{PCT_TITULOS_VACIOS}} %</strong> está completamente vacío (tras
+    la normalización, casi todos corresponden a texto residual como "May be an image
+    of...").
   </p>
   <div class="figure">{{FIG_CALIDAD_TITULO}}<span class="caption">Figura 4. Títulos sin cifra y títulos vacíos, por categoría.</span></div>
 
   <h2>3.5 Precio por marca</h2>
   <p>
-    La tabla siguiente muestra la mediana y el rango p10–p90 para las marcas con
-    20 o más anuncios. La dispersión dentro de cada marca es ancha: la marca sola
-    no determina el precio.
+    La tabla siguiente muestra la mediana y el rango p10–p90 para las marcas con 20 o
+    más anuncios. La dispersión dentro de cada marca es amplia, lo que sugiere que la
+    marca, por sí sola, no determina el precio.
   </p>
   <div class="figure">
     {{FIG_PRECIO_MARCA}}
-    <span class="caption">Figura 5. Mediana y rango percentil 10–90 del precio declarado, por marca (20+ anuncios).</span>
+    <span class="caption">Figura 5. Mediana y rango percentil 10–90 del precio declarado, por marca (20 o más anuncios).</span>
   </div>
   <table>
-    <caption>Tabla 1. Precio mediano y rango p10–p90 por marca (20+ anuncios).</caption>
+    <caption>Tabla 1. Precio mediano y rango p10–p90 por marca (20 o más anuncios).</caption>
     {{TABLA_MARCAS}}
   </table>
 
-  <h2>3.6 Precio por municipio</h2>
+  <h2>3.6 Concentración geográfica</h2>
   <p>
-    En La Habana, la zona pesa más que la marca. La diferencia entre el municipio
-    más barato y el más caro es de <strong>2,7 veces</strong>, mayor que la variación
-    entre marcas.
+    Centro Habana concentra el <strong>{{MUNI_TOP_PCT}} %</strong> de los anuncios con
+    ubicación y precio declarados. Esta concentración podría reflejar un mayor volumen
+    de publicación en ese municipio más que una ausencia de mercado en el resto.
   </p>
-  <div class="figure">
-    {{FIG_PRECIO_MUNICIPIO}}
-    <span class="caption">Figura 6. Mediana de precio por municipio (≥ 50 anuncios), ordenada por precio.</span>
-  </div>
-  <table>
-    <caption>Tabla 2. Mediana de precio por municipio en La Habana (≥ 50 anuncios).</caption>
-    {{TABLA_MUNICIPIOS}}
-  </table>
+  <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 6. Anuncios por municipio en La Habana.</span></div>
 
-  <h2>3.7 Concentración geográfica</h2>
-  <p>
-    Centro Habana concentra el <strong>{{MUNI_TOP_PCT}} %</strong> de los anuncios
-    con ubicación y precio declarados. No significa que fuera no haya mercado,
-    significa que <strong>fuera no hay publicación</strong>.
-  </p>
-  <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 7. Anuncios por municipio en La Habana.</span></div>
-
-  <h2>3.8 El canal de contacto</h2>
+  <h2>3.7 El canal de contacto</h2>
   <p>
     El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp. El correo electrónico
-    aparece en <strong>1 solo anuncio</strong>. Publicar sin WhatsApp deja fuera a
-    casi todos los compradores.
+    aparece en un solo anuncio. Publicar sin WhatsApp podría reducir el número de
+    compradores que logran contactar al vendedor.
   </p>
-  <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 8. Medio de contacto declarado en los anuncios.</span></div>
+  <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 7. Medio de contacto declarado en los anuncios.</span></div>
 
-  <h2>3.9 Fuentes y su calidad de información</h2>
+  <h2>3.8 Las cuatro fuentes y su nivel de detalle</h2>
   <p>
-    Las cuatro fuentes no son intercambiables: Revolico aporta ubicación y contacto
-    completos; iTENCEL aporta precio y marca; Facebook aporta volumen pero títulos
-    vacíos; ElYerro aporta catálogo con nombre y precio.
+    Las cuatro fuentes no son equivalentes: Revolico aporta ubicación y contacto
+    completos; iTENCEL aporta precio y marca; Facebook aporta volumen, aunque parte de
+    sus anuncios requieren normalización del texto; y ElYerro aporta catálogo con
+    nombre y precio.
   </p>
-  <div class="figure">{{FIG_FUENTES}}<span class="caption">Figura 9. Anuncios únicos por fuente.</span></div>
+  <div class="figure">{{FIG_FUENTES}}<span class="caption">Figura 8. Anuncios únicos por fuente.</span></div>
 
-  <h2>3.10 Los huecos del mercado</h2>
+  <h2>3.9 Los segmentos con menor oferta publicada</h2>
   <p>
-    Donde hay poca oferta publicada, hay oportunidad para quien profesionalice su
-    anuncio.
+    Donde la oferta publicada es escasa podría haber espacio para quien decida
+    documentar mejor su anuncio.
   </p>
   <ul>
-    <li><strong>Patinetes eléctricos:</strong> {{PATINETES}} anuncios en todo el mercado.</li>
-    <li><strong>Bicicletas:</strong> {{BICICLETAS}} anuncios, {{PCT_SIN_MARCA_BICI}} % sin marca.</li>
-    <li><strong>Repuestos:</strong> el archivo tiene 523 registros, pero buena parte son vehículos mal clasificados; el mercado real está desatendido.</li>
-    <li><strong>Zonas fuera de Centro Habana:</strong> menos competencia, casi sin oferta visible.</li>
+    <li><strong>Patinetes eléctricos:</strong> {{PATINETES}} anuncios en todo el conjunto.</li>
+    <li><strong>Bicicletas:</strong> {{BICICLETAS}} anuncios, con el {{PCT_SIN_MARCA_BICI}} % sin declarar marca.</li>
+    <li><strong>Repuestos:</strong> el archivo contiene 523 registros, aunque buena parte de ellos corresponde a vehículos; la oferta estructurada de repuestos es escasa.</li>
+    <li><strong>Zonas fuera de Centro Habana:</strong> menor oferta publicada y, por tanto, menor competencia visible.</li>
   </ul>
-  <div class="figure">{{FIG_HUECOS}}<span class="caption">Figura 10. Volumen por segmento con lectura comercial.</span></div>
+  <div class="figure">{{FIG_HUECOS}}<span class="caption">Figura 9. Volumen por segmento.</span></div>
 
-  <h2>3.11 Distribución de precios por categoría</h2>
+  <h2>3.10 Distribución de precios por categoría</h2>
   <p>
-    Dentro de cada categoría el precio se mueve en un rango ancho. La mediana
-    resume el centro, pero el intervalo entre cuartiles advierte que "fijar precio
-    por la mediana de la categoría" es solo un punto de partida.
+    Dentro de cada categoría el precio se mueve en un rango amplio. La mediana resume
+    el centro, pero el intervalo entre cuartiles indica que fijar el precio por la
+    mediana de la categoría es solo un punto de partida.
   </p>
-  <div class="figure">{{FIG_PRECIOS_CAT}}<span class="caption">Figura 11. Distribución del precio declarado por categoría (box plot, sin valores atípicos).</span></div>
+  <div class="figure">{{FIG_PRECIOS_CAT}}<span class="caption">Figura 10. Distribución del precio declarado por categoría (diagrama de caja, sin valores atípicos).</span></div>
 
-  <h2>3.12 Calidad del dato original</h2>
+  <h2>3.11 Calidad del dato original</h2>
   <p>
     Un <strong>{{PCT_SIN_SENAL}} %</strong> de los anuncios no permite identificar el
-    vehículo (categoría "Otros"). De ellos, <strong>{{SIN_TITULO}} anuncios</strong>
-    no tienen título alguno tras normalización. Clasificarlos por fuerza habría sido
-    inventar información.
+    vehículo (categoría "Otros"). De ellos, <strong>{{SIN_TITULO}} anuncios</strong> no
+    tienen título alguno tras la normalización. Clasificarlos forzadamente habría
+    implicado inventar información.
   </p>
-  <div class="figure">{{FIG_CALIDAD_DATO}}<span class="caption">Figura 12. Volumen descartado por falta de información.</span></div>
+  <div class="figure">{{FIG_CALIDAD_DATO}}<span class="caption">Figura 11. Volumen descartado por falta de información.</span></div>
 
 </section>
 
@@ -466,30 +457,33 @@ pre code{background:none;padding:0;font-size:0.9rem}
 <section id="4-discusion-y-conclusiones">
   <h1>4. Discusión y Conclusiones</h1>
 
-  <h2>4.1 Síntesis: el mercado no falla por falta de demanda</h2>
+  <h2>4.1 Síntesis: el punto débil está en la información publicada</h2>
   <p>
-    Los números son elocuentes: hay compradores (volumen de búsquedas), hay vendedores
-    (miles de anuncios), hay precio (93,9 % publica precio). Lo que falla es la
-    <strong>información que conecta a ambos</strong>. Un anuncio sin marca, sin cifra,
-    sin zona y sin WhatsApp es invisible para el comprador, y esa invisibilidad la paga
-    el vendedor en forma de menor rotación y peor precio.
+    Los anuncios reúnen oferta y precios, pero la información que permitiría
+    compararlos entre sí es desigual. La mayoría declara precio (93,9 %), mientras que
+    la marca, la cifra y la zona aparecen en proporciones menores. Esta diferencia
+    sugiere que el principal punto de mejora no estaría en la cantidad de oferta, sino
+    en la información que los propios anuncios publican. Conviene señalar que este
+    estudio no mide volumen de búsquedas ni ventas, de modo que sus afirmaciones se
+    limitan a lo observable en los anuncios.
   </p>
 
-  <h2>4.2 Interpretación: la necesidad de cambio</h2>
+  <h2>4.2 Interpretación: hacia un estándar mínimo de publicación</h2>
   <p>
-    Professionalizar un anuncio no es un favor al comprador — es la forma más directa
-    de vender más y mejor. El estándar mínimo que proponemos cuesta cero y tiene
-    efecto inmediato:
+    Un anuncio mejor documentado podría traducirse en mejores resultados para el
+    vendedor, si bien este estudio no mide el efecto sobre las ventas. Como sugerencia,
+    un estándar mínimo de publicación podría incluir:
   </p>
   <ol>
     <li><strong>Marca</strong> en el título.</li>
-    <li><strong>Cifra clave</strong> (autonomía, cc, voltaje, km, vatios).</li>
-    <li><strong>Municipio</strong> donde está el vehículo.</li>
+    <li><strong>Una cifra clave</strong> (autonomía, cilindrada, voltaje, kilometraje o vatios).</li>
+    <li><strong>Municipio</strong> donde se encuentra el vehículo.</li>
     <li><strong>WhatsApp</strong> operativo.</li>
   </ol>
-  <p class="callout">
-    Un anuncio que cumple estas cuatro condiciones aparece en <em>todas</em> las
-    búsquedas relevantes. Uno que no las cumple, en <em>ninguna</em>.
+  <p>
+    Cumplir estos cuatro puntos podría facilitar que un anuncio aparezca en las
+    búsquedas relevantes y sea comparable con otros. Se trata de una hipótesis
+    razonable a partir de los datos, no de un resultado verificado en este estudio.
   </p>
 
   <h2>4.3 Limitaciones</h2>
@@ -497,31 +491,31 @@ pre code{background:none;padding:0;font-size:0.9rem}
     {{ADVERTENCIAS}}
   </ul>
   <p>
-    Además, la auditoría de la clasificación reporta <strong>{{AUDITORIA_HALLAZGOS}} hallazgos menores</strong>:
-    {{AUDITORIA_DETALLE}}
+    Además, la auditoría de la clasificación reporta <strong>{{AUDITORIA_HALLAZGOS}}
+    hallazgos menores</strong>: {{AUDITORIA_DETALLE}}
   </p>
   <p>
-    La categoría "Otros" ({{PCT_SIN_SENAL}} %, {{SIN_SENAL}} anuncios) agrupa
-    anuncios sin ninguna señal de tipo. {{SIN_TITULO}} de ellos ({{PCT_SIN_TITULO}} %)
-    carecen de título. Clasificarlos por fuerza habría sido inventar información.
+    La categoría "Otros" ({{PCT_SIN_SENAL}} %, {{SIN_SENAL}} anuncios) agrupa anuncios
+    sin ninguna señal de tipo. {{SIN_TITULO}} de ellos ({{PCT_SIN_TITULO}} %) carecen
+    de título. Clasificarlos forzadamente habría implicado inventar información.
   </p>
 
   <h2>4.4 Trabajo futuro</h2>
   <ol>
-    <li>Integrar fecha de publicación por anuncio para analizar rotación y estacionalidad.</li>
-    <li>Distinguir condición (nuevo/usado) mediante reglas sobre el título.</li>
+    <li>Incorporar la fecha de publicación por anuncio para analizar rotación y estacionalidad.</li>
+    <li>Distinguir la condición (nuevo o usado) mediante reglas sobre el título.</li>
     <li>Construir un índice de rotación por marca y zona.</li>
-    <li>Automatizar la recolección periódica para mantener vivo el estándar.</li>
+    <li>Automatizar la recolección periódica para dar seguimiento al estándar.</li>
   </ol>
 
   <h2>4.5 Conclusión</h2>
   <p>
-    El mercado de motos, eléctricas, bicicletas y patinetes en La Habana no tiene un
-    problema de demanda. Tiene un problema de <strong>información</strong>. La
-    profesionalización del anuncio —marca, cifra, zona, WhatsApp— es el cambio de
-    costo cero con mayor retorno para cualquier vendedor. Este estudio entrega el
-    diagnóstico, la referencia de precios y el pipeline reproducible para que ese
-    cambio sea medible y verificable.
+    Los datos sugieren que el principal punto de mejora del mercado de motos,
+    eléctricas, bicicletas y patinetes en La Habana está en la información publicada en
+    los anuncios. Como sugerencia, adoptar un estándar mínimo —marca, cifra, zona y
+    WhatsApp— podría mejorar la comparabilidad de la oferta. Este estudio ofrece el
+    diagnóstico, la referencia de precios por marca y el proceso reproducible que
+    permitiría medir esos cambios en el futuro.
   </p>
 
 </section>
@@ -532,9 +526,9 @@ pre code{background:none;padding:0;font-size:0.9rem}
 <section id="referencias">
   <h1>Referencias</h1>
   <ol>
-    <li>Datos propios: 4.979 anuncios únicos de Revolico, iTENCEL, ElYerroMenu y Facebook (scrapeo septiembre–octubre 2025).</li>
+    <li>Datos propios: 4.979 anuncios únicos de Revolico, iTENCEL, ElYerroMenu y Facebook (recopilados entre septiembre y octubre de 2025).</li>
     <li>Weissbock, J. (2025). <em>Re-evaluating the Qualifying/Finish Relationship in Formula One</em>. Carleton University.</li>
-    <li>Código del estudio: <code>scripts/analyzers/</code> (clasificación, normalización, auditoría, figuras, informe).</li>
+    <li>Código del estudio: <code>scripts/analyzers/</code> (clasificación, normalización, auditoría, figuras e informe).</li>
   </ol>
 </section>
 
@@ -542,10 +536,10 @@ pre code{background:none;padding:0;font-size:0.9rem}
   <h3>Notas metodológicas</h3>
   <ol>
     <li>Los precios son los declarados por el vendedor, no un avalúo.</li>
-    <li>La deduplicación es por <code>source_url</code>: un mismo vehículo en dos sitios cuenta como dos.</li>
-    <li>No hay campo de condición (nuevo/usado) ni fecha por anuncio en las fuentes.</li>
-    <li>La normalización recupera texto de <code>text</code> (Facebook), <code>name</code> (ElYerro) y extrae teléfono/ubicación del cuerpo.</li>
-    <li>Todas las cifras y figuras se regeneran desde <code>analysis/evidencia_vendedores.json</code>.</li>
+    <li>La deduplicación se realiza por <code>source_url</code>: un mismo vehículo publicado en dos sitios cuenta como dos registros.</li>
+    <li>No existe un campo de condición (nuevo o usado) ni una fecha por anuncio en las fuentes consultadas.</li>
+    <li>La normalización recupera el texto de <code>text</code> (Facebook) y de <code>name</code> (ElYerro), y extrae el teléfono y la ubicación del cuerpo del anuncio.</li>
+    <li>Todas las cifras y figuras se regeneran a partir de <code>analysis/evidencia_vendedores.json</code>.</li>
   </ol>
 </div>
 
