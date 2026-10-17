@@ -65,7 +65,6 @@ def fig_composicion(df: pd.DataFrame) -> str:
     E.barras_horizontales(
         orden, valores, ax, colores,
         formato=lambda v: f"{v:,.0f}".replace(",", "."),
-        sufijo=[f"{v / len(df) * 100:.1f} %" for v in valores],
         xlabel="Anuncios",
     )
     E.titulo(

@@ -95,11 +95,10 @@ def main() -> None:
 
     reemplazos = {
         # Portada / metadatos
-        "{{TITULO}}": "El mercado de vehículos de dos ruedas en La Habana: diagnóstico y guía de profesionalización",
+        "{{TITULO}}": "El mercado de vehículos de dos ruedas en La Habana",
         "{{SUBTITULO}}": "Análisis de 4.979 anuncios únicos para diagnosticar la calidad de la información del mercado y proponer estándares de publicación",
         "{{AUTOR}}": "Estudio de Mercado de Motos, Bicicletas y Patinetes en Cuba",
-        "{{FECHA}}": "Octubre 2025",
-        "{{VERSION}}": "1.0",
+        "{{FECHA}}": "Octubre 2026",
 
         # Abstract / Keywords
         "{{ABSTRACT}}": (
