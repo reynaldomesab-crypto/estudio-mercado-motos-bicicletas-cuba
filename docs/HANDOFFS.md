@@ -87,11 +87,11 @@ es preferible un apartado vacío a uno inventado.
 
 ```bash
 # Regenera figuras, reportes y la clasificacion registro a registro
-/home/reynaldomesab/PDF/backend/.venv/bin/python3 \
+<intérprete del venv> \
     scripts/analyzers/generate_report.py
 
 # Audita la clasificacion de vehiculos
-/home/reynaldomesab/PDF/backend/.venv/bin/python3 \
+<intérprete del venv> \
     scripts/analyzers/auditar_clasificaciones.py --json
 ```
 
@@ -103,7 +103,7 @@ es preferible un apartado vacío a uno inventado.
 ejecuta con:
 
 ```
-/home/reynaldomesab/PDF/backend/.venv/bin/python3
+<intérprete del venv>
 ```
 
 Si al reproducir un análisis falla con `ModuleNotFoundError: matplotlib`, el

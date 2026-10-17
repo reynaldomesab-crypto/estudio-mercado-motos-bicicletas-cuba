@@ -15,6 +15,8 @@ from typing import Dict, List, Any, Optional, Set
 from collections import defaultdict
 from abc import ABC, abstractmethod
 
+RAIZ = Path(__file__).resolve().parents[2]
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
@@ -28,7 +30,7 @@ class BaseScraper(ABC):
         'Accept-Language': 'es-ES,es;q=0.9,en;q=0.8',
     }
     
-    def __init__(self, output_base: str = "/home/reynaldomesab/Project/motos_bicis_project", max_pages: int = 100):
+    def __init__(self, output_base: str = str(RAIZ), max_pages: int = 100):
         self.output_base = Path(output_base)
         self.max_pages = max_pages
         self.session_start = datetime.now().isoformat()

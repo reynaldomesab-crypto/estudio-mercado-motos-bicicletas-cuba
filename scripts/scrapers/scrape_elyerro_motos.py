@@ -18,6 +18,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Set
 from collections import defaultdict, Counter
 
+RAIZ = Path(__file__).resolve().parents[2]
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
@@ -120,7 +122,7 @@ class ElYerroMotoScraper:
         'Motos_Bici': {'min': 50, 'max': 100000},
     }
 
-    def __init__(self, output_base: str = "/home/reynaldomesab/Project", max_pages: int = 100):
+    def __init__(self, output_base: str = str(RAIZ), max_pages: int = 100):
         self.output_base = Path(output_base)
         self.max_pages = max_pages
         self.session_start = datetime.now().isoformat()

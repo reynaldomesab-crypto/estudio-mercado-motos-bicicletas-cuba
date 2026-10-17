@@ -16,6 +16,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Set
 from collections import defaultdict, Counter
 
+RAIZ = Path(__file__).resolve().parents[2]
+
 ssl._create_default_https_context = ssl._create_unverified_context
 
 
@@ -137,8 +139,8 @@ class ItencelRepuestosScraper:
         'Repuesto Generico': {'min': 1, 'max': 1000},
     }
 
-    def __init__(self, output_base: str = "/home/reynaldomesab/Project/motos_bicis_project", max_pages: int = 50):
-        self.output_base = Path("/home/reynaldomesab/Project/motos_bicis_project")
+    def __init__(self, output_base: str = str(RAIZ), max_pages: int = 50):
+        self.output_base = Path(str(RAIZ))
         self.max_pages = max_pages
         self.session_start = datetime.now().isoformat()
         self.source_id = f"itencel_repuestos_{datetime.now().strftime('%Y%m%d_%H%M%S')}"

@@ -42,7 +42,7 @@ python3 scripts/analyzers/generate_report.py
 
 > **Nota sobre el intérprete.** `/usr/bin/python3` no tiene matplotlib en esta
 > máquina. El script se ha ejecutado con el entorno que sí lo trae:
-> `/home/reynaldomesab/PDF/backend/.venv/bin/python3`. Si al reproducirlo falla
+> `<intérprete del venv>`. Si al reproducirlo falla
 > con `ModuleNotFoundError: matplotlib`, es el intérprete, no el código.
 
 ### Hallazgo: el dataset estaba duplicado

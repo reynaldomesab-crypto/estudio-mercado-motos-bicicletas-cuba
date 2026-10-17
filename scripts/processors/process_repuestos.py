@@ -12,6 +12,8 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from collections import Counter, defaultdict
 
+RAIZ = Path(__file__).resolve().parents[2]
+
 
 class SparePartsProcessor:
     """Unified processor for spare parts from all sources."""
@@ -60,7 +62,7 @@ class SparePartsProcessor:
         'Repuesto Generico': {'min': 1, 'max': 1000},
     }
 
-    def __init__(self, project_root: str = "/home/reynaldomesab/Project/motos_bicis_project"):
+    def __init__(self, project_root: str = str(RAIZ)):
         self.project_root = Path(project_root)
         self.curated_dir = self.project_root / "data" / "curated"
         self.raw_base = self.project_root / "data" / "raw" / "scraped"

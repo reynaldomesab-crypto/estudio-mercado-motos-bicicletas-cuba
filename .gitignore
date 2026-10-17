@@ -3,3 +3,14 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Datos que identifican a personas: nunca se versionan.
+# El contenido anónimo que sí se publica vive en data/publico/.
+data/raw/
+data/curated/
+data/processed/
+Motos_Bici/data/
+Repuestos/data/
+
+# Copias locales de trabajo
+*.tar.gz

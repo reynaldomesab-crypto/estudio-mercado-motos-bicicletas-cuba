@@ -11,9 +11,11 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional
 from collections import Counter, defaultdict
 
+RAIZ = Path(__file__).resolve().parents[2]
+
 
 class FacebookRepuestosProcessor:
-    def __init__(self, project_root: str = "/home/reynaldomesab/Project/motos_bicis_project"):
+    def __init__(self, project_root: str = str(RAIZ)):
         self.project_root = Path(project_root)
         self.raw_dir = self.project_root / "data" / "raw" / "facebook"
         self.curated_dir = self.project_root / "data" / "curated"
@@ -75,7 +77,7 @@ class FacebookRepuestosProcessor:
             'EUR': [r'eur\s*([\d,]+\.?\d*)', r'€\s*([\d,]+\.?\d*)', r'(\d+)\s*eur'],
         }
 
-    def __init__(self, project_root: str = "/home/reynaldomesab/Project/motos_bicis_project"):
+    def __init__(self, project_root: str = str(RAIZ)):
         self.project_root = Path(project_root)
         self.raw_dir = Path(project_root) / "data" / "raw" / "facebook"
         self.curated_dir = Path(project_root) / "data" / "curated"
