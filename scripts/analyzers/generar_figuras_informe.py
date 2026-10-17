@@ -525,10 +525,69 @@ def fig_descartados(df: pd.DataFrame) -> str:
     return _guardar(fig, "12_calidad_dato.png")
 
 
+def fig_sesgos_fuente(df: pd.DataFrame) -> str:
+    """Muestra que parte de las diferencias entre anuncios es de la plataforma."""
+    reales = df[df["categoria"].isin(CATEGORIAS)].copy()
+    reales["marca"] = reales["marca_detectada"].notna()
+    reales["provincia"] = reales["province_name"].notna()
+    reales["telefono"] = reales["phone_1_whatsapp"].notna()
+    reales["cifra"] = reales["title"].str.contains(CIFRAS, regex=True, na=False)
+    reales["largo"] = reales["title"].str.len()
+
+    fuentes = list(reales.groupby("source").size().sort_values(ascending=False).index)
+    series = [
+        ("marca", "Declara marca", E.TINTA),
+        ("provincia", "Declara provincia", E.AMBAR),
+        ("telefono", "Declara teléfono", E.VERDE),
+        ("cifra", "Trae una cifra", E.TINTA_SUAVE),
+    ]
+
+    fig, ax = E.nueva_figura(9.8, 5.0)
+    x = np.arange(len(fuentes))
+    ancho = 0.2
+    for i, (clave, etiqueta, color) in enumerate(series):
+        vals = [reales.loc[reales["source"] == f, clave].mean() * 100 for f in fuentes]
+        barras = ax.bar(x + (i - 1.5) * ancho, vals, ancho, label=etiqueta, color=color)
+        for barra, v in zip(barras, vals):
+            ax.text(
+                barra.get_x() + barra.get_width() / 2, v + 2,
+                f"{v:.0f}", ha="center", va="bottom",
+                fontsize=E.BASE_FIG - 3, color=E.TINTA_TEXTO,
+            )
+
+    largos = [reales.loc[reales["source"] == f, "largo"].median() for f in fuentes]
+    ax.set_xticks(x)
+    ax.set_xticklabels(
+        [
+            f"{f}\nn={int((reales['source'] == f).sum()):,}".replace(",", ".")
+            + f"\nmediana: {int(l)} car."
+            for f, l in zip(fuentes, largos)
+        ]
+    )
+    ax.set_ylabel("% de anuncios")
+    ax.set_ylim(0, 122)
+    ax.yaxis.grid(True, color=E.REGLA, linewidth=0.7)
+    ax.set_axisbelow(True)
+    ax.legend(ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.26))
+    E.titulo(
+        ax,
+        "Cada fuente tiene su propio formulario y su propia longitud de título",
+        "Cobertura de cada dato por plataforma, sobre anuncios de vehículo",
+    )
+    E.pie_de_nota(
+        "Un dato que llega al 100 % o al 0 % en una plataforma "
+        "refleja si el formulario lo exige o no lo ofrece, no la conducta de "
+        "quien publica. Facebook usa el cuerpo del post como título, de ahí que "
+        "casi todos sus textos incluyan cifras."
+    )
+    return _guardar(fig, "13_sesgos_fuente.png")
+
+
 FIGURAS = [
     fig_composicion, fig_cobertura, fig_encontrabilidad, fig_calidad_titulo,
     fig_precio_marca, fig_precio_municipio, fig_geografia, fig_contacto,
     fig_fuentes, fig_huecos, fig_precios_categoria, fig_descartados,
+    fig_sesgos_fuente,
 ]
 
 

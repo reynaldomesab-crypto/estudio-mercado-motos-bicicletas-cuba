@@ -223,9 +223,9 @@ pre code{background:none;padding:0;font-size:0.9rem}
   </p>
   <ul>
     <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los vehículos reales no declara su marca en el título.</li>
-    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cilindrada, ni voltaje, ni autonomía, ni kilometraje).</li>
-    <li>El <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación (tras la normalización; sin ella la cifra descendía al {{PCT_SIN_UBICACION}} %).</li>
-    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp; el correo electrónico apenas aparece (un solo anuncio en todo el conjunto).</li>
+    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cilindrada, ni voltaje, ni autonomía, ni kilometraje), un resultado condicionado por la longitud del texto que cada plataforma emplea como título.</li>
+    <li>El <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación, pero esta cifra depende sobre todo del formulario: dos de las cuatro fuentes obligan a introducirla y las otras dos no la ofrecen (véase 2.5).</li>
+    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp y el correo electrónico apenas aparece (un solo anuncio), aunque la cobertura del teléfono también viene impuesta por la plataforma.</li>
     <li>Los <strong>{{PATINETES}} patinetes</strong> y las <strong>{{BICICLETAS}} bicicletas</strong> representan una fracción pequeña del conjunto; en el caso de las bicicletas, el <strong>{{PCT_SIN_MARCA_BICI}} %</strong> no declara marca.</li>
   </ul>
   <p>
@@ -331,7 +331,45 @@ pre code{background:none;padding:0;font-size:0.9rem}
     No se detectaron problemas graves en la clasificación principal.
   </p>
 
-  <h2>2.5 Métodos de análisis</h2>
+  <h2>2.5 Sesgos del origen de los datos</h2>
+  <p>
+    Antes de interpretar los resultados conviene señalar que las diferencias entre
+    los anuncios no proceden solo de quienes los publican. Cada plataforma usa un
+    formulario distinto, y ese formulario determina qué datos aparecen. Cuando una
+    plataforma exige un campo, el cien por cien de sus anuncios lo tiene; cuando no
+    lo ofrece, el cien por cien lo carece. Ninguno de los dos extremos dice nada
+    sobre la conducta de quien publica.
+  </p>
+  <p>
+    La tabla siguiente desglosa la cobertura de cada dato por plataforma. Los saltos
+    entre columnas son atribuibles al diseño de cada sitio:
+  </p>
+  <table>
+    <caption>Tabla 1. Cobertura de cada dato por plataforma, sobre anuncios de vehículo.</caption>
+    {{TABLA_SESGOS}}
+  </table>
+  <p>
+    De ahí se desprenden cuatro advertencias que condicionan todo lo que sigue:
+  </p>
+  <ul>
+    <li><strong>La ubicación es un artefacto del formulario.</strong> Revolico e iTENCEL registran provincia en el 100 % de sus anuncios porque el campo es obligatorio; ElYerro no expone el campo y llega al 0 %. Ninguna de las dos cifras mide conocimiento o iniciativa del vendedor.</li>
+    <li><strong>El teléfono ocurre lo mismo.</strong> Revolico muestra un teléfono en todos sus anuncios e iTENCel en ninguno, no porque unos vendan y otros no, sino porque cada sitio expone o no el campo.</li>
+    <li><strong>La cifra en el título depende de la longitud del texto.</strong> Facebook usa el cuerpo de la publicación como título, con una mediana de 315 caracteres frente a 19–27 en el resto. Por eso casi todos sus textos incluyen alguna cifra y la proporción global de títulos sin cifra queda condicionada por el reparto entre plataformas.</li>
+    <li><strong>La marca es la única de las tres variables cuyo formulario no la impone de forma uniforme</strong>, y por eso su comparación entre plataformas es la más informativa: va del 18 % en ElYerro bicicletas al 64 % en iTENCEL.</li>
+  </ul>
+  <p>
+    A esto se suman tres límites del marco muestral. Las cuatro fuentes no son una
+    muestra aleatoria de vendedores: quien publica en un grupo de Facebook o en un
+    directorio no es intercambiable con quien usa un clasificado. No se conoce el
+    número total de vehículos en venta, de modo que no hay denominador contra el cual
+    medir qué proporción del mercado aparece en las fuentes. Y la captura se realizó
+    en cuatro jornadas entre el 19 y el 24 de septiembre de 2026, por lo que el
+    conjunto es una fotografía de esos días y no un promedio del periodo.
+  </p>
+
+  <div class="figure">{{FIG_SESGOS}}<span class="caption">Figura 1. Cobertura de cada dato por plataforma. Los valores del 100 % y del 0 % reflejan si el formulario exige el dato, no la conducta de quien publica.</span></div>
+
+  <h2>2.6 Métodos de análisis</h2>
   <ul>
     <li><strong>Conteos y proporciones</strong> por categoría, marca, municipio y fuente.</li>
     <li><strong>Estadísticos de precio</strong>: mediana, percentil 10 y percentil 90 (rango interpercentílico).</li>
@@ -352,15 +390,17 @@ pre code{background:none;padding:0;font-size:0.9rem}
     vehículos clasificados en las cuatro categorías objetivo ({{PCT_REALES}} %). El
     resto son "Otros" (sin señal de tipo) o piezas.
   </p>
-  <div class="figure">{{FIG_COMPOSICION}}<span class="caption">Figura 1. Composición del mercado por categoría.</span></div>
+  <div class="figure">{{FIG_COMPOSICION}}<span class="caption">Figura 2. Composición del mercado por categoría.</span></div>
 
   <h2>3.2 Cobertura de la información</h2>
   <p>
     La figura siguiente resume qué datos aparecen en los anuncios. El precio se
     declara con frecuencia; en cambio, la información que permite comparar anuncios
-    (marca, zona y cifra) aparece en una proporción menor.
+    (marca, zona y cifra) aparece en una proporción menor. Las diferencias entre
+    fuentes no son homogéneas: cada sitio impone su propio formulario, como se
+    detalla en 2.5.
   </p>
-  <div class="figure">{{FIG_COBERTURA}}<span class="caption">Figura 2. Disponibilidad de cada campo en los anuncios.</span></div>
+  <div class="figure">{{FIG_COBERTURA}}<span class="caption">Figura 3. Disponibilidad de cada campo en los anuncios.</span></div>
 
   <h2>3.3 Encontrabilidad: la métrica que resume el problema</h2>
   <p>
@@ -368,7 +408,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     cifra</strong>. La figura siguiente desglosa cada requisito y la intersección de
     los tres (barras rojas).
   </p>
-  <div class="figure">{{FIG_ENCONTRABILIDAD}}<span class="caption">Figura 3. Porcentaje de anuncios que cumple cada requisito de encontrabilidad, por categoría.</span></div>
+  <div class="figure">{{FIG_ENCONTRABILIDAD}}<span class="caption">Figura 4. Porcentaje de anuncios que cumple cada requisito de encontrabilidad, por categoría.</span></div>
 
   <h2>3.4 Calidad del título</h2>
   <p>
@@ -376,8 +416,13 @@ pre code{background:none;padding:0;font-size:0.9rem}
     Solo el <strong>{{PCT_TITULOS_VACIOS}} %</strong> está completamente vacío (tras
     la normalización, casi todos corresponden a texto residual como "May be an image
     of...").
+    <br>
+    Conviene interpretar esta cifra con cautela: Facebook emplea el cuerpo del post
+    como título, con una mediana de 315 caracteres, mientras que el resto de fuentes
+    usa rótulos de 19 a 27 caracteres. Como los textos largos casi siempre incluyen
+    algún número, el reparto entre plataformas condiciona el resultado.
   </p>
-  <div class="figure">{{FIG_CALIDAD_TITULO}}<span class="caption">Figura 4. Títulos sin cifra y títulos vacíos, por categoría.</span></div>
+  <div class="figure">{{FIG_CALIDAD_TITULO}}<span class="caption">Figura 5. Títulos sin cifra y títulos vacíos, por categoría.</span></div>
 
   <h2>3.5 Precio por marca</h2>
   <p>
@@ -387,28 +432,32 @@ pre code{background:none;padding:0;font-size:0.9rem}
   </p>
   <div class="figure">
     {{FIG_PRECIO_MARCA}}
-    <span class="caption">Figura 5. Mediana y rango percentil 10–90 del precio declarado, por marca (20 o más anuncios).</span>
+    <span class="caption">Figura 6. Mediana y rango percentil 10–90 del precio declarado, por marca (20 o más anuncios).</span>
   </div>
   <table>
-    <caption>Tabla 1. Precio mediano y rango p10–p90 por marca (20 o más anuncios).</caption>
+    <caption>Tabla 2. Precio mediano y rango p10–p90 por marca (20 o más anuncios).</caption>
     {{TABLA_MARCAS}}
   </table>
 
   <h2>3.6 Concentración geográfica</h2>
   <p>
     Centro Habana concentra el <strong>{{MUNI_TOP_PCT}} %</strong> de los anuncios con
-    ubicación y precio declarados. Esta concentración podría reflejar un mayor volumen
-    de publicación en ese municipio más que una ausencia de mercado en el resto.
+    ubicación y precio declarados. Hay que leer esta cifra con cautela: se apoya en las
+    dos fuentes que obligan a registrar la provincia y en las que la concentran, de
+    modo que describe dónde se publica en esas plataformas más que dónde se encuentra
+    el vehículo. La figura 1 muestra el contraste entre plataformas.
   </p>
-  <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 6. Anuncios por municipio en La Habana.</span></div>
+  <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 7. Anuncios por municipio en La Habana.</span></div>
 
   <h2>3.7 El canal de contacto</h2>
   <p>
-    El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp. El correo electrónico
-    aparece en un solo anuncio. Publicar sin WhatsApp podría reducir el número de
-    compradores que logran contactar al vendedor.
+    El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp y el correo electrónico
+    aparece en un solo anuncio. La cifra agregada debe leerse con cautela: Revolico
+    muestra un teléfono en el 100 % de sus anuncios porque su formulario lo pide, e
+    iTENCel en el 0,7 % porque no lo ofrece. El contraste entre plataformas mide el
+    diseño del sitio, no la disposición a ser contactado.
   </p>
-  <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 7. Medio de contacto declarado en los anuncios.</span></div>
+  <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 8. Medio de contacto declarado en los anuncios.</span></div>
 
   <h2>3.8 Las cuatro fuentes y su nivel de detalle</h2>
   <p>
@@ -417,7 +466,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     sus anuncios requieren normalización del texto; y ElYerro aporta catálogo con
     nombre y precio.
   </p>
-  <div class="figure">{{FIG_FUENTES}}<span class="caption">Figura 8. Anuncios únicos por fuente.</span></div>
+  <div class="figure">{{FIG_FUENTES}}<span class="caption">Figura 9. Anuncios únicos por fuente.</span></div>
 
   <h2>3.9 Los segmentos con menor oferta publicada</h2>
   <p>
@@ -430,7 +479,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     <li><strong>Repuestos:</strong> el archivo contiene 523 registros, aunque buena parte de ellos corresponde a vehículos; la oferta estructurada de repuestos es escasa.</li>
     <li><strong>Zonas fuera de Centro Habana:</strong> menor oferta publicada y, por tanto, menor competencia visible.</li>
   </ul>
-  <div class="figure">{{FIG_HUECOS}}<span class="caption">Figura 9. Volumen por segmento.</span></div>
+  <div class="figure">{{FIG_HUECOS}}<span class="caption">Figura 10. Volumen por segmento.</span></div>
 
   <h2>3.10 Distribución de precios por categoría</h2>
   <p>
@@ -438,7 +487,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     el centro, pero el intervalo entre cuartiles indica que fijar el precio por la
     mediana de la categoría es solo un punto de partida.
   </p>
-  <div class="figure">{{FIG_PRECIOS_CAT}}<span class="caption">Figura 10. Distribución del precio declarado por categoría (diagrama de caja, sin valores atípicos).</span></div>
+  <div class="figure">{{FIG_PRECIOS_CAT}}<span class="caption">Figura 11. Distribución del precio declarado por categoría (diagrama de caja, sin valores atípicos).</span></div>
 
   <h2>3.11 Calidad del dato original</h2>
   <p>
@@ -447,7 +496,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     tienen título alguno tras la normalización. Clasificarlos forzadamente habría
     implicado inventar información.
   </p>
-  <div class="figure">{{FIG_CALIDAD_DATO}}<span class="caption">Figura 11. Volumen descartado por falta de información.</span></div>
+  <div class="figure">{{FIG_CALIDAD_DATO}}<span class="caption">Figura 12. Volumen descartado por falta de información.</span></div>
 
 </section>
 

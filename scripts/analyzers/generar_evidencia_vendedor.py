@@ -194,18 +194,59 @@ def seccion_limites(df):
     }
 
 
+def seccion_sesgos(df):
+    """Separa lo que refleja la plataforma de lo que refleja la conducta.
+
+    Cada fuente usa un formulario distinto. Cuando una plataforma exige un dato
+    (provincia, marca), el cien por cien de sus anuncios lo tiene, y eso no dice
+    nada sobre quien publica: dice algo sobre el formulario. A la inversa, si la
+    plataforma no expone el campo, el cero por cien tampoco es una omision.
+
+    Esta seccion es la base para no atribuir a las personas lo que en realidad
+    es un efecto del formulario de la plataforma.
+    """
+    reales = df[df["categoria"].isin(ORDEN_CATEGORIAS[:-1])]
+
+    campos = {
+        "marca": "marca_detectada",
+        "provincia": "province_name",
+        "telefono": "phone_1_whatsapp",
+    }
+
+    por_fuente = {}
+    for fuente, sub in reales.groupby("source"):
+        fila = {"anuncios": int(len(sub))}
+        for nombre, columna in campos.items():
+            con = int(sub[columna].notna().sum())
+            fila[f"{nombre}_n"] = con
+            fila[f"{nombre}_pct"] = round(con / len(sub) * 100, 1)
+        sin_cifra = int((~sub["title"].str.contains(CIFRAS, regex=True, na=False)).sum())
+        fila["sin_cifra_pct"] = round(sin_cifra / len(sub) * 100, 1)
+        por_fuente[fuente] = fila
+
+    return {
+        "por_fuente": por_fuente,
+        "nota": (
+            "Una ausencia solo es interpretable cuando la plataforma pide el dato. "
+            "Provincia y marca son obligatorias en unas fuentes y no existen en "
+            "otras, de modo que la comparacion entre fuentes no es homogenea."
+        ),
+    }
+
+
 def main():
     df = cargar()
     evidencia = {
-        "generado_por": "scripts/analyzers/generar_evidencia_vendedor.py",
-        "nota": "Cifras de divulgacion. Deben coincidir con analysis/resultados.json.",
+      "generado_por": "scripts/analyzers/generar_evidencia_vendedor.py",
+      "nota": "Cifras de divulgacion. Deben coincidir con analysis/resultados.json.",
         "invisibilidad": seccion_invisibilidad(df),
-        "titulos": seccion_titulos(df),
+   "titulos": seccion_titulos(df),
         "ubicacion": seccion_ubicacion(df),
-        "precios": seccion_precios(df),
-        "contacto": seccion_contacto(df),
+      "precios": seccion_precios(df),
+    "contacto": seccion_contacto(df),
         "huecos": seccion_huecos(df),
         "limites": seccion_limites(df),
+        "sesgos": seccion_sesgos(df),
     }
     SALIDA.parent.mkdir(parents=True, exist_ok=True)
     SALIDA.write_text(json.dumps(evidencia, ensure_ascii=False, indent=2), encoding="utf-8")

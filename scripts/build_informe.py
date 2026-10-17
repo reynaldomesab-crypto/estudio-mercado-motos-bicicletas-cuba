@@ -59,6 +59,32 @@ def tabla_marcas_html(marcas: list) -> str:
     return "\n".join(filas)
 
 
+def tabla_sesgos_html(sesgos: dict) -> str:
+    """Tabla de cobertura por plataforma: hace visible el efecto del formulario."""
+    filas = []
+    etiquetas = {
+        "revolico": "Revolico",
+        "itencel": "iTENCEL",
+        "facebook": "Facebook",
+        "elyerro_bicicletas": "ElYerro (bicicletas)",
+        "elyerro_motos": "ElYerro (motos)",
+    }
+    for clave, v in sorted(
+        sesgos["por_fuente"].items(), key=lambda x: -x[1]["anuncios"]
+    ):
+        filas.append(
+            "<tr>"
+            f"<td>{etiquetas.get(clave, clave)}</td>"
+            f"<td class='num'>{v['anuncios']:,}</td>"
+            f"<td class='num'>{v['marca_pct']:.0f} %</td>"
+            f"<td class='num'>{v['provincia_pct']:.0f} %</td>"
+            f"<td class='num'>{v['telefono_pct']:.0f} %</td>"
+            f"<td class='num'>{v['sin_cifra_pct']:.0f} %</td>"
+            "</tr>".replace(",", ".")
+        )
+    return "\n".join(filas)
+
+
 def miles(n) -> str:
     return f"{int(n):,}".replace(",", ".")
 
@@ -107,16 +133,18 @@ def main() -> None:
             "cubanas (Revolico, iTENCEL, ElYerroMenu y Facebook). La normalización de "
             "los datos —recuperando el texto del anuncio desde campos alternativos, "
             "extrayendo teléfono y ubicación del cuerpo del texto y corrigiendo la "
-            "clasificación— muestra que el principal punto de mejora no estaría en la "
-            "cantidad de oferta, sino en la información que los anuncios publican: el "
-            "45,5 % de los vehículos reales no declara su marca, el 43,3 % de los "
-            "títulos no incluye ninguna cifra comparable y, tras la normalización, solo "
-            "el 8,8 % carece de ubicación declarada. El 24,0 % de la oferta con "
-            "ubicación se concentra en Centro Habana. Se describen segmentos con menor "
-            "oferta publicada (patinetes y repuestos) y se sugiere un estándar mínimo "
-            "de publicación —marca, cifra clave, municipio y WhatsApp— como posible vía "
-            "de mejora. El estudio incluye una auditoría automática de la clasificación "
-            "con 3 hallazgos menores, y todo el proceso es reproducible."
+            "clasificación— sitúa el principal punto de mejora en la información que "
+            "publican los anuncios: el 45,5 % de los vehículos reales no declara su "
+            "marca. El trabajo analiza además cuánto de cada diferencia se debe al "
+            "formulario de cada plataforma y cuánto al contenido del anuncio. La "
+            "provincia aparece en el 100 % de los anuncios de dos fuentes porque el "
+            "campo es obligatorio y en el 0 % de otra porque no existe, de modo que esa "
+            "cifra no informa sobre la conducta de quien publica. Solo la marca, que "
+            "ninguna fuente impone de forma uniforme, admite comparación entre "
+            "plataformas. Sobre esa base se describen segmentos con menor oferta "
+            "publicada y se sugiere un estándar mínimo de publicación —marca, cifra "
+            "clave, municipio y WhatsApp— como posible vía de mejora. El proceso es "
+            "reproducible e incluye una auditoría automática de la clasificación."
         ),
         "{{KEYWORDS}}": "mercado informal, vehículos de dos ruedas, calidad de datos, profesionalización, La Habana, clasificación automática, auditoría reproducible",
 
@@ -126,13 +154,12 @@ def main() -> None:
         "{{PCT_REALES}}": pct(ev['invisibilidad']['vehiculos_reales'] / ev['invisibilidad']['vehiculos'] * 100),
         "{{PCT_SIN_MARCA_REAL}}": pct(ev["invisibilidad"]["pct_reales_sin_marca"]),
         "{{PCT_SIN_CIFRA}}": pct(ev["titulos"]["pct_sin_cifra"]),
-        "{{PCT_SIN_UBICACION}}": pct(ev["ubicacion"]["sin_ubicacion_pct"]),
         "{{PCT_WHATSAPP}}": pct(ev["contacto"]["pct_whatsapp"]),
         "{{PATINETES}}": ev["huecos"]["patinetes"],
         "{{BICICLETAS}}": ev["huecos"]["bicicletas"],
         "{{PCT_SIN_MARCA_BICI}}": pct(ev["invisibilidad"]["por_categoria"]["Bicicletas"]["pct_sin_marca"]),
 
-        # Figuras (base64)
+        # Figuras
         "{{FIG_COMPOSICION}}": fig("01_composicion.png"),
         "{{FIG_COBERTURA}}": fig("02_cobertura.png"),
         "{{FIG_ENCONTRABILIDAD}}": fig("03_encontrabilidad.png"),
@@ -144,12 +171,21 @@ def main() -> None:
         "{{FIG_HUECOS}}": fig("10_huecos.png"),
         "{{FIG_PRECIOS_CAT}}": fig("11_precios_categoria.png"),
         "{{FIG_CALIDAD_DATO}}": fig("12_calidad_dato.png"),
+        "{{FIG_SESGOS}}": fig("13_sesgos_fuente.png"),
 
         # Tabla
         "{{TABLA_MARCAS}}": (
             "<thead><tr><th>Marca</th><th class='num'>Anuncios</th>"
             "<th class='num'>Mediana (USD)</th><th class='num'>Rango p10–p90</th></tr></thead>"
             "<tbody>" + tabla_marcas + "</tbody>"
+        ),
+
+        # Tabla de sesgos por plataforma
+        "{{TABLA_SESGOS}}": (
+            "<thead><tr><th>Plataforma</th><th class='num'>Anuncios</th>"
+            "<th class='num'>Marca</th><th class='num'>Provincia</th>"
+            "<th class='num'>Teléfono</th><th class='num'>Con cifra</th></tr></thead>"
+            "<tbody>" + tabla_sesgos_html(ev["sesgos"]) + "</tbody>"
         ),
 
         # Advertencias

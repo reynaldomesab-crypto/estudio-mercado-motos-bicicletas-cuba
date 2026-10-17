@@ -120,8 +120,9 @@ Un ejemplo por categoría:
 
 ## 3. El precio
 
-Negociar sin conocer la mediana de tu categoría es negociar a ciegas. Y esa
-asimetría siempre la pierde quien no la tiene.
+Negociar sin conocer la mediana de tu categoría deja a tu anuncio sin un punto
+de comparación. La dispersión dentro de cada marca es amplia, así que la
+referencia sirve como punto de partida y no como precio cerrado.
 
 La buena noticia: el **93.9%** de los anuncios sí publica precio.
 El mercado no tiene un problema de transparencia de precios; tiene un problema
@@ -167,13 +168,16 @@ Un dato que define el estándar del sector:
 - **59.9%** publican teléfono de WhatsApp (2.982 anuncios).
 - **1 anuncio** en todo el mercado usa correo electrónico.
 
-Es decir: **el correo electrónico prácticamente no existe en este mercado**. Si
-hoy vendes por correo, estás dejando fuera a casi todos los compradores.
+Conviene leer estas cifras con una salvedad: **cada plataforma usa un formulario
+distinto**. Revolico muestra teléfono en el 100 % de sus anuncios porque su
+formulario lo pide, e iTENCel en el 0,7 % porque no lo ofrece. El contraste mide
+el diseño del sitio, no la disposición de quien vende. Aun así, en las fuentes
+donde el campo existe, WhatsApp es lo que aparece.
 
 ### Qué implica
 
-- **WhatsApp es obligatorio.** No es un complemento, es el canal.
-- Publicar **correo además de WhatsApp** es el estándar mínimo aceptable.
+- **Publicar WhatsApp es lo más habitual** en las plataformas que ofrecen el campo.
+- Añadir el correo electrónico amplía la información del anuncio sin costo alguno.
 - Publica un número que **atienda en horario**, no solo uno que exista.
 
 ---
@@ -242,6 +246,13 @@ también produce conclusiones falsas con mucha seguridad.
   estacionalidad.
 - **La deduplicación es por URL**: un vehículo publicado en dos sitios cuenta
   como dos.
+- **No hay un total de vehículos en venta**, así que las proporciones describen
+  lo publicado, no el mercado entero.
+- **Las plataformas no son comparables entre sí**: cada una pide datos
+  distintos, de modo que la cobertura de provincia o de teléfono refleja el
+  formulario del sitio y no la información que decides dar tú.
+- **La captura fue de cuatro días**, del 19 al 24 de septiembre de 2026. Es una
+  fotografía de esas jornadas, no un promedio.
 
 Y el problema de origen, que explica por qué un estudio así cuesta trabajo:
 
@@ -249,8 +260,8 @@ Y el problema de origen, que explica por qué un estudio así cuesta trabajo:
 - **99** anuncios sin ninguna señal de tipo (2.0%)
 
 Clasificar este mercado exigió escribir reglas de clasificación y auditarlas
-para que no hubiera errores. **Ningún vendedor puede esperar que el mercado se
-ordene solo.**
+para que no hubiera errores. Ordenar la información es trabajo de quien publica
+y de quien construye la plataforma; no ocurre solo.
 
 ---
 

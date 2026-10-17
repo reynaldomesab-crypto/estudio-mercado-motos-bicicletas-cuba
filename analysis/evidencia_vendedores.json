@@ -399,5 +399,60 @@
       "No hay fecha por anuncio: no se puede afirmar una tendencia ni estacionalidad.",
       "La deduplicación se realiza por URL: un vehículo publicado en dos sitios cuenta como dos."
     ]
+  },
+  "sesgos": {
+    "por_fuente": {
+      "elyerro_bicicletas": {
+        "anuncios": 125,
+        "marca_n": 23,
+        "marca_pct": 18.4,
+        "provincia_n": 0,
+        "provincia_pct": 0.0,
+        "telefono_n": 0,
+        "telefono_pct": 0.0,
+        "sin_cifra_pct": 37.6
+      },
+      "elyerro_motos": {
+        "anuncios": 68,
+        "marca_n": 43,
+        "marca_pct": 63.2,
+        "provincia_n": 0,
+        "provincia_pct": 0.0,
+        "telefono_n": 0,
+        "telefono_pct": 0.0,
+        "sin_cifra_pct": 50.0
+      },
+      "facebook": {
+        "anuncios": 377,
+        "marca_n": 118,
+        "marca_pct": 31.3,
+        "provincia_n": 168,
+        "provincia_pct": 44.6,
+        "telefono_n": 301,
+        "telefono_pct": 79.8,
+        "sin_cifra_pct": 1.6
+      },
+      "itencel": {
+        "anuncios": 1707,
+        "marca_n": 1092,
+        "marca_pct": 64.0,
+        "provincia_n": 1707,
+        "provincia_pct": 100.0,
+        "telefono_n": 12,
+        "telefono_pct": 0.7,
+        "sin_cifra_pct": 44.3
+      },
+      "revolico": {
+        "anuncios": 2583,
+        "marca_n": 1374,
+        "marca_pct": 53.2,
+        "provincia_n": 2583,
+        "provincia_pct": 100.0,
+        "telefono_n": 2583,
+        "telefono_pct": 100.0,
+        "sin_cifra_pct": 49.7
+      }
+    },
+    "nota": "Una ausencia solo es interpretable cuando la plataforma pide el dato. Provincia y marca son obligatorias en unas fuentes y no existen en otras, de modo que la comparacion entre fuentes no es homogenea."
   }
 }
