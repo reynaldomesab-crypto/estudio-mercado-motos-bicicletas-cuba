@@ -202,7 +202,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
   <h2>1.1 Contexto: el mercado invisible</h2>
   <p class="lead">
     El mercado de vehículos de dos ruedas en La Habana reúne miles de anuncios en
-    plataformas de clasificados, grupos de Facebook y directorios locales. Sin
+    sitios de clasificados, grupos de Facebook y directorios locales. Sin
     embargo, no existe un registro unificado ni un estándar mínimo de publicación.
     Un anuncio que no declara marca, zona o una cifra clave difícilmente puede
     compararse con otros, lo que podría dificultar tanto la búsqueda del comprador
@@ -215,17 +215,17 @@ pre code{background:none;padding:0;font-size:0.9rem}
     públicas (Revolico, iTENCEL, ElYerroMenu y Facebook). Tras normalizar los datos
     —recuperando el texto del anuncio desde campos alternativos, extrayendo teléfono y
     ubicación del cuerpo del texto, y corrigiendo la clasificación— quedamos con
-    <strong>{{VEHICULOS_REALES}} vehículos reales</strong> (motores, eléctricos,
+    <strong>{{VEHICULOS_REALES}} anuncios de vehículo</strong> (motores, eléctricos,
     bicicletas y patinetes).
   </p>
   <p>
     El análisis de los anuncios arroja las siguientes proporciones:
   </p>
   <ul>
-    <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los vehículos reales no declara su marca en el título.</li>
-    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cilindrada, ni voltaje, ni autonomía, ni kilometraje), un resultado condicionado por la longitud del texto que cada plataforma emplea como título.</li>
+    <li>El <strong>{{PCT_SIN_MARCA_REAL}} %</strong> de los anuncios de vehículo no declara su marca en el título.</li>
+    <li>El <strong>{{PCT_SIN_CIFRA}} %</strong> de los títulos no contiene ninguna cifra (ni cilindrada, ni voltaje, ni autonomía, ni kilometraje), un resultado condicionado por la longitud del texto, que cada sitio emplea como título.</li>
     <li>El <strong>{{PCT_CON_PROVINCIA}} %</strong> declara su ubicación, pero esta cifra depende sobre todo del formulario: dos de las cuatro fuentes obligan a introducirla y las otras dos no la ofrecen (véase 2.5).</li>
-    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp y el correo electrónico apenas aparece (un solo anuncio), aunque la cobertura del teléfono también viene impuesta por la plataforma.</li>
+    <li>El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp y el correo electrónico apenas aparece (un solo anuncio), aunque la cobertura del teléfono también viene impuesta por el sitio.</li>
     <li>Los <strong>{{PATINETES}} patinetes</strong> y las <strong>{{BICICLETAS}} bicicletas</strong> representan una fracción pequeña del conjunto; en el caso de las bicicletas, el <strong>{{PCT_SIN_MARCA_BICI}} %</strong> no declara marca.</li>
   </ul>
   <p>
@@ -334,18 +334,18 @@ pre code{background:none;padding:0;font-size:0.9rem}
   <h2>2.5 Sesgos del origen de los datos</h2>
   <p>
     Antes de interpretar los resultados conviene señalar que las diferencias entre
-    los anuncios no proceden solo de quienes los publican. Cada plataforma usa un
-    formulario distinto, y ese formulario determina qué datos aparecen. Cuando una
-    plataforma exige un campo, el cien por cien de sus anuncios lo tiene; cuando no
+    los anuncios no proceden solo de quienes los publican. Cada sitio usa un
+    formulario distinto, y ese formulario determina qué datos aparecen. Cuando un
+    sitio exige un campo, el cien por cien de sus anuncios lo tiene; cuando no
     lo ofrece, el cien por cien lo carece. Ninguno de los dos extremos dice nada
     sobre la conducta de quien publica.
   </p>
   <p>
-    La tabla siguiente desglosa la cobertura de cada dato por plataforma. Los saltos
+    La tabla siguiente desglosa la cobertura de cada dato por sitio. Los saltos
     entre columnas son atribuibles al diseño de cada sitio:
   </p>
   <table>
-    <caption>Tabla 1. Cobertura de cada dato por plataforma, sobre anuncios de vehículo.</caption>
+    <caption>Tabla 1. Cobertura de cada dato por fuente, sobre anuncios de vehículo.</caption>
     {{TABLA_SESGOS}}
   </table>
   <p>
@@ -354,8 +354,8 @@ pre code{background:none;padding:0;font-size:0.9rem}
   <ul>
     <li><strong>La ubicación es un artefacto del formulario.</strong> Revolico e iTENCEL registran provincia en el 100 % de sus anuncios porque el campo es obligatorio; ElYerro no expone el campo y llega al 0 %. Ninguna de las dos cifras mide conocimiento o iniciativa del vendedor.</li>
     <li><strong>El teléfono ocurre lo mismo.</strong> Revolico muestra un teléfono en todos sus anuncios e iTENCel en ninguno, no porque unos vendan y otros no, sino porque cada sitio expone o no el campo.</li>
-    <li><strong>La cifra en el título depende de la longitud del texto.</strong> Facebook usa el cuerpo de la publicación como título, con una mediana de 315 caracteres frente a 19–27 en el resto. Por eso casi todos sus textos incluyen alguna cifra y la proporción global de títulos sin cifra queda condicionada por el reparto entre plataformas.</li>
-    <li><strong>La marca es la única de las tres variables cuyo formulario no la impone de forma uniforme</strong>, y por eso su comparación entre plataformas es la más informativa: va del 18 % en ElYerro bicicletas al 64 % en iTENCEL.</li>
+    <li><strong>La cifra en el título depende de la longitud del texto.</strong> Facebook usa el cuerpo de la publicación como título, con una mediana de 315 caracteres frente a 19–27 en el resto. Por eso casi todos sus textos incluyen alguna cifra y la proporción global de títulos sin cifra queda condicionada por el reparto entre sitios.</li>
+    <li><strong>La marca es la única de las tres variables cuyo formulario no la impone de forma uniforme</strong>, y por eso su comparación entre sitios es la más informativa: va del 18 % en ElYerro bicicletas al 64 % en iTENCEL.</li>
   </ul>
   <p>
     A esto se suman tres límites del marco muestral. Las cuatro fuentes no son una
@@ -367,7 +367,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     conjunto es una fotografía de esos días y no un promedio del periodo.
   </p>
 
-  <div class="figure">{{FIG_SESGOS}}<span class="caption">Figura 1. Cobertura de cada dato por plataforma. Los valores del 100 % y del 0 % reflejan si el formulario exige el dato, no la conducta de quien publica.</span></div>
+  <div class="figure">{{FIG_SESGOS}}<span class="caption">Figura 1. Cobertura de cada dato por sitio. Los valores del 100 % y del 0 % reflejan si el formulario exige el dato, no la conducta de quien publica.</span></div>
 
   <h2>2.6 Métodos de análisis</h2>
   <ul>
@@ -417,10 +417,10 @@ pre code{background:none;padding:0;font-size:0.9rem}
     la normalización, casi todos corresponden a texto residual como "May be an image
     of...").
     <br>
-    Conviene interpretar esta cifra con cautela: Facebook emplea el cuerpo del post
+    Conviene interpretar esta cifra con cautela: Facebook emplea el cuerpo de la publicación
     como título, con una mediana de 315 caracteres, mientras que el resto de fuentes
     usa rótulos de 19 a 27 caracteres. Como los textos largos casi siempre incluyen
-    algún número, el reparto entre plataformas condiciona el resultado.
+    algún número, el reparto entre sitios condiciona el resultado.
   </p>
   <div class="figure">{{FIG_CALIDAD_TITULO}}<span class="caption">Figura 5. Títulos sin cifra y títulos vacíos, por categoría.</span></div>
 
@@ -444,8 +444,8 @@ pre code{background:none;padding:0;font-size:0.9rem}
     Centro Habana concentra el <strong>{{MUNI_TOP_PCT}} %</strong> de los anuncios con
     ubicación y precio declarados. Hay que leer esta cifra con cautela: se apoya en las
     dos fuentes que obligan a registrar la provincia y en las que la concentran, de
-    modo que describe dónde se publica en esas plataformas más que dónde se encuentra
-    el vehículo. La figura 1 muestra el contraste entre plataformas.
+    modo que describe dónde se publica en esos sitios más que dónde se encuentra
+    el vehículo. La figura 1 muestra el contraste entre sitios.
   </p>
   <div class="figure">{{FIG_GEOGRAFIA}}<span class="caption">Figura 7. Anuncios por municipio en La Habana.</span></div>
 
@@ -454,7 +454,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
     El <strong>{{PCT_WHATSAPP}} %</strong> publica WhatsApp y el correo electrónico
     aparece en un solo anuncio. La cifra agregada debe leerse con cautela: Revolico
     muestra un teléfono en el 100 % de sus anuncios porque su formulario lo pide, e
-    iTENCel en el 0,7 % porque no lo ofrece. El contraste entre plataformas mide el
+    iTENCel en el 0,7 % porque no lo ofrece. El contraste entre sitios mide el
     diseño del sitio, no la disposición a ser contactado.
   </p>
   <div class="figure">{{FIG_CONTACTO}}<span class="caption">Figura 8. Medio de contacto declarado en los anuncios.</span></div>

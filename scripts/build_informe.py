@@ -60,7 +60,7 @@ def tabla_marcas_html(marcas: list) -> str:
 
 
 def tabla_sesgos_html(sesgos: dict) -> str:
-    """Tabla de cobertura por plataforma: hace visible el efecto del formulario."""
+    """Tabla de cobertura por sitio: hace visible el efecto del formulario."""
     filas = []
     etiquetas = {
         "revolico": "Revolico",
@@ -134,14 +134,14 @@ def main() -> None:
             "los datos —recuperando el texto del anuncio desde campos alternativos, "
             "extrayendo teléfono y ubicación del cuerpo del texto y corrigiendo la "
             "clasificación— sitúa el principal punto de mejora en la información que "
-            "publican los anuncios: el 45,5 % de los vehículos reales no declara su "
+            "publican los anuncios: el 45,5 % de los anuncios de vehículo no declara su "
             "marca. El trabajo analiza además cuánto de cada diferencia se debe al "
-            "formulario de cada plataforma y cuánto al contenido del anuncio. La "
+            "formulario de cada sitio y cuánto al contenido del anuncio. La "
             "provincia aparece en el 100 % de los anuncios de dos fuentes porque el "
             "campo es obligatorio y en el 0 % de otra porque no existe, de modo que esa "
             "cifra no informa sobre la conducta de quien publica. Solo la marca, que "
             "ninguna fuente impone de forma uniforme, admite comparación entre "
-            "plataformas. Sobre esa base se describen segmentos con menor oferta "
+            "sitios. Sobre esa base se describen segmentos con menor oferta "
             "publicada y se sugiere un estándar mínimo de publicación —marca, cifra "
             "clave, municipio y WhatsApp— como posible vía de mejora. El proceso es "
             "reproducible e incluye una auditoría automática de la clasificación."
@@ -180,7 +180,7 @@ def main() -> None:
             "<tbody>" + tabla_marcas + "</tbody>"
         ),
 
-        # Tabla de sesgos por plataforma
+        # Tabla de sesgos por sitio
         "{{TABLA_SESGOS}}": (
             "<thead><tr><th>Plataforma</th><th class='num'>Anuncios</th>"
             "<th class='num'>Marca</th><th class='num'>Provincia</th>"
