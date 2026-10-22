@@ -248,11 +248,14 @@ province_dist = df['province_name'].value_counts().head(10)
 
 ## 🛡️ Consideraciones Éticas y Legales
 
-- ✅ **Solo datos públicos**: Solo información visible públicamente
+- ✅ **Solo datos públicos**: Solo información visible públicamente en clasificados
 - ✅ **Rate limiting**: 1.5s entre requests, respeta robots.txt
 - ✅ **User-Agent realista**: Identificación transparente
-- ✅ **Sin datos personales**: No se almacenan datos privados de usuarios
-- ✅ **Uso educativo/investigación**: Análisis de mercado académico
+- ✅ **Anonimización antes de publicar**: teléfonos y URLs seudonimizados (hash SHA-256) en `data/publico/`; el CSV con datos identificativos queda fuera del repositorio (`.gitignore`)
+- ✅ **Minimización**: solo se conservan campos necesarios para el análisis (categoría, marca, precio, provincia, municipio)
+- ✅ **Uso educativo/investigación**: Análisis de mercado académico, sin fines comerciales
+- ⚠️ **Cumplimiento normativo**: tratado conforme a la **Ley 149/2022 de Protección de Datos Personales** (GOC-2022-832-O90), principios del Art. 10, y bases del Art. 17.e (fuentes de acceso público) y 17.f (disociación de datos)
+- ⚠️ **Derechos del titular**: acceso, rectificación, cancelación y oposición (Arts. 20-22) y oposición (Art. 23). Solicitudes por escrito al responsable del fichero: estudio-mercado@proyecto.local (plazo 10 días hábiles, Art. 29)
 - ⚠️ **Responsabilidad**: Verificar TOS de cada sitio antes de uso comercial
 
 ---

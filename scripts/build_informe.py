@@ -144,9 +144,13 @@ def main() -> None:
             "sitios. Sobre esa base se describen segmentos con menor oferta "
             "publicada y se sugiere un estándar mínimo de publicación —marca, cifra "
             "clave, municipio y WhatsApp— como posible vía de mejora. El proceso es "
-            "reproducible e incluye una auditoría automática de la clasificación."
+            "reproducible e incluye una auditoría automática de la clasificación. El "
+            "tratamiento de los datos se ajusta a la Ley 149/2022 de Protección de "
+            "Datos Personales: los anuncios provienen de fuentes de acceso público y, "
+            "antes de publicarse, se anonimizan los identificadores directos "
+            "(teléfonos, URLs) mediante hash SHA-256."
         ),
-        "{{KEYWORDS}}": "mercado informal, vehículos de dos ruedas, calidad de datos, profesionalización, La Habana, clasificación automática, auditoría reproducible",
+        "{{KEYWORDS}}": "mercado informal, vehículos de dos ruedas, calidad de datos, profesionalización, La Habana, clasificación automática, auditoría reproducible, protección de datos, Ley 149/2022",
 
         # Cifras globales
         "{{TOTAL_ANUNCIOS}}": miles(ev["invisibilidad"]["vehiculos"]),

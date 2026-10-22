@@ -376,6 +376,38 @@ pre code{background:none;padding:0;font-size:0.9rem}
     <li><strong>Índice de encontrabilidad</strong>: proporción de anuncios que cumplen tres condiciones simultáneas —declaran marca, declaran zona e incluyen al menos una cifra—.</li>
     <li><strong>Concentración geográfica</strong>: participación de cada municipio en el total de La Habana.</li>
   </ul>
+
+  <h2>2.7 Protección de datos personales y cumplimiento normativo</h2>
+  <p>
+    El tratamiento de los datos de los anuncios se ajusta a la <strong>Ley 149/2022 de Protección de Datos Personales</strong>
+    (GOC-2022-832-O90) y a su Reglamento (Resolución 58/2022). Los anuncios provienen de fuentes de acceso público,
+    por lo que su obtención se ampara en el Artículo 17.e de la Ley, siempre que no se vulnere ninguno de los
+    principios del Artículo 10. Antes de publicar cualquier conjunto, se ejecuta <code>scripts/privacy/sanitizar_datos.py</code>,
+    que aplica una lista blanca de campos y seudonimiza los identificadores directos (teléfonos, URLs de anuncio,
+    enlaces y menciones en el texto) mediante hash SHA-256 con sal, de modo que la información publicada no pueda
+    asociarse a una persona determinada (disociación de datos, Art. 17.f).
+  </p>
+  <ul>
+    <li><strong>Limitación de recogida (Art. 10.a):</strong> solo se conservan los campos necesarios para el análisis
+        (categoría, marca, precio, provincia, municipio, título sin datos de contacto). Los teléfonos y URLs se
+        descartan o seudonimizan antes de versionar.</li>
+    <li><strong>Especificación de fines (Art. 10.c):</strong> el propósito del tratamiento es el diagnóstico académico
+        de la calidad de la información publicada en anuncios de vehículos de dos ruedas en La Habana, con fines
+        educativos e informativos, sin uso comercial.</li>
+    <li><strong>Limitación de uso (Art. 10.d):</strong> los datos se utilizan exclusivamente para el fin informado
+        en este estudio; no se ceden a terceros ni se emplean para otra finalidad.</li>
+    <li><strong>Seguridad (Art. 10.f):</strong> los archivos con datos identificativos (teléfonos, URLs reales) no
+        se versionan en el repositorio (están en <code>.gitignore</code>); solo se conserva la copia anonimizada en
+        <code>data/publico/</code>.</li>
+    <li><strong>Derechos del titular (Arts. 20-23):</strong> cualquier persona cuyos datos aparezcan en los anuncios
+        analizados puede ejercer los derechos de acceso, rectificación, cancelación y oposición. Las solicitudes se
+        dirigen por escrito al responsable del fichero: <strong>estudio-mercado@proyecto.local</strong>. El plazo de
+        respuesta es de diez días hábiles (Art. 29).</li>
+  </ul>
+  <p>
+    Este estudio es de carácter educativo y no lucrativo. No se recopilan datos sensibles (Art. 15) ni se infiere
+    género, condición de los vehículos ni volumen de ventas.
+  </p>
 </section>
 
 <hr class="seccion">
@@ -576,6 +608,7 @@ pre code{background:none;padding:0;font-size:0.9rem}
   <h1>Referencias</h1>
   <ol>
     <li>Datos propios: 4.979 anuncios únicos de Revolico, iTENCEL, ElYerroMenu y Facebook (recopilados entre septiembre y octubre de 2025).</li>
+    <li>Asamblea Nacional del Poder Popular de Cuba. <em>Ley 149/2022 de Protección de Datos Personales</em>. Gaceta Oficial No. 90 Ordinaria, 25 de agosto de 2022 (GOC-2022-832-O90).</li>
     <li>Weissbock, J. (2025). <em>Re-evaluating the Qualifying/Finish Relationship in Formula One</em>. Carleton University.</li>
     <li>Código del estudio: <code>scripts/analyzers/</code> (clasificación, normalización, auditoría, figuras e informe).</li>
   </ol>

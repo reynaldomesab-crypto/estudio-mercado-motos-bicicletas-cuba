@@ -14,8 +14,11 @@
 - Scraping agresivo (requests paralelos masivos)
 - Ignorar códigos de estado HTTP
 - Hardcodear valores que cambian (IDs, tokens)
-- Almacenar datos personales sensibles
+- Almacenar datos personales sensibles (teléfonos, nombres, URLs de anuncio) sin seudonimizar
 - Scrapear detrás de login sin autorización
+- Publicar datos identificativos de personas sin anonimización previa
+
+> **Marco normativo:** el tratamiento de datos personales se ajusta a la **Ley 149/2022 de Protección de Datos Personales** (GOC-2022-832-O90). Los datos se obtienen de fuentes de acceso público (Art. 17.e) y se disocian antes de su publicación (Art. 17.f), aplicando los principios del Art. 10 (limitación de recogida, calidad, especificación de fines, limitación de uso, legitimación, seguridad, transparencia, participación individual, responsabilidad y legalidad). Antes de versionar cualquier conjunto, ejecutar `scripts/privacy/sanitizar_datos.py` para eliminar identificadores directos.
 
 ## Patrones Comunes
 
