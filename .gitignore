@@ -14,3 +14,8 @@ Repuestos/data/
 
 # Copias locales de trabajo
 *.tar.gz
+
+# Carpetas locales de audio y transcripciones (pueden contener datos personales)
+Audios/
+Audios_Encriptados/
+Transcripciones_Locales/
