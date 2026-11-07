@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/sitemap.xml

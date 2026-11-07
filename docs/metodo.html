@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Método, errores corregidos y límites del estudio</title>
+<meta name="description" content="Cómo se recogieron y auditaron 4.979 anuncios, qué errores se corrigieron y qué no puede afirmar el estudio.">
+<link rel="canonical" href="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/metodo.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Método, errores corregidos y límites del estudio">
+<meta property="og:description" content="Cómo se recogieron y auditaron 4.979 anuncios, qué errores se corrigieron y qué no puede afirmar el estudio.">
+<meta property="og:url" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/metodo.html">
+<meta property="og:image" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/og.png">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12314a">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2312314a'/%3E%3Ctext x='50' y='68' font-size='54' font-family='sans-serif' font-weight='bold' fill='%23f2b544' text-anchor='middle'%3E2R%3C/text%3E%3C/svg%3E">
+
+</head>
+<body>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">Mercado de dos ruedas<small>La Habana · datos abiertos</small></a>
+    <nav aria-label="Principal"><ul><li><a class="lnk" href="index.html">Inicio</a></li><li><a class="lnk" href="resumen.html">Resumen</a></li><li><a class="lnk" href="guia.html">Guía</a></li><li><a class="lnk" href="precios.html">Precios</a></li><li><a class="lnk" href="datos.html">Datos</a></li><li><a class="lnk" href="metodo.html" aria-current="page">Método</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tight">
+  <div class="wrap narrow">
+    <span class="pill">Método</span>
+    <h1 style="font-size:clamp(28px,4.6vw,42px);line-height:1.12;color:var(--ink);margin:14px 0 10px">Cómo se hizo (y qué se corrigió)</h1>
+    <p class="lead" style="font-size:19px;color:#31424f">Un estudio reproducible vale por lo que documenta, incluidos sus errores. Estos son los cinco que cambiaron las cifras.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <h2>El proceso</h2>
+    <ol class="steps">
+      <li><h3>Recolección</h3><p>Scrapers contra cuatro plataformas, con límite de velocidad y respeto a <code>robots.txt</code>. Datos crudos inmutables y sello de tiempo por registro.</p></li>
+      <li><h3>Deduplicación</h3><p>Conteo inicial: 5.787. Tras deduplicar por URL: <strong>4.979</strong>. La diferencia eran 412 anuncios repetidos.</p></li>
+      <li><h3>Normalización</h3><p>Facebook guarda el texto en <code>text</code>, no en <code>title</code>. Recuperarlo redujo los títulos vacíos de 606 a 11.</p></li>
+      <li><h3>Taxonomía</h3><p>Cinco categorías con reglas jerárquicas sobre el título sin acentos ni Unicode tipográfico. Auditoría de marcas: cobertura del 22,6% al 50,9%.</p></li>
+      <li><h3>Auditoría automática</h3><p>Nueve comprobaciones sobre todas las clasificaciones. Resultado: cero problemas graves, y un bug en la propia auditoría que se corrigió.</p></li>
+      <li><h3>Anonimización</h3><p>Lista blanca de campos, hash SHA-256 con sal y retirada de teléfonos, nombres y URLs antes de publicar.</p></li>
+    </ol>
+
+    <h2 style="margin-top:34px">Los cinco errores que cambiaron las cifras</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Error</th><th>Efecto</th></tr></thead>
+      <tbody>
+        <tr><td>Dataset duplicado</td><td>5.787 anuncios inflados; el real era 4.979</td></tr>
+        <tr><td>Texto de Facebook en otro campo</td><td>606 “sin título” que no eran culpa del vendedor</td></tr>
+        <tr><td>Acentos y Unicode tipográfico</td><td>“ELÉCTRICA” y “𝐁𝐈𝐂𝐈𝐌𝐎𝐓𝐎” no se reconocían</td></tr>
+        <tr><td>Señal eléctrica incompleta</td><td>Motores cayó de 2.264 a 1.036; eléctricos subió a 3.006</td></tr>
+        <tr><td>Auditoría con bug de comparación</td><td>Reportaba “cero problemas” siempre</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 style="margin-top:34px">Qué no puede decir este estudio</h2>
+    <ul class="checklist">
+      <li>No observa ventas: solo anuncios publicados.</li>
+      <li>No distingue nuevo de usado: no hay campo de condición.</li>
+      <li>No hay fecha por anuncio: no se puede afirmar tendencia ni estacionalidad.</li>
+      <li>Los precios son declarados, no avalúos.</li>
+      <li>La deduplicación es por URL: un vehículo en dos sitios cuenta dos veces.</li>
+    </ul>
+
+    <h2 style="margin-top:34px">Privacidad</h2>
+    <p>Los datos se obtuvieron de fuentes de acceso público y se disociaron antes de publicar (Ley 149/2022, Arts. 17.e y 17.f). No se recogen datos sensibles. No se usan los teléfonos para contactar a nadie. Si apareces en el dataset y quieres ejercer tus derechos, abre un issue en el repositorio.</p>
+
+    <h2 style="margin-top:34px">Reproducir</h2>
+    <p>El pipeline completo, los scripts y la auditoría están en el repositorio. El informe académico se descarga aparte porque pesa 1,7 MB:</p>
+    <p><a class="btn btn-line" href="https://raw.githubusercontent.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/main/analysis/INFORME_FINAL.html" rel="noopener" download>Descargar el informe completo (HTML)</a></p>
+  </div>
+</section>
+<section class="soft"><div class="wrap narrow center">
+  <h2>Empieza por lo que te sirve hoy</h2>
+  <p>Si vendes: descarga el checklist de 10 cambios que no cuestan nada. Si compras: mira la mediana de tu zona antes de negociar.</p>
+  <div class="cta-row" style="justify-content:center">
+    <a class="btn btn-primary" href="guia.html">Guía para vender mejor</a>
+    <a class="btn btn-line" href="precios.html">Calcular un precio</a>
+  </div>
+</div></section>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Estudio de mercado</h4>
+        <p>4.979 anuncios de Revolico, iTENCEL, ElYerro y Facebook recogidos entre el 19 y el 24 de septiembre de 2026. Estudio independiente, sin fines comerciales.</p>
+        <p class="small">Datos anonimizados conforme a la Ley 149/2022. Precios declarados por el vendedor: no son avalúos.</p>
+      </div>
+      <div>
+        <h4>Leer</h4>
+        <ul>
+          <li><a href="resumen.html">Resumen de 3 minutos</a></li>
+          <li><a href="guia.html">Guía para vender</a></li>
+          <li><a href="precios.html">Calculadora</a></li>
+          <li><a href="metodo.html">Método y límites</a></li>
+          <li><a href="prensa.html">Kit de prensa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fuente</h4>
+        <ul>
+          <li><a href="https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba" rel="noopener">Repositorio en GitHub</a></li>
+          <li><a href="https://raw.githubusercontent.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/main/analysis/INFORME_FINAL.html" rel="noopener" download>Informe completo (HTML, 1,7 MB)</a></li>
+          <li><a href="datos.html">Dataset y cómo citar</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:26px;opacity:.75">© 2026 · Contenido abierto para uso educativo y de investigación. Si detectas un error, abre un issue en el repositorio.</p>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/data.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

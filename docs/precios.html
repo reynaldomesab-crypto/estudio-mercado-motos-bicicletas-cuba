@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calculadora de precio de referencia · Motos en La Habana</title>
+<meta name="description" content="Compara un precio con la mediana y el rango del mercado por tipo, marca o municipio. Precios declarados, no avalúos.">
+<link rel="canonical" href="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/precios.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Calculadora de precio de referencia · Motos en La Habana">
+<meta property="og:description" content="Compara un precio con la mediana y el rango del mercado por tipo, marca o municipio. Precios declarados, no avalúos.">
+<meta property="og:url" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/precios.html">
+<meta property="og:image" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/og.png">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12314a">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2312314a'/%3E%3Ctext x='50' y='68' font-size='54' font-family='sans-serif' font-weight='bold' fill='%23f2b544' text-anchor='middle'%3E2R%3C/text%3E%3C/svg%3E">
+
+</head>
+<body>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">Mercado de dos ruedas<small>La Habana · datos abiertos</small></a>
+    <nav aria-label="Principal"><ul><li><a class="lnk" href="index.html">Inicio</a></li><li><a class="lnk" href="resumen.html">Resumen</a></li><li><a class="lnk" href="guia.html">Guía</a></li><li><a class="lnk" href="precios.html" aria-current="page">Precios</a></li><li><a class="lnk" href="datos.html">Datos</a></li><li><a class="lnk" href="metodo.html">Método</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tight">
+  <div class="wrap narrow">
+    <span class="pill">Calculadora</span>
+    <h1 style="font-size:clamp(28px,4.6vw,42px);line-height:1.12;color:var(--ink);margin:14px 0 10px">¿Está caro o está bien?</h1>
+    <p class="lead" style="font-size:19px;color:#31424f">Compara un precio con la mediana y el rango habitual del mercado. Elige tipo, marca o municipio; si quieres, escribe el precio que te piden.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap">
+    <div class="calc">
+      <div class="modes" role="group" aria-label="Criterio de comparación">
+        <button class="mode" type="button" data-mode="tipos" aria-pressed="true">Por tipo</button>
+        <button class="mode" type="button" data-mode="marcas" aria-pressed="false">Por marca</button>
+        <button class="mode" type="button" data-mode="zonas" aria-pressed="false">Por municipio</button>
+      </div>
+      <div class="fields">
+        <div>
+          <label class="field" for="grupo">Grupo</label>
+          <select id="grupo"></select>
+        </div>
+        <div>
+          <label class="field" for="precio">Precio que te piden o quieres pedir (USD, opcional)</label>
+          <input id="precio" type="number" min="1" step="10" inputmode="numeric" placeholder="Ej.: 1600">
+        </div>
+      </div>
+      <div class="result" id="resultado" aria-live="polite">
+        <p class="muted">Cargando datos…</p>
+      </div>
+      <p class="small muted" style="margin:14px 0 0">La calculadora necesita JavaScript. Si no carga, usa las tablas de abajo.</p>
+    </div>
+
+    <div class="warn">
+      <p><strong>Esto no es un avalúo.</strong> Son precios declarados por los vendedores en sus anuncios, no precios de venta. La comparación es de posición relativa: sirve para saber si estás dentro del rango, no para certificar cuánto vale un vehículo.</p>
+    </div>
+
+    <h2 style="margin-top:36px">Tablas completas</h2>
+    <details open><summary><strong>Por tipo de vehículo</strong></summary><div class="tablewrap"><table><thead><tr><th>Tipo</th><th class="num-col">Anuncios</th><th class="num-col">p10</th><th class="num-col">Mediana</th><th class="num-col">p90</th></tr></thead><tbody><tr><td>Motores</td><td class="num-col">1.124</td><td class="num-col">$1.400</td><td class="num-col"><strong>$2.000</strong></td><td class="num-col">$3.000</td></tr><tr><td>Eléctricos</td><td class="num-col">2.892</td><td class="num-col">$550</td><td class="num-col"><strong>$1.600</strong></td><td class="num-col">$2.700</td></tr><tr><td>Patinetes Eléctricos</td><td class="num-col">64</td><td class="num-col">$350</td><td class="num-col"><strong>$750</strong></td><td class="num-col">$850</td></tr><tr><td>Bicicletas</td><td class="num-col">487</td><td class="num-col">$80</td><td class="num-col"><strong>$160</strong></td><td class="num-col">$304</td></tr></tbody></table></div></details>
+    <details><summary><strong>Por marca</strong></summary><div class="tablewrap"><table><thead><tr><th>Marca</th><th class="num-col">Anuncios</th><th class="num-col">p10</th><th class="num-col">Mediana</th><th class="num-col">p90</th></tr></thead><tbody><tr><td>TOPMAQ</td><td class="num-col">387</td><td class="num-col">$1.780</td><td class="num-col"><strong>$2.150</strong></td><td class="num-col">$2.900</td></tr><tr><td>VEDCA</td><td class="num-col">214</td><td class="num-col">$1.250</td><td class="num-col"><strong>$1.600</strong></td><td class="num-col">$2.500</td></tr><tr><td>YOAZAKY</td><td class="num-col">203</td><td class="num-col">$1.604</td><td class="num-col"><strong>$2.250</strong></td><td class="num-col">$2.900</td></tr><tr><td>HALCON</td><td class="num-col">148</td><td class="num-col">$771</td><td class="num-col"><strong>$1.800</strong></td><td class="num-col">$2.650</td></tr><tr><td>CHALLENGER</td><td class="num-col">130</td><td class="num-col">$750</td><td class="num-col"><strong>$850</strong></td><td class="num-col">$1.403</td></tr><tr><td>JMD</td><td class="num-col">115</td><td class="num-col">$750</td><td class="num-col"><strong>$1.600</strong></td><td class="num-col">$1.750</td></tr><tr><td>AVA</td><td class="num-col">90</td><td class="num-col">$948</td><td class="num-col"><strong>$1.650</strong></td><td class="num-col">$2.550</td></tr><tr><td>BUCATTI</td><td class="num-col">86</td><td class="num-col">$900</td><td class="num-col"><strong>$2.600</strong></td><td class="num-col">$3.175</td></tr><tr><td>MIKAZUKI</td><td class="num-col">84</td><td class="num-col">$962</td><td class="num-col"><strong>$1.780</strong></td><td class="num-col">$2.250</td></tr><tr><td>IZUKI</td><td class="num-col">83</td><td class="num-col">$1.584</td><td class="num-col"><strong>$2.400</strong></td><td class="num-col">$3.250</td></tr><tr><td>UNISON</td><td class="num-col">63</td><td class="num-col">$1.680</td><td class="num-col"><strong>$1.950</strong></td><td class="num-col">$2.490</td></tr><tr><td>SUZUKI</td><td class="num-col">62</td><td class="num-col">$1.798</td><td class="num-col"><strong>$3.200</strong></td><td class="num-col">$3.935</td></tr><tr><td>MAF</td><td class="num-col">54</td><td class="num-col">$750</td><td class="num-col"><strong>$790</strong></td><td class="num-col">$1.150</td></tr><tr><td>ITALY</td><td class="num-col">52</td><td class="num-col">$1.900</td><td class="num-col"><strong>$1.970</strong></td><td class="num-col">$2.495</td></tr><tr><td>KVITOVA</td><td class="num-col">48</td><td class="num-col">$1.500</td><td class="num-col"><strong>$1.765</strong></td><td class="num-col">$1.950</td></tr><tr><td>RALI</td><td class="num-col">41</td><td class="num-col">$290</td><td class="num-col"><strong>$1.380</strong></td><td class="num-col">$2.600</td></tr><tr><td>GS</td><td class="num-col">39</td><td class="num-col">$2.300</td><td class="num-col"><strong>$2.400</strong></td><td class="num-col">$2.600</td></tr><tr><td>KRATHOS</td><td class="num-col">38</td><td class="num-col">$2.550</td><td class="num-col"><strong>$2.905</strong></td><td class="num-col">$3.260</td></tr><tr><td>TRECK</td><td class="num-col">33</td><td class="num-col">$1.400</td><td class="num-col"><strong>$1.850</strong></td><td class="num-col">$2.550</td></tr><tr><td>FLY</td><td class="num-col">32</td><td class="num-col">$2.040</td><td class="num-col"><strong>$2.500</strong></td><td class="num-col">$2.759</td></tr></tbody></table></div></details>
+    <details><summary><strong>Por municipio</strong></summary><div class="tablewrap"><table><thead><tr><th>Municipio</th><th class="num-col">Anuncios</th><th class="num-col">Mediana</th><th class="num-col">p10</th><th class="num-col">p90</th></tr></thead><tbody><tr><td>Cerro</td><td class="num-col">107</td><td class="num-col"><strong>$700</strong></td><td class="num-col">$99</td><td class="num-col">$2.000</td></tr><tr><td>Arroyo Naranjo</td><td class="num-col">128</td><td class="num-col"><strong>$820</strong></td><td class="num-col">$95</td><td class="num-col">$2.400</td></tr><tr><td>Diez de Octubre</td><td class="num-col">314</td><td class="num-col"><strong>$900</strong></td><td class="num-col">$115</td><td class="num-col">$2.400</td></tr><tr><td>Marianao</td><td class="num-col">123</td><td class="num-col"><strong>$1.100</strong></td><td class="num-col">$170</td><td class="num-col">$2.380</td></tr><tr><td>Centro Habana</td><td class="num-col">622</td><td class="num-col"><strong>$1.200</strong></td><td class="num-col">$170</td><td class="num-col">$2.550</td></tr><tr><td>Boyeros</td><td class="num-col">117</td><td class="num-col"><strong>$1.200</strong></td><td class="num-col">$135</td><td class="num-col">$2.500</td></tr><tr><td>Plaza</td><td class="num-col">299</td><td class="num-col"><strong>$1.400</strong></td><td class="num-col">$323</td><td class="num-col">$2.584</td></tr><tr><td>La Lisa</td><td class="num-col">126</td><td class="num-col"><strong>$1.400</strong></td><td class="num-col">$400</td><td class="num-col">$2.725</td></tr><tr><td>Playa</td><td class="num-col">422</td><td class="num-col"><strong>$1.450</strong></td><td class="num-col">$300</td><td class="num-col">$2.500</td></tr><tr><td>Guanabacoa</td><td class="num-col">61</td><td class="num-col"><strong>$1.560</strong></td><td class="num-col">$540</td><td class="num-col">$2.550</td></tr><tr><td>Habana Vieja</td><td class="num-col">107</td><td class="num-col"><strong>$1.620</strong></td><td class="num-col">$356</td><td class="num-col">$2.700</td></tr><tr><td>Habana del Este</td><td class="num-col">69</td><td class="num-col"><strong>$1.920</strong></td><td class="num-col">$280</td><td class="num-col">$2.860</td></tr></tbody></table></div></details>
+    <p class="small muted">Solo grupos con muestra suficiente: 30 anuncios o más para tipo y marca; 50 o más para municipio.</p>
+  </div>
+</section>
+<section class="soft"><div class="wrap narrow center">
+  <h2>Empieza por lo que te sirve hoy</h2>
+  <p>Si vendes: descarga el checklist de 10 cambios que no cuestan nada. Si compras: mira la mediana de tu zona antes de negociar.</p>
+  <div class="cta-row" style="justify-content:center">
+    <a class="btn btn-primary" href="guia.html">Guía para vender mejor</a>
+    <a class="btn btn-line" href="precios.html">Calcular un precio</a>
+  </div>
+</div></section>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Estudio de mercado</h4>
+        <p>4.979 anuncios de Revolico, iTENCEL, ElYerro y Facebook recogidos entre el 19 y el 24 de septiembre de 2026. Estudio independiente, sin fines comerciales.</p>
+        <p class="small">Datos anonimizados conforme a la Ley 149/2022. Precios declarados por el vendedor: no son avalúos.</p>
+      </div>
+      <div>
+        <h4>Leer</h4>
+        <ul>
+          <li><a href="resumen.html">Resumen de 3 minutos</a></li>
+          <li><a href="guia.html">Guía para vender</a></li>
+          <li><a href="precios.html">Calculadora</a></li>
+          <li><a href="metodo.html">Método y límites</a></li>
+          <li><a href="prensa.html">Kit de prensa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fuente</h4>
+        <ul>
+          <li><a href="https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba" rel="noopener">Repositorio en GitHub</a></li>
+          <li><a href="https://raw.githubusercontent.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/main/analysis/INFORME_FINAL.html" rel="noopener" download>Informe completo (HTML, 1,7 MB)</a></li>
+          <li><a href="datos.html">Dataset y cómo citar</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:26px;opacity:.75">© 2026 · Contenido abierto para uso educativo y de investigación. Si detectas un error, abre un issue en el repositorio.</p>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/data.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dataset abierto · 4.979 anuncios anonimizados</title>
+<meta name="description" content="Descarga el dataset anonimizado, revisa los campos, las condiciones de uso y cómo citar el estudio.">
+<link rel="canonical" href="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/datos.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dataset abierto · 4.979 anuncios anonimizados">
+<meta property="og:description" content="Descarga el dataset anonimizado, revisa los campos, las condiciones de uso y cómo citar el estudio.">
+<meta property="og:url" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/datos.html">
+<meta property="og:image" content="https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/og.png">
+<meta property="og:locale" content="es_CU">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#12314a">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%2312314a'/%3E%3Ctext x='50' y='68' font-size='54' font-family='sans-serif' font-weight='bold' fill='%23f2b544' text-anchor='middle'%3E2R%3C/text%3E%3C/svg%3E">
+
+</head>
+<body>
+<a class="skip" href="#main">Ir al contenido</a>
+<header class="site">
+  <div class="wrap nav">
+    <a class="brand" href="index.html">Mercado de dos ruedas<small>La Habana · datos abiertos</small></a>
+    <nav aria-label="Principal"><ul><li><a class="lnk" href="index.html">Inicio</a></li><li><a class="lnk" href="resumen.html">Resumen</a></li><li><a class="lnk" href="guia.html">Guía</a></li><li><a class="lnk" href="precios.html">Precios</a></li><li><a class="lnk" href="datos.html" aria-current="page">Datos</a></li><li><a class="lnk" href="metodo.html">Método</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+
+<section class="tight">
+  <div class="wrap narrow">
+    <span class="pill">Datos abiertos</span>
+    <h1 style="font-size:clamp(28px,4.6vw,42px);line-height:1.12;color:var(--ink);margin:14px 0 10px">Dataset, campos y cómo citar</h1>
+    <p class="lead" style="font-size:19px;color:#31424f">4.979 anuncios anonimizados, con diccionario de campos y límites documentados. Abierto para investigación, docencia y verificación.</p>
+  </div>
+</section>
+
+<section class="tight">
+  <div class="wrap narrow">
+    <h2>Descargar</h2>
+    <p>El archivo público contiene una fila por anuncio único, sin nombres, teléfonos ni URLs identificativas.</p>
+    <p><a class="btn btn-dark" href="https://raw.githubusercontent.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/main/data/publico/vehiculos_clasificados.csv" rel="noopener" download>vehiculos_clasificados.csv (754 KB)</a></p>
+
+    <h2 style="margin-top:34px">Campos</h2>
+    <div class="tablewrap"><table>
+      <thead><tr><th>Campo</th><th>Qué contiene</th></tr></thead>
+      <tbody>
+        <tr><td>title</td><td>Título normalizado del anuncio</td></tr>
+        <tr><td>source</td><td>Plataforma de origen (revolico, itencel, facebook, elyerro)</td></tr>
+        <tr><td>categoria</td><td>Motores, Eléctricos, Bicicletas, Patinetes, Otros, Partes</td></tr>
+        <tr><td>marca_detectada</td><td>Marca atribuida por el clasificador (vacío si no hay señal)</td></tr>
+        <tr><td>price_usd</td><td>Precio declarado, normalizado a USD</td></tr>
+        <tr><td>province_name / municipality_name</td><td>Provincia y municipio detectados</td></tr>
+        <tr><td>tiene_whatsapp</td><td>Si el anuncio incluye un contacto de WhatsApp</td></tr>
+        <tr><td>anuncio_id / telefono_id</td><td>Identificadores seudonimizados (hash SHA-256)</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 style="margin-top:34px">Cómo citar</h2>
+    <div class="callout"><p>Estudio de Mercado de Motos, Bicicletas y Patinetes en Cuba (2026). <em>El mercado de vehículos de dos ruedas en La Habana: 4.979 anuncios analizados</em>. Repositorio: github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba</p></div>
+
+    <h2 style="margin-top:34px">Condiciones de uso</h2>
+    <ul class="checklist">
+      <li>Datos anonimizados; no intentes reidentificar a personas.</li>
+      <li>No uses el dataset para contactar vendedores ni para publicidad.</li>
+      <li>No se recogieron datos sensibles (Art. 15, Ley 149/2022).</li>
+      <li>Cita la fuente y conserva las limitaciones junto a las cifras.</li>
+    </ul>
+
+    <h2 style="margin-top:34px">Límites que debes arrastrar</h2>
+    <p>No hay ventas, ni condición, ni fecha por anuncio. Los precios son declarados. La deduplicación es por URL. Cualquier análisis que ignore esto producirá conclusiones falsas con mucha seguridad.</p>
+    <p><a href="metodo.html">Ver el método completo →</a></p>
+  </div>
+</section>
+
+</main>
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Estudio de mercado</h4>
+        <p>4.979 anuncios de Revolico, iTENCEL, ElYerro y Facebook recogidos entre el 19 y el 24 de septiembre de 2026. Estudio independiente, sin fines comerciales.</p>
+        <p class="small">Datos anonimizados conforme a la Ley 149/2022. Precios declarados por el vendedor: no son avalúos.</p>
+      </div>
+      <div>
+        <h4>Leer</h4>
+        <ul>
+          <li><a href="resumen.html">Resumen de 3 minutos</a></li>
+          <li><a href="guia.html">Guía para vender</a></li>
+          <li><a href="precios.html">Calculadora</a></li>
+          <li><a href="metodo.html">Método y límites</a></li>
+          <li><a href="prensa.html">Kit de prensa</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Fuente</h4>
+        <ul>
+          <li><a href="https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba" rel="noopener">Repositorio en GitHub</a></li>
+          <li><a href="https://raw.githubusercontent.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/main/analysis/INFORME_FINAL.html" rel="noopener" download>Informe completo (HTML, 1,7 MB)</a></li>
+          <li><a href="datos.html">Dataset y cómo citar</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:26px;opacity:.75">© 2026 · Contenido abierto para uso educativo y de investigación. Si detectas un error, abre un issue en el repositorio.</p>
+  </div>
+</footer>
+<script src="assets/config.js"></script>
+<script src="assets/analytics.js" defer></script>
+<script src="assets/data.js" defer></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>

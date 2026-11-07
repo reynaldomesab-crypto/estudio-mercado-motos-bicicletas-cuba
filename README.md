@@ -6,6 +6,14 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
 
+## ▶ Lee el estudio en línea
+
+**[reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba](https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/)**
+
+Resumen de 3 minutos · [Calculadora de precio](https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/precios.html) · [Guía para vendedores](https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/guia.html) · [Dataset](https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/datos.html)
+
+**4.979 anuncios únicos · 4.860 vehículos clasificados · 4 fuentes · 13 figuras.**
+
 ## 📋 Descripción
 
 Este proyecto realiza un **estudio de mercado integral** del sector de vehículos de dos ruedas (motos, bicicletas, patinetes, triciclos) y sus repuestos en Cuba, mediante **web scraping** de múltiples fuentes de clasificados online cubanas.
@@ -14,6 +22,9 @@ Este proyecto realiza un **estudio de mercado integral** del sector de vehículo
 
 | Documento | Para qué sirve |
 | --- | --- |
+| [`docs/index.html`](docs/index.html) | **Sitio publicado en GitHub Pages**: resumen, calculadora, guía y dataset |
+| [`comunicacion/SPRINT_10_DIAS.md`](comunicacion/SPRINT_10_DIAS.md) | Plan de lanzamiento de 10 días (nov 2026), paso a paso |
+| [`INFORME_TECNICO.md`](INFORME_TECNICO.md) | Informe técnico completo: decisiones, errores y correcciones |
 | [`presentation/index.html`](presentation/index.html) | Presentación de 14 diapositivas sobre buenas prácticas para vendedores. Un solo archivo, funciona sin internet |
 | [`analysis/INFORME_PRESENTACION.md`](analysis/INFORME_PRESENTACION.md) | Guion de la presentación, preguntas frecuentes y material de respaldo |
 | [`analysis/GUIA_VENDEDOR.md`](analysis/GUIA_VENDEDOR.md) | Guía de buenas prácticas para vendedores del sector, con las cifras que la sostienen |
@@ -34,50 +45,47 @@ Este proyecto realiza un **estudio de mercado integral** del sector de vehículo
 
 ## 📊 Resumen de Datos
 
+**Cifras tras deduplicar por URL** (el conteo bruto de 5.787 estaba inflado; ver `JOURNEY.md`):
+
 | Métrica | Valor |
 |---------|-------|
-| **Total vehículos** | 5,391 |
-| **Total repuestos** | 523 |
+| **Anuncios únicos** | 4.979 |
+| **Vehículos clasificados** | 4.860 (97,6%) |
 | **Páginas scrapeadas** | 715 |
 | **Fuentes de datos** | 4 |
-| **Cobertura de precios** | 93.2% |
-| **Cobertura de imágenes** | 92.9% |
-| **Precio promedio vehículos** | $1,536 USD |
-| **Precio promedio repuestos** | $1,147 USD |
+| **Con precio declarado** | 93,9% |
+| **Con municipio** | 91,2% |
+| **Con marca** | 54,5% |
+| **Mediana de precio (vehículos)** | $1.610 USD |
+| **Con WhatsApp** | 59,9% |
 
 ### 📈 Distribución por Tipo de Vehículo
 
-| Tipo | Cantidad | Precio Promedio |
-|------|----------|-----------------|
-| Moto Combustión | 1,589 | $1,701 |
-| Moto Eléctrica | 635 | $2,012 |
-| Bicicleta | 589 | $229 |
-| Bicicleta Eléctrica | 525 | $770 |
-| Patinete Eléctrico | 92 | $625 |
-| Mototrina | 5 | $1,101 |
-| Otros | 194 | $1,472 |
+| Tipo | Cantidad | Mediana de precio |
+|------|----------|-------------------|
+| Motores (combustión) | 1.272 | $2.000 |
+| Eléctricos | 3.006 | $1.600 |
+| Bicicletas | 518 | $160 |
+| Patinetes eléctricos | 64 | $750 |
+| Otros (sin señal de tipo) | 99 | — |
+| Partes y accesorios | 20 | — |
 
-### 🛠️ Repuestos por Categoría
+### 🛠️ Repuestos
 
-| Categoría | Cantidad | Precio Promedio |
-|-----------|----------|-----------------|
-| Repuesto Moto | 273 | $1,147 |
-| Repuesto Patinete | 25 | $625 |
-| Repuesto Moto Eléctrica | 4 | $1,321 |
-| Repuesto Bicicleta | 10 | $229 |
-| Repuesto Bicicleta Eléctrica | 4 | $770 |
-| Repuesto Generico | 211 | $1,472 |
+El archivo de repuestos tiene 523 registros, pero tras deduplicar quedan **260 anuncios únicos**, y de esos **130 vendían vehículos completos** mal archivados. El mercado real de repuestos es más pequeño de lo que parece y está desatendido. Detalle en `analysis/INFORME_FINAL.html` §8.2.
 
 ---
 
 ## 🔍 Fuentes de Datos
 
-| Fuente | Tipo | Vehículos | Repuestos | Páginas |
-|--------|------|-----------|-----------|---------|
-| **Revolico.com** | Clasificados | 4,347 | - | 109 |
-| **itencel.com** | Marketplace | 3,792 | 1,885 | 224 |
-| **ElYerroMenu.com** | Marketplace | 244 | - | 114 |
-| **Facebook Groups** | Grupos sociales | 396 | - | 10 grupos |
+| Fuente | Tipo | Vehículos | Páginas |
+|--------|------|-----------|---------|
+| **Revolico.com** | Clasificados | 2.662 | 109 |
+| **itencel.com** | Marketplace | 1.711 | 224 |
+| **ElYerroMenu.com** | Marketplace | 210 | 114 |
+| **Facebook Groups** | Grupos sociales | 396 | 10 grupos |
+
+*Total: 4.979 anuncios únicos. La tabla anterior de esta sección sumaba 8.779 porque contaba registros repetidos entre archivos; las cifras de esta tabla son las deduplicadas.*
 
 ---
 
@@ -93,7 +101,7 @@ motos_bicis_project/
 │   │   ├── facebook/
 │   │   └── itencel/
 │   ├── curated/                # Datos limpios y clasificados
-│   │   ├── vehicles_curated.json    (5,391 vehículos)
+│   │   ├── vehicles_curated.json    (5.391 registros; 4.979 tras deduplicar)
 │   │   ├── parts_curated.json       (523 repuestos)
 │   │   ├── facebook_curated.json    (396 vehículos FB)
 │   │   ├── itencel_motos_curated.json
@@ -134,7 +142,7 @@ motos_bicis_project/
 ### Instalación
 
 ```bash
-git clone https://github.com/tu-usuario/estudio-mercado-motos-bicicletas-cuba.git
+git clone https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba.git
 cd estudio-mercado-motos-bicicletas-cuba
 ```
 
@@ -171,7 +179,7 @@ python scripts/processors/process_repuestos.py
 ```python
 import json
 
-# Vehículos (5,391 items)
+# Vehículos (5.391 registros; 4.979 tras deduplicar)
 with open('data/curated/vehicles_curated.json') as f:
     vehicles = json.load(f)['items']
 
@@ -264,32 +272,29 @@ province_dist = df['province_name'].value_counts().head(10)
 
 | Archivo | Registros | Descripción |
 |---------|-----------|-------------|
-| `vehicles_curated.json` | 5,391 | Vehículos unificados |
-| `parts_curated.json` | 523 | Repuestos clasificados |
+| `vehicles_curated.json` | 5.391 | Vehículos unificados (4.979 tras deduplicar por URL) |
+| `parts_curated.json` | 523 | Repuestos clasificados (260 únicos) |
 | `spare_parts_curated.json` | 523 | Solo repuestos |
-| `vehicles_curated.json` | 5,391 | Vehículos unificados |
+| `data/publico/vehiculos_clasificados.csv` | 4.979 | Versión pública anonimizada |
 
 ### Estructura de Registro (Vehículo)
 ```json
 {
+  "title": "Moto Eléctrica AVA 100 km seminueva",
   "source": "revolico",
-  "source_url": "https://www.revolico.com/item/...",
-  "listing_id": "57552196",
-  "title": "Moto Eléctrica BEVOMECON🇮🇱",
-  "price_usd": 630,
+  "categoria": "Eléctricos",
+  "marca_detectada": "AVA",
+  "price_usd": 1650,
   "currency": "USD",
-  "location": "Plaza, La Habana",
-  "province": "La Habana",
-  "municipality": "Plaza",
-  "vehicle_type": "Bicicleta Eléctrica",
-  "brand": "BEVOMECON",
-  "price_usd": 630,
-  "images_count": 1,
-  "location": "Plaza, La Habana",
-  "updated_at": "2026-09-19T23:58:59.489Z",
-  "scraped_at": "2026-09-19T20:04:21.057940"
+  "province_name": "La Habana",
+  "municipality_name": "Centro Habana",
+  "tiene_whatsapp": true,
+  "anuncio_id": "9f2c…",
+  "telefono_id": "4a71…"
 }
 ```
+
+*El dataset público no contiene nombres, teléfonos ni URLs de anuncio: los identificadores están seudonimizados con SHA-256 (Ley 149/2022).*
 
 ### Registro de Repuesto
 ```json
@@ -372,8 +377,8 @@ MIT License - Ver [LICENSE](LICENSE) para detalles.
 
 ## 📞 Contacto
 
-- **Issues**: [GitHub Issues](https://github.com/tu-usuario/estudio-mercado-motos-bicicletas-cuba/issues)
-- **Discusiones**: [GitHub Discussions](https://github.com/tu-usuario/estudio-mercado-motos-bicicletas-cuba/discussions)
+- **Issues**: [GitHub Issues](https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/issues)
+- **Discusiones**: [GitHub Discussions](https://github.com/reynaldomesab-crypto/estudio-mercado-motos-bicicletas-cuba/discussions)
 
 ---
 
@@ -384,4 +389,3 @@ MIT License - Ver [LICENSE](LICENSE) para detalles.
 Hecho con ❤️ para la comunidad de desarrolladores e investigadores de mercado en Cuba
 
 </div>
-EOF

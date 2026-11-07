@@ -1,0 +1,87 @@
+fecha,semana,fase,dia,hora,canal,tipo,pieza_id,titulo,mensaje_clave,cta,utm_campaign,utm_content,metrica,objetivo
+2026-11-09,W01,0. Cimientos,Lun,09:00,GitHub,Infraestructura,F0-01,Activar GitHub Pages y publicar la portada mínima,Sin sitio no hay embudo,Abrir la URL pública del sitio,setup,f0-01,Sitio activo,1 URL funcionando
+2026-11-10,W01,0. Cimientos,Mar,10:00,Sitio,Instrumentación,F0-02,Instalar GoatCounter y definir UTMs,Lo que no se mide no se decide,Probar evento de scroll al 50%,setup,f0-02,Eventos registrados,6 métricas activas
+2026-11-11,W01,0. Cimientos,Mié,10:00,Producción,Material,F0-03,PDF de 2 páginas + tarjeta de precios 1080x1350,"Lo que se reenvía es una imagen, no un enlace",Descargar y compartir la tarjeta,setup,f0-03,Peso del PDF,< 600 KB
+2026-11-12,W01,0. Cimientos,Jue,10:00,Comunidad,Permisos,F0-04,Lista de 30 contactos y permiso a 3 administradores,"Se entra con permiso, no con enlace",Confirmar 3 accesos,setup,f0-04,Permisos,3 grupos
+2026-11-13,W01,0. Cimientos,Vie,10:00,Sitio,Prueba de usuario,F0-05,Test de 5 segundos con 5 personas ajenas,"Si no entienden la promesa en 5 s, no funciona",Anotar 3 mejoras,setup,f0-05,Comprensión,4 de 5
+2026-11-14,W01,0. Cimientos,Sáb,10:00,GitHub,Release,F0-06,"Release v1.0, topics, CITATION.cff y correo real",Señales mínimas de proyecto vivo,Publicar release,setup,f0-06,Repo presentable,Release publicado
+2026-11-15,W01,0. Cimientos,Dom,18:00,Producción,Lote,F0-07,Producir 6 piezas de reserva,Colchón para no fallar la primera semana,Archivar en el banco,setup,f0-07,Banco de piezas,6 piezas
+2026-11-16,W02,1. Lanzamiento suave,Lun,12:00,Hito,Hito,H-1116,Lanzamiento oficial,Post principal + WhatsApp,Cumplir hito,hito,1116,Estado,Alcance 2.000
+2026-11-17,W02,1. Lanzamiento suave,Mar,19:30,Facebook,Post,P01,"Lanzamiento: 4.979 anuncios, una conclusión incómoda",El problema no es el precio: es la información,Leer el resumen de 3 minutos,lanzamiento,p01,Clics/lectura,CTR >= 3%
+2026-11-18,W02,1. Lanzamiento suave,Mié,18:00,Comunidad,Acción,C01,Responder 100% de comentarios,Ninguna pregunta sin respuesta,Responder,comunidad,c01,Respuestas,100% en 12 h
+2026-11-19,W02,1. Lanzamiento suave,Jue,19:30,Facebook,Tarjeta,P02,"El 45,5% de las motos en venta no dice su marca","Si no dices la marca, no existes en la búsqueda",Descargar el checklist,serie-visibilidad,p02,Clics/lectura,CTR >= 3%
+2026-11-20,W02,1. Lanzamiento suave,Vie,20:00,TikTok/Reels,Reel,V01,"El mismo vehículo, dos anuncios (30 s)",La información decide si te encuentran,Ver la guía,serie-visibilidad,v01,Retención 3 s,>= 55%
+2026-11-21,W02,1. Lanzamiento suave,Sáb,11:00,Instagram,Carrusel,P03,"El mismo vehículo, dos anuncios",La diferencia no es el producto: es la información,Ver la guía completa,serie-visibilidad,p03,Clics/lectura,CTR >= 3%
+2026-11-22,W02,1. Lanzamiento suave,Dom,10:00,Producción,Lote,S01,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s01,Piezas en banco,>= 6
+2026-11-24,W03,1. Lanzamiento suave,Mar,19:30,Facebook,Post,P04,"Habana Vieja pide 2,3 veces más que El Cerro",La zona explica parte del precio,Calcular tu precio por zona,serie-precio,p04,Clics/lectura,CTR >= 3%
+2026-11-25,W03,1. Lanzamiento suave,Mié,18:00,Comunidad,Acción,C02,Publicar en 2 grupos nuevos con permiso,"Valor primero, enlace después",Pedir permiso,comunidad,c02,Respuestas,100% en 12 h
+2026-11-26,W03,1. Lanzamiento suave,Jue,19:30,Instagram,Tarjeta,P05,"87,1% de las bicicletas no dice su marca",La categoría peor documentada es una oportunidad,Ver los huecos del mercado,serie-huecos,p05,Clics/lectura,CTR >= 3%
+2026-11-27,W03,1. Lanzamiento suave,Vie,20:00,TikTok/Reels,Reel,V02,45% sin marca en 30 segundos,Tres palabras y cambias de resultado,Descargar checklist,serie-visibilidad,v02,Retención 3 s,>= 55%
+2026-11-28,W03,1. Lanzamiento suave,Sáb,11:00,Telegram,Post,P06,6 de cada 10 anuncios ya usan WhatsApp,El canal de contacto ya está decidido por el mercado,Descargar la plantilla de anuncio,serie-visibilidad,p06,Clics/lectura,CTR >= 3%
+2026-11-29,W03,1. Lanzamiento suave,Dom,10:00,Producción,Lote,S02,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s02,Piezas en banco,>= 6
+2026-11-30,W04,2. Ampliación,Lun,12:00,Hito,Hito,H-1130,Primer video largo publicado,YouTube 6 min,Cumplir hito,hito,1130,Estado,30 visualizaciones
+2026-12-01,W04,2. Ampliación,Mar,19:30,Facebook,Tarjeta,P07,Cuánto se pide de verdad: 2.000 / 1.600 / 160 USD,"La mediana por tipo, no el promedio que engaña",Usar la calculadora,serie-precio,p07,Clics/lectura,CTR >= 3%
+2026-12-02,W04,2. Ampliación,Mié,18:00,Comunidad,Acción,C03,Preguntar: ¿qué dato te falta para vender?,La audiencia define la siguiente pieza,Responder,comunidad,c03,Respuestas,100% en 12 h
+2026-12-03,W04,2. Ampliación,Jue,19:30,Instagram,Carrusel,P08,"TOPMAQ 2.180, CHALLENGER 850: la misma categoría, otro precio",La marca mueve el precio declarado,Ver precios por marca,serie-precio,p08,Clics/lectura,CTR >= 3%
+2026-12-04,W04,2. Ampliación,Vie,20:00,TikTok/Reels,Reel,V03,Precio por tipo: 2.000 / 1.600 / 160,"La mediana, no el promedio",Usar calculadora,serie-metodo,v03,Retención 3 s,>= 55%
+2026-12-05,W04,2. Ampliación,Sáb,11:00,Facebook,Post,P09,64 patinetes en todo el mercado,Ese es el tamaño de tu competencia,Ver los huecos,serie-huecos,p09,Clics/lectura,CTR >= 3%
+2026-12-06,W04,2. Ampliación,Dom,10:00,Producción,Lote,S03,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s03,Piezas en banco,>= 6
+2026-12-07,W05,2. Ampliación,Lun,12:00,Hito,Hito,H-1207,DOI de Zenodo activo,Citar el estudio,Cumplir hito,hito,1207,Estado,1 DOI
+2026-12-08,W05,2. Ampliación,Mar,19:30,Telegram,PDF,P10,El checklist de 10 puntos para vender mejor,Diez cambios de costo cero,Descargar el checklist,guia,p10,Clics/lectura,CTR >= 3%
+2026-12-09,W05,2. Ampliación,Mié,18:00,Comunidad,Acción,C04,Charla de 20 min en una universidad,Dataset abierto para prácticas,Agendar,comunidad,c04,Respuestas,100% en 12 h
+2026-12-10,W05,2. Ampliación,Jue,19:30,LinkedIn,Post,P11,Cómo descubrimos que el dataset estaba duplicado,5.787 se convirtió en 4.979: contar antes de graficar,Leer el método,serie-metodo,p11,Clics/lectura,CTR >= 3%
+2026-12-11,W05,2. Ampliación,Vie,20:00,TikTok/Reels,Reel,V04,Cómo se detectó el dataset duplicado,Contar antes de graficar,Leer el método,serie-metodo,v04,Retención 3 s,>= 55%
+2026-12-12,W05,2. Ampliación,Sáb,11:00,Facebook,Post,P12,Más publicado no es más vendido,La limitación que sostiene todo el estudio,Leer los límites,serie-metodo,p12,Clics/lectura,CTR >= 3%
+2026-12-13,W05,2. Ampliación,Dom,10:00,Producción,Lote,S04,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s04,Piezas en banco,>= 6
+2026-12-14,W06,2. Ampliación,Lun,12:00,Hito,Hito,H-1214,Primera charla universitaria,20 min + dataset,Cumplir hito,hito,1214,Estado,1 charla
+2026-12-15,W06,3. Sostenimiento,Mar,19:30,Facebook,Post,P13,Cómo fijar el precio de tu moto sin regalarla,Compara con tu categoría y tu zona,Usar la calculadora,calculadora,p13,Clics/lectura,CTR >= 3%
+2026-12-16,W06,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C05,Abrir GitHub Discussions,"Tres categorías: preguntas, zonas, errores",Participar,comunidad,c05,Respuestas,100% en 12 h
+2026-12-17,W06,3. Sostenimiento,Jue,19:30,Instagram,Tarjeta,P14,Los municipios donde hay menos competencia,"Menos oferta publicada, más chance de ser visto",Ver el mapa de zonas,serie-huecos,p14,Clics/lectura,CTR >= 3%
+2026-12-18,W06,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V05,Habana Vieja vs El Cerro,La zona mueve el precio,Calcular tu zona,serie-visibilidad,v05,Retención 3 s,>= 55%
+2026-12-19,W06,3. Sostenimiento,Sáb,11:00,Telegram,Plantilla,P15,La plantilla de título que sí aparece en las búsquedas,Marca + cifra clave + zona + estado,Descargar plantilla,guia,p15,Clics/lectura,CTR >= 3%
+2026-12-20,W06,3. Sostenimiento,Dom,10:00,Producción,Lote,S05,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s05,Piezas en banco,>= 6
+2026-12-22,W07,3. Sostenimiento,Mar,19:30,Facebook,Post,P16,Lo que este estudio no puede decir,"No hay ventas, ni condición, ni fecha: decirlo es rigor",Leer la metodología,serie-metodo,p16,Clics/lectura,CTR >= 3%
+2026-12-23,W07,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C06,Responder críticas públicas en 48 h,La crítica bien atendida es confianza,Responder,comunidad,c06,Respuestas,100% en 12 h
+2026-12-24,W07,3. Sostenimiento,Jue,19:30,Instagram,Tarjeta,P17,Un regalo útil: el checklist de 10 puntos,Sirve para vender esta misma semana,Descargar,guia,p17,Clics/lectura,CTR >= 3%
+2026-12-25,W07,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V06,Lo que el estudio no puede decir,Decir los límites da credibilidad,Leer límites,serie-metodo,v06,Retención 3 s,>= 55%
+2026-12-26,W07,3. Sostenimiento,Sáb,11:00,Telegram,FAQ,P18,Cinco preguntas frecuentes sobre el estudio,"Respuestas cortas, sin humo",Leer el FAQ,serie-metodo,p18,Clics/lectura,CTR >= 3%
+2026-12-27,W07,3. Sostenimiento,Dom,10:00,Producción,Lote,S06,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s06,Piezas en banco,>= 6
+2026-12-29,W08,3. Sostenimiento,Mar,19:30,Facebook,Post,P19,"Propósito 2027: publicar mejor, no más",La información es el único cambio gratis,Descargar el checklist,guia,p19,Clics/lectura,CTR >= 3%
+2026-12-30,W08,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C07,Balance del trimestre con la comunidad,Qué se publica en 2027,Leer balance,comunidad,c07,Respuestas,100% en 12 h
+2026-12-31,W08,3. Sostenimiento,Jue,19:30,Instagram,Carrusel,P20,El mercado de dos ruedas en 5 datos,Un resumen visual del estudio,Ver el resumen,informe,p20,Clics/lectura,CTR >= 3%
+2027-01-01,W08,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V07,Resumen del estudio en 45 s,"4 fuentes, 4.979 anuncios, 1 conclusión",Ver el resumen,serie-metodo,v07,Retención 3 s,>= 55%
+2027-01-02,W08,3. Sostenimiento,Sáb,11:00,Telegram,Post,P21,Pide tu zona o tu marca y la analizamos,El estudio crece con preguntas reales,Responder al mensaje,comunidad,p21,Clics/lectura,CTR >= 3%
+2027-01-03,W08,3. Sostenimiento,Dom,10:00,Producción,Lote,S07,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s07,Piezas en banco,>= 6
+2027-01-04,W09,3. Sostenimiento,Lun,12:00,Hito,Hito,H-0104,Calculadora publicada,Herramienta /precios,Cumplir hito,hito,0104,Estado,100 usos
+2027-01-05,W09,3. Sostenimiento,Mar,19:30,Facebook,Tarjeta,P22,Suzuki 3.200 vs Halcón 1.950: precios de combustión,"La referencia por marca, con n y mediana",Ver precios por marca,serie-precio,p22,Clics/lectura,CTR >= 3%
+2027-01-06,W09,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C08,Enviar kit de prensa a 10 periodistas,Dato + historia + fuente,Enviar,comunidad,c08,Respuestas,100% en 12 h
+2027-01-07,W09,3. Sostenimiento,Jue,19:30,LinkedIn,Post,P23,La mitad del archivo de repuestos no eran repuestos,130 de 260 anuncios vendían vehículos completos,Leer el informe,serie-metodo,p23,Clics/lectura,CTR >= 3%
+2027-01-08,W09,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V08,El anuncio de 30.000 USD,Por qué usamos mediana,Entender la mediana,serie-visibilidad,v08,Retención 3 s,>= 55%
+2027-01-09,W09,3. Sostenimiento,Sáb,11:00,Instagram,Tarjeta,P24,El anuncio de 30.000 USD que distorsiona el promedio,Por eso usamos mediana y no promedio,Entender la mediana,serie-metodo,p24,Clics/lectura,CTR >= 3%
+2027-01-10,W09,3. Sostenimiento,Dom,10:00,Producción,Lote,S08,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s08,Piezas en banco,>= 6
+2027-01-12,W10,3. Sostenimiento,Mar,19:30,YouTube,Video,P25,Cómo se hizo el estudio en 6 minutos,"Pipeline, taxonomía y auditoría",Ver el video,serie-metodo,p25,Clics/lectura,CTR >= 3%
+2027-01-13,W10,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C09,Sesión de preguntas en Telegram (30 min),Respuestas en vivo con datos,Participar,comunidad,c09,Respuestas,100% en 12 h
+2027-01-14,W10,3. Sostenimiento,Jue,19:30,Facebook,Post,P26,"Nueve comprobaciones automáticas, cero problemas graves",La auditoría también se equivocó y se corrigió,Leer el método,serie-metodo,p26,Clics/lectura,CTR >= 3%
+2027-01-15,W10,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V09,Nueve auditorías automáticas,"Cero problemas graves, con evidencia",Ver el método,serie-metodo,v09,Retención 3 s,>= 55%
+2027-01-16,W10,3. Sostenimiento,Sáb,11:00,GitHub,Post,P27,El dataset está abierto para estudiantes,4.979 registros anonimizados y citables,Ver /datos,comunidad,p27,Clics/lectura,CTR >= 3%
+2027-01-17,W10,3. Sostenimiento,Dom,10:00,Producción,Lote,S09,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s09,Piezas en banco,>= 6
+2027-01-18,W11,3. Sostenimiento,Lun,12:00,Hito,Hito,H-0118,1.500 visitas acumuladas,Revisión de embudo,Cumplir hito,hito,0118,Estado,Lectura >= 55%
+2027-01-19,W11,3. Sostenimiento,Mar,19:30,Facebook,Post,P28,Las bicicletas: 518 anuncios y casi nadie dice la marca,Documentar bien es la ventaja competitiva,Ver los huecos,serie-huecos,p28,Clics/lectura,CTR >= 3%
+2027-01-20,W11,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C10,Pedir 3 testimonios de uso,Prueba social honesta,Compartir,comunidad,c10,Respuestas,100% en 12 h
+2027-01-21,W11,3. Sostenimiento,Jue,19:30,LinkedIn,Post,P29,Por qué decidimos no publicar el costo por kilómetro,"Solo 1,4% de los anuncios tenía los tres datos",Leer la decisión,serie-metodo,p29,Clics/lectura,CTR >= 3%
+2027-01-22,W11,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V10,Por qué no publicamos el costo por km,Negarse a publicar un dato frágil,Leer la decisión,serie-metodo,v10,Retención 3 s,>= 55%
+2027-01-23,W11,3. Sostenimiento,Sáb,11:00,Instagram,Tarjeta,P30,Tres palabras que cambian un anuncio invisible,"Marca, cifra, zona",Descargar plantilla,guia,p30,Clics/lectura,CTR >= 3%
+2027-01-24,W11,3. Sostenimiento,Dom,10:00,Producción,Lote,S10,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s10,Piezas en banco,>= 6
+2027-01-26,W12,3. Sostenimiento,Mar,19:30,Facebook,Post,P31,Cinco preguntas que conviene hacerle al vendedor,"Autonomía, batería, papeles, uso, garantía",Guardar la lista,guia,p31,Clics/lectura,CTR >= 3%
+2027-01-27,W12,3. Sostenimiento,Mié,18:00,Comunidad,Acción,C11,Actualizar el FAQ con 5 dudas nuevas,El FAQ crece con la audiencia,Leer,comunidad,c11,Respuestas,100% en 12 h
+2027-01-28,W12,3. Sostenimiento,Jue,19:30,Telegram,Post,P32,Cómo negociar con la mediana en la mano,No es regatear: es comparar,Usar la calculadora,serie-precio,p32,Clics/lectura,CTR >= 3%
+2027-01-29,W12,3. Sostenimiento,Vie,20:00,TikTok/Reels,Reel,V11,Checklist de 10 puntos en 40 s,Diez cambios gratis,Descargar checklist,serie-visibilidad,v11,Retención 3 s,>= 55%
+2027-01-30,W12,3. Sostenimiento,Sáb,11:00,Instagram,Carrusel,P33,"Las mejores preguntas de la comunidad, respondidas",Dudas reales con datos reales,Seguir el canal,comunidad,p33,Clics/lectura,CTR >= 3%
+2027-01-31,W12,3. Sostenimiento,Dom,10:00,Producción,Lote,S11,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s11,Piezas en banco,>= 6
+2027-02-01,W13,4. Cierre,Lun,12:00,Hito,Hito,H-0201,Informe de impacto,Decidir qué escalar,Cumplir hito,hito,0201,Estado,Plan v2
+2027-02-02,W13,4. Cierre,Mar,19:30,Facebook,Post,P34,90 días después: qué aprendimos comunicando el estudio,Transparencia sobre lo que funcionó y lo que no,Leer el informe de impacto,comunidad,p34,Clics/lectura,CTR >= 3%
+2027-02-03,W13,4. Cierre,Mié,18:00,Comunidad,Acción,C12,Publicar el informe de impacto de 90 días,Transparencia total,Leer,comunidad,c12,Respuestas,100% en 12 h
+2027-02-04,W13,4. Cierre,Jue,19:30,LinkedIn,Post,P35,Lo que sigue para el estudio,"Fecha por anuncio, condición y rotación",Proponer una fuente,comunidad,p35,Clics/lectura,CTR >= 3%
+2027-02-05,W13,4. Cierre,Vie,20:00,TikTok/Reels,Reel,V12,90 días de comunicación: resultados,Qué funcionó y qué no,Leer el informe final,serie-metodo,v12,Retención 3 s,>= 55%
+2027-02-06,W13,4. Cierre,Sáb,11:00,GitHub,Post,P36,Cómo citar el estudio,"DOI, licencia y formato de cita",Ver /datos,informe,p36,Clics/lectura,CTR >= 3%
+2027-02-07,W13,4. Cierre,Dom,10:00,Producción,Lote,S12,Producir 3–4 piezas de la semana siguiente,Publicar sin producir el mismo día,Banco >= 6 piezas,produccion,s12,Piezas en banco,>= 6
