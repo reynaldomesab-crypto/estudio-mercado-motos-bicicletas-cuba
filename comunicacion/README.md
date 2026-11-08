@@ -11,6 +11,8 @@
 | Copiar y pegar los textos | [`COPY_10_DIAS.md`](COPY_10_DIAS.md) |
 | Copiar los 15 mensajes de Telegram (enlaces ya puestos) | [`TELEGRAM_15_MENSAJES.txt`](TELEGRAM_15_MENSAJES.txt) |
 | Aprender a programar mensajes en Telegram | [`TELEGRAM_COMO_PROGRAMAR.md`](TELEGRAM_COMO_PROGRAMAR.md) |
+| Programar publicaciones en Facebook | [`FACEBOOK_COMO_PROGRAMAR.md`](FACEBOOK_COMO_PROGRAMAR.md) |
+| Copiar los 10 posts de Facebook | [`FACEBOOK_10_POSTS.txt`](FACEBOOK_10_POSTS.txt) |
 | Ver qué toca cada día | [`CALENDARIO_10_DIAS.csv`](CALENDARIO_10_DIAS.csv) |
 | Importar el plan al calendario | [`plan_10_dias.ics`](plan_10_dias.ics) |
 | Anotar métricas cada día | [`SEGUIMIENTO.csv`](SEGUIMIENTO.csv) |
