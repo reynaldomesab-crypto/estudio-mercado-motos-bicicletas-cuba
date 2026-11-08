@@ -35,7 +35,7 @@ Tap **Edit profile**.
 | Field (English) | What to enter |
 | --- | --- |
 | **Profile photo** | `og.png` |
-| **Name** | Mercado de dos ruedas · La Habana |
+| **Name** | Mercado 2 ruedas · La Habana |
 | **Username** | same as Telegram, e.g. `mercadodosruedas` |
 | **Bio** | “El mercado de motos, bicis y patinetes de La Habana en datos · 4.979 anuncios · Gratis ↓” |
 | **Links** | your site URL |

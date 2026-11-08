@@ -26,7 +26,7 @@ Si ya eres profesional, salta al paso 2.
 | Campo | Qué poner |
 | --- | --- |
 | Foto | `og.png` (la misma del sitio) |
-| Nombre | **Mercado de dos ruedas · La Habana** |
+| Nombre | **Mercado 2 ruedas · La Habana** |
 | Usuario | el mismo de Telegram, por ejemplo `mercadodosruedas` |
 | Categoría | Educación |
 | Bio | “El mercado de motos, bicis y patinetes de La Habana en datos · 4.979 anuncios · Gratis ↓” |
