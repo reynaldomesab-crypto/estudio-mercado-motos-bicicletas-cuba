@@ -23,6 +23,7 @@ Este proyecto realiza un **estudio de mercado integral** del sector de vehículo
 | Documento | Para qué sirve |
 | --- | --- |
 | [`docs/index.html`](docs/index.html) | **Sitio publicado en GitHub Pages**: resumen, calculadora, guía y dataset |
+| [`campana/PLAN_DE_CAMPANA.md`](campana/PLAN_DE_CAMPANA.md) | Plan de campaña y evidencia para la entrega ICD-2627 |
 | [`INFORME_TECNICO.md`](INFORME_TECNICO.md) | Informe técnico completo: decisiones, errores y correcciones |
 | [`presentation/index.html`](presentation/index.html) | Presentación de 14 diapositivas sobre buenas prácticas para vendedores. Un solo archivo, funciona sin internet |
 | [`analysis/INFORME_PRESENTACION.md`](analysis/INFORME_PRESENTACION.md) | Guion de la presentación, preguntas frecuentes y material de respaldo |
