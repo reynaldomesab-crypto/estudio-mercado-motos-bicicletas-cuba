@@ -3,6 +3,8 @@
 Producto: **Estudio de mercado de vehículos de dos ruedas en La Habana**.
 URL: https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/
 
+**Entrega:** https://github.com/matcom/ICD-2627-campanna/issues/2
+
 ## Contenido
 
 | Archivo | Qué es |

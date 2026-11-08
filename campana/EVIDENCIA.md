@@ -2,6 +2,8 @@
 
 Actualizado: 8 de noviembre de 2026.
 
+**Entrega:** https://github.com/matcom/ICD-2627-campanna/issues/2
+
 | Elemento | Enlace / estado |
 | --- | --- |
 | Sitio del producto | https://reynaldomesab-crypto.github.io/estudio-mercado-motos-bicicletas-cuba/ |
