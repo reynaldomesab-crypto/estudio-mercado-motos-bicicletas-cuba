@@ -9,6 +9,7 @@
 | **Conectar cuentas y programar todo desde 0** | [`CONEXION_PASO_A_PASO.md`](CONEXION_PASO_A_PASO.md) |
 | Lanzar en 10 días | [`SPRINT_10_DIAS.md`](SPRINT_10_DIAS.md) |
 | Copiar y pegar los textos | [`COPY_10_DIAS.md`](COPY_10_DIAS.md) |
+| Copiar los 15 mensajes de Telegram (enlaces ya puestos) | [`TELEGRAM_15_MENSAJES.txt`](TELEGRAM_15_MENSAJES.txt) |
 | Ver qué toca cada día | [`CALENDARIO_10_DIAS.csv`](CALENDARIO_10_DIAS.csv) |
 | Importar el plan al calendario | [`plan_10_dias.ics`](plan_10_dias.ics) |
 | Anotar métricas cada día | [`SEGUIMIENTO.csv`](SEGUIMIENTO.csv) |
