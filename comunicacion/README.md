@@ -17,6 +17,7 @@
 | Kit de WhatsApp (mensajes y archivos) | [`WHATSAPP_KIT.md`](WHATSAPP_KIT.md) |
 | Instagram desde cero | [`INSTAGRAM_PASO_A_PASO.md`](INSTAGRAM_PASO_A_PASO.md) · [English UI](INSTAGRAM_STEP_BY_STEP_EN.md) |
 | LinkedIn desde cero (sin contactos) | [`LINKEDIN_PASO_A_PASO.md`](LINKEDIN_PASO_A_PASO.md) |
+| Todo desde la computadora (Instagram, LinkedIn, WhatsApp Web) | [`DESKTOP_PASO_A_PASO.md`](DESKTOP_PASO_A_PASO.md) |
 | Copiar los 10 posts de Facebook | [`FACEBOOK_10_POSTS.txt`](FACEBOOK_10_POSTS.txt) |
 | Ver qué toca cada día | [`CALENDARIO_10_DIAS.csv`](CALENDARIO_10_DIAS.csv) |
 | Importar el plan al calendario | [`plan_10_dias.ics`](plan_10_dias.ics) |
