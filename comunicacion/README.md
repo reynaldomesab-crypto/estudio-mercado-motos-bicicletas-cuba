@@ -13,6 +13,7 @@
 | Aprender a programar mensajes en Telegram | [`TELEGRAM_COMO_PROGRAMAR.md`](TELEGRAM_COMO_PROGRAMAR.md) |
 | Programar publicaciones en Facebook | [`FACEBOOK_COMO_PROGRAMAR.md`](FACEBOOK_COMO_PROGRAMAR.md) |
 | Publicar en grupos (no se puede programar) | [`GRUPOS_COMO_PUBLICAR.md`](GRUPOS_COMO_PUBLICAR.md) |
+| Acciones sin grupos (WhatsApp, prensa, universidad) | [`ACCIONES_SIN_GRUPOS.md`](ACCIONES_SIN_GRUPOS.md) |
 | Copiar los 10 posts de Facebook | [`FACEBOOK_10_POSTS.txt`](FACEBOOK_10_POSTS.txt) |
 | Ver qué toca cada día | [`CALENDARIO_10_DIAS.csv`](CALENDARIO_10_DIAS.csv) |
 | Importar el plan al calendario | [`plan_10_dias.ics`](plan_10_dias.ics) |
