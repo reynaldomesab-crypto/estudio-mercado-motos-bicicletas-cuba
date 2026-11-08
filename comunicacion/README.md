@@ -10,6 +10,7 @@
 | Lanzar en 10 días | [`SPRINT_10_DIAS.md`](SPRINT_10_DIAS.md) |
 | Copiar y pegar los textos | [`COPY_10_DIAS.md`](COPY_10_DIAS.md) |
 | Copiar los 15 mensajes de Telegram (enlaces ya puestos) | [`TELEGRAM_15_MENSAJES.txt`](TELEGRAM_15_MENSAJES.txt) |
+| Aprender a programar mensajes en Telegram | [`TELEGRAM_COMO_PROGRAMAR.md`](TELEGRAM_COMO_PROGRAMAR.md) |
 | Ver qué toca cada día | [`CALENDARIO_10_DIAS.csv`](CALENDARIO_10_DIAS.csv) |
 | Importar el plan al calendario | [`plan_10_dias.ics`](plan_10_dias.ics) |
 | Anotar métricas cada día | [`SEGUIMIENTO.csv`](SEGUIMIENTO.csv) |
